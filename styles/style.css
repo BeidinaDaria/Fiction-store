@@ -265,6 +265,165 @@
     footer>.nav_footer>a{
         color:white;
     }
+    /* стили для страницы каталогов  */
+    span{
+        margin-bottom:2vh;
+    }
+    span>button{
+        width:12%;
+        height:22vh;
+        border-radius:50%;
+        border:none;
+        background:rgba(244, 241, 255, 1);
+    }
+    span>button>a{
+        color:rgba(124, 103, 255, 1);
+        font-size:30px;
+        height:100%;
+        padding:25%;
+        text-align:center;
+    }
+    span>button:hover{
+        background:rgba(124, 103, 255, 1);
+    } 
+    span>button> a:hover{
+        color:rgba(244, 241, 255, 1);
+        font-size:30px;
+    }
+    form{
+        border:rgba(177, 177, 177, 0.42);
+    }
+    form>input{
+        width:100%;
+        height:5vh;
+        text-align:center;
+    }
+    .types{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+    }
+    .types>aside{
+        display:flex;
+        flex-direction:column;
+        width:20%;
+    }
+    .types>aside>.container{
+        background:none;
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+    .types>aside>.container>h4>b{
+        padding:12px;
+        display:inline-block;
+    }
+    .types>aside>.container>.slider-track>input{
+        display:inline-block;
+        margin:0 -1.5%;
+    }
+    .types>aside>div{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+    .types>aside>div>span{
+        justify-content: flex-start;
+        margin-top:1%;
+    }
+    .types>aside>.wrapper>.century{
+        display:flex;
+        flex-direction:row;
+        font-weight:bold;
+        justify-content:space-around;
+    }
+    .types>aside>.wrapper>.container{
+        background:none;
+    }
+    input,label{
+        display: inline-block;
+    }
+    label:before{
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        flex-shrink: 0;
+        flex-grow: 0;
+        border: 1px solid #adb5bd;
+        border-radius: 0.25em;
+        margin-left: -1em;
+        margin-right:0.5em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+    }
+    #france:before,#russia:before,#usa:before,#britain:before{
+        display:none;
+    }
+    #black:before{
+        background-color:black;
+    }
+    #white:before{
+        background-color:white;
+    }
+    #grey:before{
+        background-color:grey;
+    }
+    #green:before{
+        background-color:green;
+    }
+    #yellow:before{
+        background-color:yellow;
+    }
+    #red:before{
+        background-color:red;
+    }
+    #blue:before{
+        background-color:blue;
+    }
+    #violet:before{
+        background-color:darkviolet;
+    }
+    .types>.catalog{
+        display:flex;
+        flex-direction:column;
+        width:75%;
+        flex-wrap:wrap;
+    }
+    .types>.catalog>span>a{
+        font-weight:bold;
+        color:black;
+        margin-top:2vh;
+        font-size:larger;
+    }
+    .types>.catalog>span>h4{
+        margin-top:0;
+        font-weight: light;
+    }
+    .types>.catalog>.params{
+        display:flex;
+        flex-direction:row;
+        justify-content: flex-start;
+    }
+    .types>.catalog>.params>button{
+        height:auto;
+        background:rgba(244, 241, 255, 1);
+        border:none;
+        color:rgba(124, 103, 255, 1);
+        margin-right:1%;
+    }
+    .types>.catalog>section>.gallery{
+        flex-wrap:wrap;
+        overflow: unset;
+        margin-top:5%;
+        width:100%;
+        justify-content: space-around;
+    }
+    .types>.catalog>section>.gallery>.card{
+        width:25%;
+        margin: 2% 0;
+    }
 }
 @media(max-width:899px){
     span{
@@ -547,5 +706,121 @@
     }
     footer>.nav_footer>a{
         color:white;
+    }
+    /* стили для страницы каталогов  */
+    span{
+        margin-bottom:2vh;
+        flex-wrap:wrap;
+    }
+    span>button{
+        width:15%;
+        height:10vh;
+        border-radius:50%;
+        border:none;
+        background:rgba(244, 241, 255, 1);
+    }
+    span>button>a{
+        color:rgba(124, 103, 255, 1);
+        font-size:20px;
+        height:100%;
+        padding:25%;
+        text-align:center;
+    }
+    span>button:hover{
+        background:rgba(124, 103, 255, 1);
+    } 
+    span>button> a:hover{
+        color:rgba(244, 241, 255, 1);
+        font-size:20px;
+    }
+    form{
+        border:rgba(177, 177, 177, 0.42);
+    }
+    form>input{
+        width:100%;
+        height:5vh;
+        text-align:center;
+    }
+    .types{
+        display:flex;
+        flex-direction:column;
+    }
+    .types>aside{
+        display:none;
+        position:absolute;
+    }
+    .types>aside>.container{
+        background:none;
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+    .types>aside>.container>h4>b{
+        padding:12px;
+        display:inline-block;
+    }
+    .types>aside>.container>.slider-track>input{
+        display:inline-block;
+        margin:0 -1.5%;
+    }
+    .types>aside>div{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+    .types>aside>div>span{
+        justify-content: flex-start;
+        margin-top:1%;
+    }
+    .types>aside>.wrapper>.century{
+        display:flex;
+        flex-direction:row;
+        font-weight:bold;
+        justify-content:space-around;
+    }
+    .types>aside>.wrapper>.container{
+        background:none;
+    }
+    input,label{
+        display: inline-block;
+    }
+    .types>.catalog{
+        display:flex;
+        flex-direction:column;
+        width:75%;
+        flex-wrap:wrap;
+    }
+    .types>.catalog>span>a{
+        font-weight:bold;
+        color:black;
+        margin-top:2vh;
+        font-size:larger;
+    }
+    .types>.catalog>span>h4{
+        margin-top:0;
+        font-weight: light;
+    }
+    .types>.catalog>.params{
+        display:flex;
+        flex-direction:row;
+        justify-content: flex-start;
+    }
+    .types>.catalog>.params>button{
+        height:auto;
+        background:rgba(244, 241, 255, 1);
+        border:none;
+        color:rgba(124, 103, 255, 1);
+        margin-right:1%;
+    }
+    .types>.catalog>section>.gallery{
+        flex-wrap:wrap;
+        overflow: unset;
+        margin-top:5%;
+        width:100%;
+        justify-content: space-around;
+    }
+    .types>.catalog>section>.gallery>.card{
+        width:25%;
+        margin: 2% 0;
     }
 }
