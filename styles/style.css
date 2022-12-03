@@ -533,6 +533,10 @@
         width:40%;
         justify-content:space-around;
     }
+        /* дополнительные стили для страницы Корзина */
+    .character{
+        margin-left:3%;
+    }
 }
 @media(max-width:899px){
     body{
