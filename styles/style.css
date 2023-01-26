@@ -161,17 +161,21 @@
         display:flex;
         flex-direction:row;
         overflow:scroll;
-        overflow-y:unset;
+        overflow-y:hidden;
         margin-left:1%;
         color:black;
         width:100%;
+        height:595px;
+    }
+    .types>.catalog>section>.gallery{
+        height:2000px;
     }
     .card{
         border-radius:20px;
         background:rgba(248, 245, 245, 1);
         margin-right:3%;
         min-width:350px;
-        height:100%;
+        height:610px;
         width:35%;
         display:inline-block;
     }
@@ -181,6 +185,12 @@
         border-top-left-radius: 20px;
         border-top-right-radius:20px;
     }
+    .card>a>span{
+        height:20px;
+    }
+    .card>a>span>p{
+        vertical-align:top;
+    }
     .card>a>h4{
         font-size:30px;
         margin-bottom:0;
@@ -188,15 +198,22 @@
         color:black;
         text-decoration: none;
     }
-    .card>a>p{
+    .card>p{
         color:black;
         text-decoration: none;
+        padding:0.5%;
+        height:100%;
+    }
+    .card>a>p{
+        color:black;
+        margin-bottom:0;
     }
     .card>span>.price{
         text-transform:uppercase;
         font-weight:bold;
         font-size:3vh;
         color:black;
+        vertical-align:bottom;
     }
     .card>span>.icons{
         display:flex;
@@ -693,19 +710,29 @@
         display:flex;
         flex-direction:row;
         overflow:scroll;
-        overflow-y:unset;
+        overflow-y:hidden;
         margin-left:1%;
         color:black;
         width:100%;
+        height:595px;
+    }
+    .types>.catalog>section>.gallery{
+        height:3400px;
+    }
+    .types>.catalog>section>.gallery>.card{
+        margin:1%;
     }
     .card{
         border-radius:20px;
         background:rgba(248, 245, 245, 1);
-        margin-right:3%;
+        margin-right:2%;
         min-width:350px;
-        height:100%;
+        height:610px;
         width:35%;
         display:inline-block;
+    }
+    .card>a>span{
+        height:20px;
     }
     .card>a>img{
         width:100%;
@@ -720,9 +747,15 @@
         color:black;
         text-decoration: none;
     }
-    .card>a>p{
+    .card>p{
         color:black;
         text-decoration: none;
+        padding:0.5%;
+        height:100%;
+    }
+    .card>a>p{
+        color:black;
+        margin-bottom:0;
     }
     .card>span>.price{
         text-transform:uppercase;
@@ -1057,3 +1090,4 @@
         flex-direction:column;
     }
 }
+
