@@ -17,8 +17,8 @@
         </span>
         <div class="navigator">
             <img src="styles/img/logo2.svg">
-            <a href="#"><img src="styles/img/Catalog.svg" class="nav_adaptiv" ></a>
-            <nav>
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="styles/img/Catalog.svg"></button>
+            <nav class="hide">
                 <span>
                     <img src="styles/img/home.svg">
                     <a href="index.html">Главная</a>
@@ -48,8 +48,8 @@
     </header>
     <main>
         <h1>Ищите <b>любые</b> несуществующие изобретения!</h1>
-            <form>
-                <select>
+            <form action="product.html">
+                <select id="searchCharacter">
                     <option>Каталог</option>
                     <option>Избранное</option>
                     <option>Sales</option>
@@ -57,7 +57,7 @@
                     <option>Модель</option>
                 </select>
                 <input type="text" method="GET" name="search" placeholder="Название товара" id="search">
-                <button id="searchSubmit" href="favourites.html"><img src="styles/img/arrow.svg"></button>
+                <button id="searchSubmit" onclick="searchInfo()"><img src="styles/img/arrow.svg"></button>
             </form>
         <p>Попробуйте: <a href="product.html" id="1">tardis</a></p>
     </main>
@@ -272,7 +272,35 @@
             <a href="https://github.com/BeidinaDaria/Fiction-store.git"><p>GitHub</p></a>         
         </div>
     </footer>
-    <script src="scripts/search.js"/>
-    <script src="scripts/product-id.js"/>
+    <script>
+        function searchInfo(){
+            console.log("searching...");
+            window.location.replace("product.html");
+            let info=document.getElementById("searchCharacter").value+document.getElementById("search").value;
+            let acc=JSON.stringify(info);
+            let request;
+            if(window.XMLHttpRequest){
+                request = new XMLHttpRequest();
+            }
+            else{
+                request = new ActiveXObject("Microsoft.XMLHTTP");
+            };
+            request.open("POST", "server.php");
+            request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            request.onreadystatechange = function(){
+            if(request.readyState === 4 && request.status == 200){
+                let product = request.response;
+                localStorage.setItem("product",product);
+                }
+            }
+            request.send(acc);
+        }
+        function adaptivMenu(){
+            let navig=document.querySelector("nav");
+            if (navig.className=="show")
+                navig.className='hide';
+            else navig.className='show';
+        };
+    </script>
 </body>
 </html>
