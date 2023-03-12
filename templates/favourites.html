@@ -18,8 +18,8 @@
         </span>
         <div class="navigator">
             <img src="styles/img/logo2.svg">
-            <a href="#"><img src="styles/img/Catalog.svg" class="nav_adaptiv"></a>
-            <nav>
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="styles/img/Catalog.svg"></button>
+            <nav class="hide">
                 <span>
                     <img src="styles/img/home.svg">
                     <a href="index.html">Главная</a>
@@ -30,7 +30,7 @@
                 </span>
                 <span>
                     <img src="styles/img/Search.svg">
-                    <a href="index.html#search">Поиск</a>
+                    <a href="#search">Поиск</a>
                 </span>
                 <span>
                     <img src="styles/img/favourite.svg">
@@ -167,6 +167,14 @@
             </a>
         </div>
     </footer>
+     <script>
+        function adaptivMenu(){
+            let navig=document.querySelector("nav");
+            if (navig.className=="show")
+                navig.className='hide';
+            else navig.className='show';
+        };
+    </script>
 </body>
 
 </html>
