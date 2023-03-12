@@ -16,7 +16,7 @@
     a:hover{
         text-decoration:underline;
     }
-    #nav_adaptiv{
+    nav_adaptiv{
         display:none;
     }
     header{
@@ -573,7 +573,7 @@
     a:hover{
         text-decoration:underline;
     }
-    #nav_adaptiv{
+     #nav_adaptiv{
         display:block;
         height:auto;
         border:none;
