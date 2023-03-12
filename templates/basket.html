@@ -16,10 +16,10 @@
             <a href="#">Контакты</a>
             <a href="https://github.com/BeidinaDaria/Fiction-store.git">GitHub</a>
         </span>
-        <div class="navigator">
+         <div class="navigator">
             <img src="styles/img/logo2.svg">
-            <a href="#"><img src="styles/img/Catalog.svg" class="nav_adaptiv"></a>
-            <nav>
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="styles/img/Catalog.svg"></button>
+            <nav class="hide">
                 <span>
                     <img src="styles/img/home.svg">
                     <a href="index.html">Главная</a>
@@ -30,7 +30,7 @@
                 </span>
                 <span>
                     <img src="styles/img/Search.svg">
-                    <a href="index.html#search">Поиск</a>
+                    <a href="#search">Поиск</a>
                 </span>
                 <span>
                     <img src="styles/img/favourite.svg">
@@ -193,6 +193,36 @@
             </a>
         </div>
     </footer>
+<script>
+        function searchInfo(){
+            console.log("searching...");
+            window.location.replace("product.html");
+            let info=document.getElementById("searchCharacter").value+document.getElementById("search").value;
+            let acc=JSON.stringify(info);
+            let request;
+            if(window.XMLHttpRequest){
+                request = new XMLHttpRequest();
+            }
+            else{
+                request = new ActiveXObject("Microsoft.XMLHTTP");
+            };
+            request.open("POST", "server.php");
+            request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            request.onreadystatechange = function(){
+            if(request.readyState === 4 && request.status == 200){
+                let product = request.response;
+                localStorage.setItem("product",product);
+                }
+            }
+            request.send(acc);
+        }
+        function adaptivMenu(){
+            let navig=document.querySelector("nav");
+            if (navig.className=="show")
+                navig.className='hide';
+            else navig.className='show';
+        };
+    </script>
 </body>
 
 </html>
