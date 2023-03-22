@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Basket</title>
+</head>
+
+<body>
+    <header>
+        <span>
+            <a href="#">О проекте</a>
+            <a href="#">Контакты</a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store.git">GitHub</a>
+        </span>
+         <div class="navigator">
+            <img src="styles/img/logo2.svg">
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="styles/img/Catalog.svg"></button>
+            <nav class="hide">
+                <span>
+                    <img src="styles/img/home.svg">
+                    <a href="index.html">Главная</a>
+                </span>
+                <span>
+                    <img src="styles/img/Catalog.svg">
+                    <a href="catalog.html">Каталог</a>
+                </span>
+                <span>
+                    <img src="styles/img/Search.svg">
+                    <a href="#search">Поиск</a>
+                </span>
+                <span>
+                    <img src="styles/img/favourite.svg">
+                    <a href="favourites.html">Избранное (10)</a>
+                </span>
+                <span>
+                    <img src="styles/img/backets.svg">
+                    <a href="basket.html">Корзина (4)</a>
+                </span>
+                <span>
+                    <img src="styles/img/Profile.svg">
+                    <a href="#">Профиль</a>
+                </span>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Корзина</h1>
+    </main>
+    <div class="types">
+        <div class="catalog">
+            <h2>4 товара в корзине</h2>
+            <div class="item">
+                <span>
+                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <div class="character">
+                        <span>
+                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
+                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                <button class="bt_minus">-</button>
+                                <input type="text" class="quantity" value="1" data-max-count="20">
+                                <button class="bt_plus">+</button>
+                            </div>
+                            <div class="price">
+                                <p>77 ₽</p>
+                            </div>
+                        </span>
+                        <div class="characteristic">
+                            <h4>Размер - - - - - 40см</h4>
+                            <h4>Век - - - - - - - -XX</h4>
+                        </div>
+                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                    </div>
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    <img src="styles/img/1.jpg" height="auto" width="25%">
+                    <div class="character">
+                        <span>
+                            <h3 style="margin:0;">Super puper time machine </h3>
+                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                <button class="bt_minus">-</button>
+                                <input type="text" class="quantity" value="1" data-max-count="20">
+                                <button class="bt_plus">+</button>
+                            </div>
+                            <div class="price">
+                                <p>1000 ₽</p>
+                            </div>
+                        </span>
+                        <div class="characteristic">
+                            <h4>Размер - - - - - 402см</h4>
+                            <h4>Век - - - - - - - -XXV</h4>
+                        </div>
+                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                    </div>
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <div class="character">
+                        <span>
+                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
+                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                <button class="bt_minus">-</button>
+                                <input type="text" class="quantity" value="1" data-max-count="20">
+                                <button class="bt_plus">+</button>
+                            </div>
+                            <div class="price">
+                                <p>77 ₽</p>
+                            </div>
+                        </span>
+                        <div class="characteristic">
+                            <h4>Размер - - - - - 40см</h4>
+                            <h4>Век - - - - - - - -XX</h4>
+                        </div>
+                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                    </div>
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <div class="character">
+                        <span>
+                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
+                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                <button class="bt_minus">-</button>
+                                <input type="text" class="quantity" value="1" data-max-count="20">
+                                <button class="bt_plus">+</button>
+                            </div>
+                            <div class="price">
+                                <p>77 ₽</p>
+                            </div>
+                        </span>
+                        <div class="characteristic">
+                            <h4>Размер - - - - 40см</h4>
+                            <h4>Век - - - - - - - -XX</h4>
+                        </div>
+                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <aside style="background:rgba(248, 245, 245, 1);padding:10px;display:block;position:relative;" height="500px">
+            <span>
+                <h2>Всего</h2>
+                <h2>1231 ₽</h2>
+            </span>
+            <hr style="background:none;height:5px; width:100%">
+            </hr>
+            <span>
+                <h4>Скидки</h4>
+                <h4>– 100 ₽</h4>
+            </span>
+            <span>
+                <h4>Бонусы</h4>
+                <h4>– 20 ₽</h4>
+            </span>
+            <hr style="background:none;height:5px; width:100%">
+            </hr>
+            <span>
+                <h4>Доставка</h4>
+                <h4>90 ₽</h4>
+            </span>
+            <hr style="background:none;height:5px; width:100%">
+            </hr>
+            <span>
+                <h4>Промокод</h4>
+                <input type="text" method="POST" name="promo" placeholder="Промокод">
+            </span>
+            <button style="background:rgba(124, 103, 255, 1);border:none;border-radius:10%;padding:5px;width:90%;"><a href="#" style="color:rgba(244, 241, 255, 1);">Заказать</a></button>
+        </aside>
+    </div>
+    <footer>
+        <div class="annotation">
+            <img src="styles/img/white_logo.png">
+            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+        </div>
+        <div class="nav_footer">
+            <a href="#">
+                <p>О проекте</p>
+            </a>
+            <a href="#">
+                <p>Контакты</p>
+            </a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+                <p>GitHub</p>
+            </a>
+        </div>
+    </footer>
+<script>
+        function searchInfo(){
+            console.log("searching...");
+            window.location.replace("product.html");
+            let info=document.getElementById("searchCharacter").value+document.getElementById("search").value;
+            let acc=JSON.stringify(info);
+            let request;
+            if(window.XMLHttpRequest){
+                request = new XMLHttpRequest();
+            }
+            else{
+                request = new ActiveXObject("Microsoft.XMLHTTP");
+            };
+            request.open("POST", "server.php");
+            request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            request.onreadystatechange = function(){
+            if(request.readyState === 4 && request.status == 200){
+                let product = request.response;
+                localStorage.setItem("product",product);
+                }
+            }
+            request.send(acc);
+        }
+        function adaptivMenu(){
+            let navig=document.querySelector("nav");
+            if (navig.className=="show")
+                navig.className='hide';
+            else navig.className='show';
+        };
+    </script>
+</body>
+
+</html>
