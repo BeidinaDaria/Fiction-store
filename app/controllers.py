@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, json, request
 from app import app
 
 
@@ -7,6 +7,10 @@ from app import app
 def index():
     return render_template('index.html')
 
+@app.route('/product', methods=['GET', 'POST'])
+def search():
+    name = request.args.get('search');
+    return json.dumps({'name': name})
 
 @app.route('/catalog')
 def about():
@@ -23,6 +27,6 @@ def basket():
     return render_template('basket.html')
 
 
-@app.route('/product')
-def product():
-    return render_template('product.html')
+# @app.route('/product')
+# def product():
+#     return render_template('product.html')
