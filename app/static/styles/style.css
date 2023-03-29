@@ -60,7 +60,7 @@
     }
     main{
         height:70vh;
-        background:url(img/kruzhochki.svg);
+        background:url(../img/kruzhochki.svg);
         margin-top:0;
         display:flex;
         flex-direction:column;
@@ -620,7 +620,7 @@
     }
     main{
         height:40vh;
-        background:url(img/kruzhochki_mob.svg);
+        background:url(../img/kruzhochki_mob.svg);
         background-position:bottom;
         margin-top:0;
         display:flex;

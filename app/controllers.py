@@ -1,5 +1,6 @@
-from flask import render_template, json, request
+from flask import render_template, json, request, jsonify
 from app import app
+from . import models
 
 
 #   APP ROUTING
@@ -9,8 +10,10 @@ def index():
 
 @app.route('/product', methods=['GET', 'POST'])
 def search():
-    name = request.args.get('search');
-    return json.dumps({'name': name})
+    search = request.args.get('search')
+    if search:
+        items = models.Items.query.all()
+        return str(items[0].title)
 
 @app.route('/catalog')
 def about():

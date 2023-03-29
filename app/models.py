@@ -1,15 +1,14 @@
-from sqlalchemy import Column, Integer, String, Float, JSON
 from app import db
 
 
 #   MODEL OF ITEMS TABLE
 class Items(db.Model):
     __tablename__ = "items"
-    id          = Column(Integer, primary_key=True)
-    title       = Column(String(100), nullable=False)
-    price       = Column(Float, nullable=False)
-    description = Column(String(1000), nullable=False)
-    images      = Column(JSON)
-    color       = Column(JSON)
-    science     = Column(String(50))
-    comments    = Column(JSON)
+    id          = db.Column(db.Integer, primary_key=True)
+    title       = db.Column(db.String(100), nullable=False)
+    price       = db.Column(db.Float, nullable=False)
+    description = db.Column(db.String(1000), nullable=False)
+    images      = db.Column(db.JSON)
+    color       = db.Column(db.JSON)
+    science     = db.Column(db.String(50))
+    comments    = db.Column(db.JSON)
