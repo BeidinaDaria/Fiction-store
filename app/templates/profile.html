@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>profile</title>
+</head>
+
+<body>
+    <header>
+        <span>
+            <a href="#">О проекте</a>
+            <a href="#">Контакты</a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store.git">GitHub</a>
+        </span>
+        <div class="navigator">
+            <img src="styles/img/logo2.svg">
+            <a href="#"><img src="styles/img/Catalog.svg" class="nav_adaptiv"></a>
+            <nav>
+                <span>
+                    <img src="styles/img/home.svg">
+                    <a href="index.html">Главная</a>
+                </span>
+                <span>
+                    <img src="styles/img/Catalog.svg">
+                    <a href="Catalog.html">Каталог</a>
+                </span>
+                <span>
+                    <img src="styles/img/Search.svg">
+                    <a href="#">Поиск</a>
+                </span>
+                <span>
+                    <img src="styles/img/favourite.svg">
+                    <a href="favourites.html">Избранное (10)</a>
+                </span>
+                <span>
+                    <img src="styles/img/backets.svg">
+                    <a href="#">Корзина (4)</a>
+                </span>
+                <span>
+                    <img src="styles/img/Profile.svg">
+                    <a href="#">Профиль</a>
+                </span>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Добрый день, Кристофер</h1>
+    </main>
+    <div class="types">
+        <div class="catalog">
+            <h2>Ваши заказы и чеки</h2>
+            <div class="item">
+                <span>
+                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <div class="character">
+                        <span>
+                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
+                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                <button class="bt_minus">-</button>
+                                <input type="text" class="quantity" value="1" data-max-count="20">
+                                <button class="bt_plus">+</button>
+                            </div>
+                            <div class="price">
+                                <p>77 ₽</p>
+                            </div>
+                            <div>
+                                <a href = "#">Повторить</a>
+                                <a href = "#">Вернуть</a>
+                                <a href = "#">Чек</a>
+                            </div>
+                        </span>
+                        <div class="characteristic">
+                            <h4>Дата заказа - - - - - 01.02.2003</h4>
+                            <h4>Способ оплаты - - - - - - - -Карта ***8269</h4>
+                        </div>
+                       
+                    </div>
+                </span>
+            </div>
+            <div class="item">
+                <span>
+                    <img src="styles/img/botinok.jpg" height="auto" width="25%">
+                    <div class="character">
+                        <span>
+                            <h3 style="margin:0;">Super puper time machine </h3>
+                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                <button class="bt_minus">-</button>
+                                <input type="text" class="quantity" value="1" data-max-count="20">
+                                <button class="bt_plus">+</button>
+                            </div>
+                            <div class="price">
+                                <p>666₽</p>
+                            </div>
+                            <div>
+                                <a href = "#">Повторить</a>
+                                <a href = "#">Вернуть</a>
+                                <a href = "#">Чек</a>
+                            </div>
+                        </span>
+                        <div class="characteristic">
+                            <h4>Дата заказа - - - - - 20.01.2001</h4>
+                            <h4>Способ оплаты - - - - - - - -Карта ***6666</h4>
+                        </div>
+                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                    </div>
+                </span>
+            </div>
+            <div class = "Kris">
+                <span>
+                    <img src="styles/img/image 2.jpg">
+                    <a href="#">Кристофер Экклстон</a>
+                </span>
+                <span>
+                    <img src = "styles/img/Profile.svg">
+                    <a href = #>Изменить личные данные</a>
+                </span>
+                <span>
+                    <img src = "styles/img/Vectormenu.jpg">
+                    <a href = #>Ваши заказы и чеки</a>
+                </span>
+                <span>
+                    <img src = "styles/img/Vectorcard.jpg">
+                    <a href = #>Способы оплаты</a>
+                </span>
+                <span>
+                    <img src = "styles/img/Vectorbox.svg">
+                    <a href = #>Адреса доставки</a>
+                </span>
+            </div>
+            <h3>Способы оплаты</h3>
+        
+            <div class = "container">
+                <div class = "card-container">
+                    <div class ="image">
+                        <img src="image/visa.png">    
+                    </div>
+                    <div class = "card-number-box">################</div>
+                    <div class="flexbox">
+                        <div class="box">
+                            <span>носитель карты</span>
+                            <div class="card-holder-name">полное имя</div>
+                        </div>
+                        <div class="box">
+                            <span>истекает</span>
+                            <div class="expiration">
+                                <span class="exp-month">mm</span>
+                                <span class="exp-year">yy</span>
+                            </div>
+                        </div>
+
+                    </div>
+                <form action = "">
+                    <div class = "inputBox">
+                        <span>номер карты</span>
+                        <input type ="text" maxlength="16" class = "card-number-input">
+                    </div>
+                    <div class = "inputBox">
+                        <span>носитель карты</span>
+                        <input type ="text" class = "card-holder-input">
+                    </div>
+                    <div class = "flexbox">
+                        <div class = "inputBox">
+                            <span>истекает mm</span>
+                            <select name = "" id = "" class = "month-input">
+                                <option value = "month" selected disabled>month</option>
+                                <option value = "01">01</option>
+                                <option value = "02">02</option>
+                                <option value = "03">03</option>
+                                <option value = "04">04</option>
+                                <option value = "05">05</option>
+                                <option value = "06">06</option>
+                                <option value = "07">07</option>
+                                <option value = "08">08</option>
+                                <option value = "09">09</option>
+                                <option value = "10">10</option>
+                                <option value = "11">11</option>
+                                <option value = "12">12</option>
+                            </select>
+                        </div>
+                        <div class = "inputBox">
+                            <span>истекает yy</span>
+                            <select name = "" id = "" class = "year-input">
+                                <option value = "year" selected disabled>year</option>
+                                <option value = "2021">2021</option>
+                                <option value = "2022">2022</option>
+                                <option value = "2023">2023</option>
+                                <option value = "2024">2024</option>
+                                <option value = "2025">2025</option>
+                                <option value = "2026">2026</option>
+                                <option value = "2027">2027</option>
+                                <option value = "2028">2028</option>
+                                <option value = "2029">2029</option>
+                                <option value = "2030">2030</option>
+                            </select>
+                        </div>
+                        <div class = "inputBox">
+                            <span>cvv</span>
+                            <input type ="text" maxlength="3" class = "cvv-input">
+                        </div>
+                    </div>
+                </form>
+                <div class = "container">
+                    <div class = "card-container">
+                        <div class ="image">
+                            <img src="image/visa.png">    
+                        </div>
+                        <div class = "card-number-box">################</div>
+                        <div class="flexbox">
+                            <div class="box">
+                                <span>носитель карты</span>
+                                <div class="card-holder-name">полное имя</div>
+                            </div>
+                            <div class="box">
+                                <span>истекает</span>
+                                <div class="expiration">
+                                    <span class="exp-month">mm</span>
+                                    <span class="exp-year">yy</span>
+                                </div>
+                            </div>
+    
+                        </div>
+                    <form action = "">
+                        <div class = "inputBox">
+                            <span>номер карты</span>
+                            <input type ="text" maxlength="16" class = "card-number-input">
+                        </div>
+                        <div class = "inputBox">
+                            <span>носитель карты</span>
+                            <input type ="text" class = "card-holder-input">
+                        </div>
+                        <div class = "flexbox">
+                            <div class = "inputBox">
+                                <span>истекает mm</span>
+                                <select name = "" id = "" class = "month-input">
+                                    <option value = "month" selected disabled>month</option>
+                                    <option value = "01">01</option>
+                                    <option value = "02">02</option>
+                                    <option value = "03">03</option>
+                                    <option value = "04">04</option>
+                                    <option value = "05">05</option>
+                                    <option value = "06">06</option>
+                                    <option value = "07">07</option>
+                                    <option value = "08">08</option>
+                                    <option value = "09">09</option>
+                                    <option value = "10">10</option>
+                                    <option value = "11">11</option>
+                                    <option value = "12">12</option>
+                                </select>
+                            </div>
+                            <div class = "inputBox">
+                                <span>истекает yy</span>
+                                <select name = "" id = "" class = "year-input">
+                                    <option value = "year" selected disabled>year</option>
+                                    <option value = "2021">2021</option>
+                                    <option value = "2022">2022</option>
+                                    <option value = "2023">2023</option>
+                                    <option value = "2024">2024</option>
+                                    <option value = "2025">2025</option>
+                                    <option value = "2026">2026</option>
+                                    <option value = "2027">2027</option>
+                                    <option value = "2028">2028</option>
+                                    <option value = "2029">2029</option>
+                                    <option value = "2030">2030</option>
+                                </select>
+                            </div>
+                            <div class = "inputBox">
+                                <span>cvv</span>
+                                <input type ="text" maxlength="3" class = "cvv-input">
+                            </div>
+                        </div>
+                    </form>
+                    <h4>Адреса доставки</h4>
+                    <span>
+                        <button>Ростов-на-Дону</button>
+                        <button>Лондон</button>
+                    </span>
+    <footer>
+        <div class="annotation">
+            <img src="styles/img/white_logo.png">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab dolores recusandae non quo eum provident!</p>
+        </div>
+        <div class="nav_footer">
+            <a href="#">
+                <p>О проекте</p>
+            </a>
+            <a href="#">
+                <p>Контакты</p>
+            </a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+                <p>GitHub</p>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
