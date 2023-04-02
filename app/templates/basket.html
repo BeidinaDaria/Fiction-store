@@ -12,36 +12,36 @@
 <body>
     <header>
         <span>
-            <a href="#">О проекте</a>
-            <a href="#">Контакты</a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">О проекте</a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">Контакты</a>
             <a href="https://github.com/BeidinaDaria/Fiction-store.git">GitHub</a>
         </span>
          <div class="navigator">
             <img src="styles/img/logo2.svg">
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="styles/img/Catalog.svg"></button>
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/Catalog.svg"></button>
             <nav class="hide">
                 <span>
-                    <img src="styles/img/home.svg">
+                    <img src="static/img/home.svg">
                     <a href="index.html">Главная</a>
                 </span>
                 <span>
-                    <img src="styles/img/Catalog.svg">
+                    <img src="static/img/Catalog.svg">
                     <a href="catalog.html">Каталог</a>
                 </span>
                 <span>
-                    <img src="styles/img/Search.svg">
+                    <img src="static/img/Search.svg">
                     <a href="#search">Поиск</a>
                 </span>
                 <span>
-                    <img src="styles/img/favourite.svg">
+                    <img src="static/img/favourite.svg">
                     <a href="favourites.html">Избранное (10)</a>
                 </span>
                 <span>
-                    <img src="styles/img/backets.svg">
+                    <img src="static/img/backets.svg">
                     <a href="basket.html">Корзина (4)</a>
                 </span>
                 <span>
-                    <img src="styles/img/Profile.svg">
+                    <img src="static/img/Profile.svg">
                     <a href="#">Профиль</a>
                 </span>
             </nav>
@@ -55,7 +55,7 @@
             <h2>4 товара в корзине</h2>
             <div class="item">
                 <span>
-                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <img src="static/img/invention.png" height="auto" width="25%">
                     <div class="character">
                         <span>
                             <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
@@ -78,7 +78,7 @@
             </div>
             <div class="item">
                 <span>
-                    <img src="styles/img/1.jpg" height="auto" width="25%">
+                    <img src="static/img/1.jpg" height="auto" width="25%">
                     <div class="character">
                         <span>
                             <h3 style="margin:0;">Super puper time machine </h3>
@@ -95,13 +95,13 @@
                             <h4>Размер - - - - - 402см</h4>
                             <h4>Век - - - - - - - -XXV</h4>
                         </div>
-                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                        <button style="background:none;border:none;"><img src="static/img/delete.svg"></button>
                     </div>
                 </span>
             </div>
             <div class="item">
                 <span>
-                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <img src="static/img/invention.png" height="auto" width="25%">
                     <div class="character">
                         <span>
                             <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
@@ -124,7 +124,7 @@
             </div>
             <div class="item">
                 <span>
-                    <img src="styles/img/invention.png" height="auto" width="25%">
+                    <img src="static/img/invention.png" height="auto" width="25%">
                     <div class="character">
                         <span>
                             <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
@@ -141,7 +141,7 @@
                             <h4>Размер - - - - 40см</h4>
                             <h4>Век - - - - - - - -XX</h4>
                         </div>
-                        <button style="background:none;border:none;"><img src="styles/img/delete.svg"></button>
+                        <button style="background:none;border:none;"><img src="static/img/delete.svg"></button>
                     </div>
                 </span>
             </div>
@@ -178,14 +178,14 @@
     </div>
     <footer>
         <div class="annotation">
-            <img src="styles/img/white_logo.png">
+            <img src="static/img/white_logo.png">
             <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
         </div>
         <div class="nav_footer">
-            <a href="#">
+            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
                 <p>О проекте</p>
             </a>
-            <a href="#">
+            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
                 <p>Контакты</p>
             </a>
             <a href="https://github.com/BeidinaDaria/Fiction-store.git">
@@ -194,28 +194,6 @@
         </div>
     </footer>
 <script>
-        function searchInfo(){
-            console.log("searching...");
-            window.location.replace("product.html");
-            let info=document.getElementById("searchCharacter").value+document.getElementById("search").value;
-            let acc=JSON.stringify(info);
-            let request;
-            if(window.XMLHttpRequest){
-                request = new XMLHttpRequest();
-            }
-            else{
-                request = new ActiveXObject("Microsoft.XMLHTTP");
-            };
-            request.open("POST", "server.php");
-            request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            request.onreadystatechange = function(){
-            if(request.readyState === 4 && request.status == 200){
-                let product = request.response;
-                localStorage.setItem("product",product);
-                }
-            }
-            request.send(acc);
-        }
         function adaptivMenu(){
             let navig=document.querySelector("nav");
             if (navig.className=="show")
