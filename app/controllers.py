@@ -6,7 +6,7 @@ from . import models
 #   APP ROUTING
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index')
 
 @app.route('/product', methods=['GET', 'POST'])
 def search():
@@ -17,19 +17,19 @@ def search():
 
 @app.route('/catalog')
 def about():
-    return render_template('catalog.html')
+    return render_template('catalog')
 
 
 @app.route('/favourites')
 def favourites():
-    return render_template('favourites.html')
+    return render_template('favourites')
 
 
 @app.route('/basket')
 def basket():
-    return render_template('basket.html')
+    return render_template('basket')
 
 
 # @app.route('/product')
 # def product():
-#     return render_template('product.html')
+#     return render_template('product')
