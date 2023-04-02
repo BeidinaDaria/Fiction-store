@@ -1,4 +1,8 @@
 @media (min-width:900px){
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
+    *{
+        font-family: 'Jost', sans-serif;
+    }
     span{
         display:flex;
         flex-direction:row;
