@@ -1,390 +1,500 @@
-@media (min-width:900px){
-    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
-    *{
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body, html {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+@media (min-width: 900px) {
+    * {
         font-family: 'Jost', sans-serif;
     }
-    span{
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
+
+    span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    h2{
-        text-align:center;
+
+    h2 {
+        text-align: center;
     }
-    p{
-        font-family:lato,Arial, Helvetica, sans-serif;
+
+    p {
+        font-family: lato, Arial, Helvetica, sans-serif;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
-    a:hover{
-        text-decoration:underline;
+
+    a:hover {
+        text-decoration: underline;
     }
-    nav_adaptiv{
-        display:none;
+
+    nav_adaptiv {
+        display: none;
     }
-    header{
-        display:flex;
-        flex-direction:column;
-        background:rgba(250, 248, 248, 1);
-        margin-bottom:0;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        background: #FAF8F8;
+        margin-bottom: 0;
+        height: 100px;
     }
-    header > span{
-        color:rgba(153, 152, 152, 1);
-        width:30%;
-        margin-left:60%;
+
+    header > .navigator > .hide > span {
+        height: 100px;
+        margin: 50px 0;
     }
-    header>span>a{
-        color:rgba(153, 152, 152, 1);
-        text-align:right;
+
+    header > .navigator > .nav_adaptiv {
+        display: none;
     }
-    header>.navigator>.nav_adaptiv{
-        display:none;
+
+    header > .navigator, header > .navigator > nav {
+        background: #ffffff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 100%;
+        align-items: center;
     }
-    header>.navigator,header>.navigator>nav{
-        background:rgba(0, 0, 0, 0.1);
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
-        height:15vh;
-        align-items:center;
+
+    header > .navigator > img {
+        display: inline-block;
+        height: 50%;
+        width: auto;
     }
-    header>.navigator>img{
-        height:80%;
-        width:auto;
+
+    header > .navigator > nav {
+        width: 50%;
+        height: 25%;
+        vertical-align: middle;
+        background: none;
     }
-    header>.navigator>nav{
-        width:50%;
-        height:25%;
-        vertical-align:middle;
-        background:none;
+
+    header > .navigator > a {
+        display: none;
     }
-    header>.navigator>a{
-        display:none;
+
+    header a {
+        color: #000;
     }
-    main{
-        height:70vh;
-        background:url(../img/kruzhochki.svg);
-        margin-top:0;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        color:rgba(30, 30, 30, 1);
+
+    header a:hover {
+        color: rgba(124, 103, 255, 1);
+        text-decoration: none;
     }
-    main>h1{
-        margin-top:0;
-        width:50%;
-        text-align:center;
-        font-size:50px;
+
+    .hide > span {
+        display: flex;
+        align-items: center;
     }
-    main>h1>b{
-        color:rgba(124, 103, 255, 1);
+
+    .hide > span > img {
+        padding-right: 8px;
     }
-    main>form{
-        position:relative;
-        background:rgba(0, 0, 0, 0.1);
-        border:none;
-        border-radius:100px;
-        height:7vh;
-        display:flex;
-        justify-content:space-around;
-        width:30%;
+
+    main {
+        height: 70vh;
+        background: url(../img/kruzhochki.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #E6E6E6;
     }
-    main>form>select{
+
+    main > h1 {
+        margin-top: 0;
+        width: 50%;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 400;
+    }
+
+    main > h1 > b {
+        color: rgba(124, 103, 255, 1);
+    }
+
+    main > form {
+        position: relative;
+        background: #ffffff;
+        border: none;
+        border-radius: 100px;
+        height: 60px;
+        line-height: 60px;
+        display: flex;
+        justify-content: space-around;
+        width: 40%;
+        box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    main > form  select {
         border-top-left-radius: 100px;
         border-bottom-left-radius: 100px;
-        width:30%;
+        width: 30%;
+        text-align: center;
     }
-    main>form>input,main>form>select{
-        position:static;
-        height:100%;
-        align-items:top;
-        background:rgba(255, 255, 255, 0.5);
-        border:none;
+
+    main > form input, main > form select {
+        position: static;
+        height: 100%;
+        align-items: top;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
     }
-    main>form>input{
-        height:96%;
-        width:70%;
+
+    main > form input {
+        height: 96%;
+        width: 70%;
     }
-    main>form>button{
-        height:100%;
-        align-items:center;
+
+    main > form button {
+        height: 100%;
+        line-height: normal;
+        display: inline-block;
+        vertical-align: middle;
+        align-items: center;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 100px;
-        border:none;
-        position:static;
-        background:rgba(255, 255, 255, 0.5);
+        border: none;
+        position: static;
+        background: rgba(255, 255, 255, 0.5);
     }
-    main>form>button>img{
-        height:80%;
-        width:auto;
+
+    main > form button > img {
+        height: 80%;
+        width: auto;
+        line-height: normal;
+        display: inline-block;
+        vertical-align: middle;
     }
-    main>p{
-        font-size:2vh;
+
+    main > p {
+        font-size: 2vh;
     }
-    main>p>a{
-        color:rgba(108, 52, 227, 1);
-        text-transform:uppercase;
-        font-weight:bold;
+
+    main > p > a {
+        color: rgba(108, 52, 227, 1);
+        text-transform: uppercase;
+        font-weight: 400;
     }
-    section>.head{
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
-        min-height:120px;
-        margin-top:1%;
-        height:5vh;
-        align-items:center;
+
+    section > .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        min-height: 120px;
+        margin-top: 1%;
+        height: 5vh;
+        align-items: center;
     }
-    section>.head>span{
-        height:100%;
-        display:flex;
-        align-items:center;
+
+    section > .head > span {
+        height: 100%;
+        display: flex;
+        align-items: center;
     }
-    section>.head>span>img{
-        height:40%;
-        width:auto;
+
+    section > .head > span > img {
+        height: 40%;
+        width: auto;
     }
-    section>.head>span>h3{
-        height:50%;
-        font-size:50px;
+
+    section > .head > span > h3 {
+        height: 50%;
+        font-size: 50px;
+        font-weight: 500;
     }
-    section>.head>button{
-        height:50%;
-        background:rgba(124, 103, 255, 1);
-        border:none;
-        border-radius:12px;
-        width:10%;
+
+    section > .head > button {
+        height: 50%;
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 12px;
+        width: 10%;
     }
-    section>.head>button>a{
-        color:white;
-        font-weight:bold;
+
+    section > .head > button > a {
+        color: white;
+        font-weight: 400;
     }
-    section>.gallery{
-        display:flex;
-        flex-direction:row;
-        overflow:scroll;
-        overflow-y:hidden;
-        margin-left:1%;
-        color:black;
-        width:100%;
-        height:595px;
+
+    section > .gallery {
+        display: flex;
+        flex-direction: row;
+        overflow: scroll;
+        overflow-y: hidden;
+        margin-left: 1%;
+        color: black;
+        width: 100%;
+        height: 595px;
     }
-    .card{
-        border-radius:20px;
-        background:rgba(248, 245, 245, 1);
-        margin-right:3%;
-        min-width:350px;
-        height:610px;
-        width:35%;
-        display:inline-block;
+
+    .card {
+        border-radius: 20px;
+        background: rgba(248, 245, 245, 1);
+        margin-right: 3%;
+        min-width: 350px;
+        height: 610px;
+        width: 35%;
+        display: inline-block;
     }
-    .card>a>img{
-        width:100%;
-        height:auto;
+
+    .card > a > img {
+        width: 100%;
+        height: auto;
         border-top-left-radius: 20px;
-        border-top-right-radius:20px;
+        border-top-right-radius: 20px;
     }
-    .card>a>span{
-        height:20px;
+
+    .card > a > span {
+        height: 20px;
     }
-    .card>a>span>p{
-        vertical-align:top;
+
+    .card > a > span > p {
+        vertical-align: top;
     }
-    .card>a>h4{
-        font-size:30px;
-        margin-bottom:0;
-        margin-top:2%;
-        color:black;
+
+    .card > a > h4 {
+        font-size: 30px;
+        margin-bottom: 0;
+        margin-top: 2%;
+        color: black;
         text-decoration: none;
     }
-    .card>p{
-        color:black;
+
+    .card > p {
+        color: black;
         text-decoration: none;
-        padding:0.5%;
-        height:100%;
+        padding: 0.5%;
+        height: 100%;
     }
-    .card>a>p{
-        color:black;
-        margin-bottom:0;
+
+    .card > a > p {
+        color: black;
+        margin-bottom: 0;
     }
-    .card>span>.price{
-        text-transform:uppercase;
-        font-weight:bold;
-        font-size:3vh;
-        color:black;
-        vertical-align:bottom;
+
+    .card > span > .price {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 3vh;
+        color: black;
+        vertical-align: bottom;
     }
-    .card>span>.icons{
-        display:flex;
-        justify-content:space-between;
-        flex-direction:row;
-        width:30%;
+
+    .card > span > .icons {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 30%;
     }
-    .card>span>.icons>a{
-        width:100%;
-        height:80%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        color:black;
+
+    .card > span > .icons > a {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
     }
-    .card>span>.icons>a:hover{
-        background:rgba(124, 103, 255, 1);
-        border:none;
-        border-radius:100px;
+
+    .card > span > .icons > a:hover {
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 100px;
     }
-    .card>span>.icons>a>img{
-        width:40%;
-        height:auto;
-        background:white;
-        border-radius:1px;
-        border:none;
+
+    .card > span > .icons > a > img {
+        width: 40%;
+        height: auto;
+        background: white;
+        border-radius: 1px;
+        border: none;
     }
-    article{
-        margin-top:5%;
+
+    article {
+        margin-top: 5%;
     }
-    article>span{
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
+
+    article > span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    article>span>p{
-        width:50%;
+
+    article > span > p {
+        width: 50%;
     }
-    .container{
-        width:90%;
-        background:rgba(124, 103, 255, 1);
-        border:none;
-        border-radius:30px;
-        display:flex;
-        justify-content:center;
-        height:25vh;
+
+    .container {
+        width: 90%;
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        height: 25vh;
     }
-    .container>.content{
-        width:60%;
-        display:flex;
-        flex-direction:row;
-        align-items:center;
-        justify-content:space-around;
+
+    .container > .content {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
     }
-    .container>.content>img{
-        height:50%;
+
+    .container > .content > img {
+        height: 50%;
     }
-    .container>.content>img>.text{
-        display:flex;
-        flex-direction:column;
+
+    .container > .content > img > .text {
+        display: flex;
+        flex-direction: column;
     }
-    .container>.content>.text>h3{
-        color:white;
-        font-size:2em;
-        margin-bottom:0;
+
+    .container > .content > .text > h3 {
+        color: white;
+        font-size: 2em;
+        margin-bottom: 0;
     }
-    .container>.content>.text>a{
-        color:white;
+
+    .container > .content > .text > a {
+        color: white;
     }
-    footer{
-        background:rgba(44, 44, 44, 1);
-        margin-top:2%;
+
+    footer {
+        background: rgba(44, 44, 44, 1);
+        margin-top: 2%;
     }
-    footer>.annotation,footer>.nav_footer{
-        display:inline-block;
-        color:white;
+
+    footer > .annotation, footer > .nav_footer {
+        display: inline-block;
+        color: white;
     }
-    footer>.annotation{
-        width:25%;
-        margin-left:5%;
+
+    footer > .annotation {
+        width: 25%;
+        margin-left: 5%;
     }
-    footer>.annotation>p{
-        color:white;
+
+    footer > .annotation > p {
+        color: white;
     }
-    footer>.nav_footer{
-        margin-left:10%;
+
+    footer > .nav_footer {
+        margin-left: 10%;
     }
-    footer>.nav_footer>a{
-        color:white;
+
+    footer > .nav_footer > a {
+        color: white;
     }
 
     /* стили для страницы каталогов  */
-    span{
-        margin-bottom:2vh;
+    span {
+        margin-bottom: 2vh;
     }
-    span>button{
-        width:12%;
-        height:22vh;
-        border-radius:50%;
-        border:none;
-        background:rgba(244, 241, 255, 1);
+
+    span > button {
+        width: 12%;
+        height: 22vh;
+        border-radius: 50%;
+        border: none;
+        background: rgba(244, 241, 255, 1);
     }
-    span>button>a{
-        color:rgba(124, 103, 255, 1);
-        font-size:30px;
-        height:100%;
-        padding:25%;
-        text-align:center;
+
+    span > button > a {
+        color: rgba(124, 103, 255, 1);
+        font-size: 30px;
+        height: 100%;
+        padding: 25%;
+        text-align: center;
     }
-    span>button:hover{
-        background:rgba(124, 103, 255, 1);
-    } 
-    span>button> a:hover{
-        color:rgba(244, 241, 255, 1);
-        font-size:30px;
+
+    span > button:hover {
+        background: rgba(124, 103, 255, 1);
     }
-    form{
-        border:rgba(177, 177, 177, 0.42);
+
+    span > button > a:hover {
+        color: rgba(244, 241, 255, 1);
+        font-size: 30px;
     }
-    form>input{
-        width:100%;
-        height:5vh;
-        text-align:center;
+
+    form {
+        border: rgba(177, 177, 177, 0.42);
     }
-    .types{
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
+
+    form > input {
+        width: 100%;
+        height: 5vh;
+        text-align: center;
     }
-    .types>aside{
-        display:flex;
-        flex-direction:column;
-        width:20%;
+
+    .types {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    .types>aside>.container{
-        background:none;
-        display:flex;
-        flex-direction:column;
-        width:100%;
+
+    .types > aside {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
     }
-    .types>aside>.container>h4>b{
-        padding:12px;
-        display:inline-block;
+
+    .types > aside > .container {
+        background: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .types>aside>.container>.slider-track>input{
-        display:inline-block;
-        margin:0 -1.5%;
-    }
-    .types>aside>div{
-        display:flex;
-        flex-direction:column;
-        width:100%;
-    }
-    .types>aside>div>span{
-        justify-content: flex-start;
-        margin-top:1%;
-    }
-    .types>aside>.wrapper>.century{
-        display:flex;
-        flex-direction:row;
-        font-weight:bold;
-        justify-content:space-around;
-    }
-    .types>aside>.wrapper>.container{
-        background:none;
-    }
-    input,label{
+
+    .types > aside > .container > h4 > b {
+        padding: 12px;
         display: inline-block;
     }
-    label:before{
+
+    .types > aside > .container > .slider-track > input {
+        display: inline-block;
+        margin: 0 -1.5%;
+    }
+
+    .types > aside > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .types > aside > div > span {
+        justify-content: flex-start;
+        margin-top: 1%;
+    }
+
+    .types > aside > .wrapper > .century {
+        display: flex;
+        flex-direction: row;
+        font-weight: 400;
+        justify-content: space-around;
+    }
+
+    .types > aside > .wrapper > .container {
+        background: none;
+    }
+
+    input, label {
+        display: inline-block;
+    }
+
+    label:before {
         content: '';
         display: inline-block;
         width: 1em;
@@ -394,712 +504,851 @@
         border: 1px solid #adb5bd;
         border-radius: 0.25em;
         margin-left: -1em;
-        margin-right:0.5em;
+        margin-right: 0.5em;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 50% 50%;
     }
-    #france:before,#russia:before,#usa:before,#britain:before{
-        display:none;
+
+    #france:before, #russia:before, #usa:before, #britain:before {
+        display: none;
     }
-    #black:before{
-        background-color:black;
+
+    #black:before {
+        background-color: black;
     }
-    #white:before{
-        background-color:white;
+
+    #white:before {
+        background-color: white;
     }
-    #grey:before{
-        background-color:grey;
+
+    #grey:before {
+        background-color: grey;
     }
-    #green:before{
-        background-color:green;
+
+    #green:before {
+        background-color: green;
     }
-    #yellow:before{
-        background-color:yellow;
+
+    #yellow:before {
+        background-color: yellow;
     }
-    #red:before{
-        background-color:red;
+
+    #red:before {
+        background-color: red;
     }
-    #blue:before{
-        background-color:blue;
+
+    #blue:before {
+        background-color: blue;
     }
-    #violet:before{
-        background-color:darkviolet;
+
+    #violet:before {
+        background-color: darkviolet;
     }
-    .types>.catalog{
-        display:flex;
-        flex-direction:column;
-        width:75%;
-        flex-wrap:wrap;
+
+    .types > .catalog {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        flex-wrap: wrap;
     }
-    .catalog>span>a{
-        font-weight:bold;
-        color:black;
-        margin-top:2vh;
-        font-size:larger;
+
+    .catalog > span > a {
+        font-weight: 400;
+        color: black;
+        margin-top: 2vh;
+        font-size: larger;
     }
-    .catalog>span>h4{
-        margin-top:0;
-        font-weight: light;
+
+    .catalog > span > h4 {
+        margin-top: 0;
+        font-weight: normal;
     }
-    .catalog>.params{
-        display:flex;
-        flex-direction:row;
+
+    .catalog > .params {
+        display: flex;
+        flex-direction: row;
         justify-content: flex-start;
     }
-    .catalog>.params>button{
-        height:auto;
-        background:rgba(244, 241, 255, 1);
-        border:none;
-        color:rgba(124, 103, 255, 1);
-        margin-right:1%;
+
+    .catalog > .params > button {
+        height: auto;
+        background: rgba(244, 241, 255, 1);
+        border: none;
+        color: rgba(124, 103, 255, 1);
+        margin-right: 1%;
     }
-    .types>.catalog>section>.gallery{
-        height:2000px;
+
+    .types > .catalog > section > .gallery {
+        height: 2000px;
     }
-    .catalog>section>.gallery{
-        flex-wrap:wrap;
+
+    .catalog > section > .gallery {
+        flex-wrap: wrap;
         overflow: unset;
     }
-    .catalog>section>.gallery>.card{
-        width:20%;
+
+    .catalog > section > .gallery > .card {
+        width: 20%;
         margin: 2%;
     }
+
     /*дополнительные стили для витрины*/
-    .product{
-        display:inline-block;
-        width:50%;
+    .product {
+        display: inline-block;
+        width: 50%;
     }
-    span>.product>span>button{
-        background:rgba(244, 241, 255, 1);
-        border:none;
-        color:rgba(124, 103, 255, 1);
-        margin-right:1%;
-        width:35%;
-        border-radius:0;
-        height:60%;
-        margin-top:2%;
-        padding:1%;
+
+    span > .product > span > button {
+        background: rgba(244, 241, 255, 1);
+        border: none;
+        color: rgba(124, 103, 255, 1);
+        margin-right: 1%;
+        width: 35%;
+        border-radius: 0;
+        height: 60%;
+        margin-top: 2%;
+        padding: 1%;
     }
-    .additional{
-        width:100%;
-        display:flex;
-        flex-direction:column;
-        margin-left:10%;
-        margin-right:2%;
+
+    .additional {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+        margin-right: 2%;
     }
-    .additional>img{
-        margin-bottom:2%;
-        border-radius:2%;
+
+    .additional > img {
+        margin-bottom: 2%;
+        border-radius: 2%;
     }
-    .choose_colors{
-        display:inline-block;
-        margin-top:5%;
-        margin-left:-20%;
-        width:25%;
+
+    .choose_colors {
+        display: inline-block;
+        margin-top: 5%;
+        margin-left: -20%;
+        width: 25%;
     }
-    .choose_colors>span{
-        width:100%;
+
+    .choose_colors > span {
+        width: 100%;
     }
-    .choose_colors>span>a{
-        width:10%;
-        height:1%;
-        border-radius:20px;
-        padding:100%;
-        display:block;
+
+    .choose_colors > span > a {
+        width: 10%;
+        height: 1%;
+        border-radius: 20px;
+        padding: 100%;
+        display: block;
     }
-    .price{
-        text-transform:uppercase;
-        font-weight:bold;
-        font-size:3vh;
-        width:15%;
+
+    .price {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 3vh;
+        width: 15%;
     }
-    .price>button,.catalog>button{
-        background:rgba(124, 103, 255, 1);
-        color:rgba(244, 241, 255, 1);
-        border:none;
-        padding:5%;
-        border-radius:5%;
+
+    .price > button, .catalog > button {
+        background: rgba(124, 103, 255, 1);
+        color: rgba(244, 241, 255, 1);
+        border: none;
+        padding: 5%;
+        border-radius: 5%;
     }
-    .price>button>a{
-        color:rgba(244, 241, 255, 1);
+
+    .price > button > a {
+        color: rgba(244, 241, 255, 1);
     }
-    .price>button>a>img{
-        background:rgba(244, 241, 255, 1);
-        border-radius:5%;
+
+    .price > button > a > img {
+        background: rgba(244, 241, 255, 1);
+        border-radius: 5%;
     }
-    .price>p>button{
-        background:rgba(244, 241, 255, 1);
-        border:none;
-        padding:5%;
-        border-radius:5%;
+
+    .price > p > button {
+        background: rgba(244, 241, 255, 1);
+        border: none;
+        padding: 5%;
+        border-radius: 5%;
     }
-    .price>p>button>a{
-        color:rgba(124, 103, 255, 1);
+
+    .price > p > button > a {
+        color: rgba(124, 103, 255, 1);
     }
-    hr{
-        height:5px;
-        border:none;
-        background:rgba(124, 103, 255, 1);
+
+    hr {
+        height: 5px;
+        border: none;
+        background: rgba(124, 103, 255, 1);
     }
-    .catalog>div>span{
-        justify-content:flex-start;
+
+    .catalog > div > span {
+        justify-content: flex-start;
     }
-    .catalog>button>a{
-        color:white;
+
+    .catalog > button > a {
+        color: white;
     }
-    span>aside{
-        display:flex;
-        flex-direction:row;
-        width:40%;
-        justify-content:space-around;
+
+    span > aside {
+        display: flex;
+        flex-direction: row;
+        width: 40%;
+        justify-content: space-around;
     }
-        /* дополнительные стили для страницы Корзина */
-    .character{
-        margin-left:3%;
+
+    /* дополнительные стили для страницы Корзина */
+    .character {
+        margin-left: 3%;
     }
 }
-@media(max-width:899px){
+
+@media (max-width: 899px) {
     @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
-    *{
+    * {
         font-family: 'Jost', sans-serif;
     }
-   body{
+
+    body {
         overflow-x: hidden;
     }
-    span{
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
+
+    span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    p{
-        font-family:lato,Arial, Helvetica, sans-serif;
+
+    p {
+        font-family: lato, Arial, Helvetica, sans-serif;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
-    a:hover{
-        text-decoration:underline;
+
+    a:hover {
+        text-decoration: underline;
     }
-     #nav_adaptiv{
-        display:block;
-        height:auto;
-        border:none;
+
+    #nav_adaptiv {
+        display: block;
+        height: auto;
+        border: none;
     }
-    header{
-        display:flex;
-        flex-direction:column;
-        background:rgba(250, 248, 248, 1);
-        margin-bottom:0;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        background: rgba(250, 248, 248, 1);
+        margin-bottom: 0;
     }
-    header > span{
-        display:none;
+
+    header > span {
+        display: none;
     }
-    header>.navigator>a{
-        display:block;
-        height:100%;
+
+    header > .navigator > a {
+        display: block;
+        height: 100%;
     }
-    header>.navigator>a>img{
-        height:50%;
-        margin-top:40%;
+
+    header > .navigator > a > img {
+        height: 50%;
+        margin-top: 40%;
     }
-    header>.navigator{
-        background:rgba(0, 0, 0, 0.1);
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
-        height:10vh;
-        align-items:right;
+
+    header > .navigator {
+        background: rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 10vh;
+        align-items: right;
     }
-    header>.navigator>img{
-        height:80%;
-        width:auto;
+
+    header > .navigator > img {
+        height: 80%;
+        width: auto;
     }
-    .hide{
-        display:none;
+
+    .hide {
+        display: none;
     }
-    .show{
-        display:flex;
-        flex-direction:column;
-        position:absolute;
+
+    .show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
         margin-left: 70%;
-        margin-top:40px;
-        background:rgba(248, 245, 245, 1);;
+        margin-top: 40px;
+        background: rgba(248, 245, 245, 1);;
     }
-    main{
-        height:40vh;
-        background:url(../img/kruzhochki_mob.svg);
-        background-position:bottom;
-        margin-top:0;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        color:rgba(30, 30, 30, 1);
+
+    main {
+        height: 40vh;
+        background: url(../img/kruzhochki_mob.svg);
+        background-position: bottom;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: rgba(30, 30, 30, 1);
     }
-    main>h1{
-        margin-top:0;
-        width:50%;
-        text-align:center;
-        font-size:30px;
+
+    main > h1 {
+        margin-top: 0;
+        width: 50%;
+        text-align: center;
+        font-size: 30px;
     }
-    main>h1>b{
-        color:rgba(124, 103, 255, 1);
+
+    main > h1 > b {
+        color: rgba(124, 103, 255, 1);
     }
-    main>form{
-        position:relative;
-        background:rgba(0, 0, 0, 0.1);
-        border:none;
-        border-radius:100px;
-        height:7vh;
-        display:flex;
-        justify-content:space-around;
-        width:70%;
+
+    main > form {
+        position: relative;
+        background: rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 100px;
+        height: 7vh;
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
     }
-    main>form>select{
-        display:none;
+
+    main > form > select {
+        display: none;
     }
-    main>form>input,main>form>select{
-        position:static;
-        height:100%;
-        align-items:top;
-        background:rgba(255, 255, 255, 0.5);
-        border:none;
+
+    main > form > input, main > form > select {
+        position: static;
+        height: 100%;
+        align-items: top;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
     }
-    main>form>input{
-        height:98%;
-        width:100%;
+
+    main > form > input {
+        height: 98%;
+        width: 100%;
     }
-    main>form>button{
-        height:100%;
-        align-items:center;
+
+    main > form > button {
+        height: 100%;
+        align-items: center;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 100px;
-        border:none;
-        position:static;
-        background:rgba(255, 255, 255, 0.5);
+        border: none;
+        position: static;
+        background: rgba(255, 255, 255, 0.5);
     }
-    main>form>button>img{
-        height:80%;
-        width:auto;
+
+    main > form > button > img {
+        height: 80%;
+        width: auto;
     }
-    main>p{
-        font-size:2vh;
+
+    main > p {
+        font-size: 2vh;
     }
-    main>p>a{
-        color:rgba(108, 52, 227, 1);
-        text-transform:uppercase;
-        font-weight:bold;
+
+    main > p > a {
+        color: rgba(108, 52, 227, 1);
+        text-transform: uppercase;
+        font-weight: 400;
     }
-    section>.head{
-        display:flex;
-        flex-direction:column;
-        justify-content:space-around;
-        min-height:120px;
-        width:100%;
-        margin-top:1%;
-        height:15vh;
-        align-items:center;
+
+    section > .head {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 120px;
+        width: 100%;
+        margin-top: 1%;
+        height: 15vh;
+        align-items: center;
     }
-    section>.head>span{
-        height:70%;
-        width:40%;
-        display:flex;
-        align-items:center;
+
+    section > .head > span {
+        height: 70%;
+        width: 40%;
+        display: flex;
+        align-items: center;
     }
-    section>.head>span>img{
-        height:25%;
-        width:auto;
+
+    section > .head > span > img {
+        height: 25%;
+        width: auto;
     }
-    section>.head>span>h3{
-        height:50%;
-        font-size:35px;
-        margin-left:1%;
+
+    section > .head > span > h3 {
+        height: 50%;
+        font-size: 35px;
+        margin-left: 1%;
     }
-    section>.head>button{
-        display:none;
+
+    section > .head > button {
+        display: none;
     }
-    section>.head>button>a{
-        color:white;
-        font-weight:bold;
+
+    section > .head > button > a {
+        color: white;
+        font-weight: 400;
     }
-    section>.gallery{
-        display:flex;
-        flex-direction:row;
-        overflow:scroll;
-        overflow-y:hidden;
-        margin-left:1%;
-        color:black;
-        width:100%;
-        height:595px;
+
+    section > .gallery {
+        display: flex;
+        flex-direction: row;
+        overflow: scroll;
+        overflow-y: hidden;
+        margin-left: 1%;
+        color: black;
+        width: 100%;
+        height: 595px;
     }
-    .card{
-        border-radius:20px;
-        background:rgba(248, 245, 245, 1);
-        margin-right:2%;
-        min-width:350px;
-        height:610px;
-        width:35%;
-        display:inline-block;
+
+    .card {
+        border-radius: 20px;
+        background: rgba(248, 245, 245, 1);
+        margin-right: 2%;
+        min-width: 350px;
+        height: 610px;
+        width: 35%;
+        display: inline-block;
     }
-    .card>a>span{
-        height:20px;
+
+    .card > a > span {
+        height: 20px;
     }
-    .card>a>img{
-        width:100%;
-        height:auto;
+
+    .card > a > img {
+        width: 100%;
+        height: auto;
         border-top-left-radius: 20px;
-        border-top-right-radius:20px;
+        border-top-right-radius: 20px;
     }
-    .card>a>h4{
-        font-size:30px;
-        margin-bottom:0;
-        margin-top:2%;
-        color:black;
+
+    .card > a > h4 {
+        font-size: 30px;
+        margin-bottom: 0;
+        margin-top: 2%;
+        color: black;
         text-decoration: none;
     }
-    .card>p{
-        color:black;
+
+    .card > p {
+        color: black;
         text-decoration: none;
-        padding:0.5%;
-        height:100%;
+        padding: 0.5%;
+        height: 100%;
     }
-    .card>a>p{
-        color:black;
-        margin-bottom:0;
+
+    .card > a > p {
+        color: black;
+        margin-bottom: 0;
     }
-    .card>span>.price{
-        text-transform:uppercase;
-        font-weight:bold;
-        font-size:3vh;
-        color:black;
+
+    .card > span > .price {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 3vh;
+        color: black;
     }
-    .card>span>.icons{
-        display:flex;
-        justify-content:space-between;
-        flex-direction:row;
-        width:30%;
+
+    .card > span > .icons {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 30%;
     }
-    .card>span>.icons>a{
-        width:100%;
-        height:80%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        color:black;
+
+    .card > span > .icons > a {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
     }
-    .card>span>.icons>a:hover{
-        background:rgba(124, 103, 255, 1);
-        border:none;
-        border-radius:100px;
+
+    .card > span > .icons > a:hover {
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 100px;
     }
-    .card>span>.icons>a>img{
-        width:40%;
-        height:auto;
-        background:white;
-        border-radius:1px;
-        border:none;
+
+    .card > span > .icons > a > img {
+        width: 40%;
+        height: auto;
+        background: white;
+        border-radius: 1px;
+        border: none;
     }
-    section>#section_adaptiv{
-        display:block;
-        height:60%;
-        background:rgba(124, 103, 255, 1);
-        border:none;
-        border-radius:12px;
-        width:30%;
-        margin-left:35%;
-        margin-top:3%;
-        min-height:40px;
+
+    section > #section_adaptiv {
+        display: block;
+        height: 60%;
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 12px;
+        width: 30%;
+        margin-left: 35%;
+        margin-top: 3%;
+        min-height: 40px;
     }
-    section>button>a{
-        color:white;
+
+    section > button > a {
+        color: white;
     }
-    article{
-        margin-top:5%;
+
+    article {
+        margin-top: 5%;
     }
-    article>span{
-        display:flex;
-        flex-direction:column;
-        justify-content:space-around;
+
+    article > span {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
-    article>span>img{
-        display:none;
+
+    article > span > img {
+        display: none;
     }
-    article>span>p{
-        width:100%;
-        font-size:25px;
+
+    article > span > p {
+        width: 100%;
+        font-size: 25px;
     }
-    .container{
-        width:80%;
-        background:rgba(124, 103, 255, 1);
-        border:none;
-        border-radius:30px;
-        display:flex;
-        justify-content:center;
-        height:15vh;
+
+    .container {
+        width: 80%;
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        height: 15vh;
     }
-    .container>.content{
-        width:80%;
-        display:flex;
-        flex-direction:row;
-        align-items:center;
-        justify-content:space-between;
+
+    .container > .content {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
-    .container>.content>img{
-        height:30%;
+
+    .container > .content > img {
+        height: 30%;
     }
-    .container>.content>img>.text{
-        display:flex;
-        flex-direction:column;
+
+    .container > .content > img > .text {
+        display: flex;
+        flex-direction: column;
     }
-    .container>.content>.text>h3{
-        color:white;
-        font-size:1em;
-        margin-bottom:0;
+
+    .container > .content > .text > h3 {
+        color: white;
+        font-size: 1em;
+        margin-bottom: 0;
     }
-    .container>.content>.text>a{
-        color:white;
+
+    .container > .content > .text > a {
+        color: white;
     }
-    footer{
-        background:rgba(44, 44, 44, 1);
-        margin-top:2%;
+
+    footer {
+        background: rgba(44, 44, 44, 1);
+        margin-top: 2%;
     }
-    footer>.annotation{
-        display:flex;
-        flex-direction:column;
-        color:white;
-        margin-left:5%;
+
+    footer > .annotation {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        margin-left: 5%;
     }
-    footer>.annotation>img{
-        width:70%;
-        height:auto;
+
+    footer > .annotation > img {
+        width: 70%;
+        height: auto;
     }
-    footer>.nav_footer{
-        margin-left:10%;
-        display:flex;
-        flex-direction:row;
-        justify-content:space-around;
+
+    footer > .nav_footer {
+        margin-left: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    footer>.nav_footer>a{
-        color:white;
+
+    footer > .nav_footer > a {
+        color: white;
     }
 
     /* стили для страницы каталогов  */
-    span{
-        margin-bottom:2vh;
-        flex-wrap:wrap;
+    span {
+        margin-bottom: 2vh;
+        flex-wrap: wrap;
     }
-    span>button{
-        width:15%;
-        height:10vh;
-        border-radius:50%;
-        border:none;
-        background:rgba(244, 241, 255, 1);
+
+    span > button {
+        width: 15%;
+        height: 10vh;
+        border-radius: 50%;
+        border: none;
+        background: rgba(244, 241, 255, 1);
     }
-    span>button>a{
-        color:rgba(124, 103, 255, 1);
-        font-size:20px;
-        height:100%;
-        padding:25%;
-        text-align:center;
+
+    span > button > a {
+        color: rgba(124, 103, 255, 1);
+        font-size: 20px;
+        height: 100%;
+        padding: 25%;
+        text-align: center;
     }
-    span>button:hover{
-        background:rgba(124, 103, 255, 1);
-    } 
-    span>button> a:hover{
-        color:rgba(244, 241, 255, 1);
-        font-size:20px;
+
+    span > button:hover {
+        background: rgba(124, 103, 255, 1);
     }
-    form{
-        border:rgba(177, 177, 177, 0.42);
+
+    span > button > a:hover {
+        color: rgba(244, 241, 255, 1);
+        font-size: 20px;
     }
-    form>input{
-        width:100%;
-        height:5vh;
-        text-align:center;
+
+    form {
+        border: rgba(177, 177, 177, 0.42);
     }
-    .types{
-        display:flex;
-        flex-direction:column;
+
+    form > input {
+        width: 100%;
+        height: 5vh;
+        text-align: center;
     }
-    .types>aside{
-        display:none;
-        position:absolute;
+
+    .types {
+        display: flex;
+        flex-direction: column;
     }
-    .types>aside>.container{
-        background:none;
-        display:flex;
-        flex-direction:column;
-        width:100%;
+
+    .types > aside {
+        display: none;
+        position: absolute;
     }
-    .types>aside>.container>h4>b{
-        padding:12px;
-        display:inline-block;
+
+    .types > aside > .container {
+        background: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .types>aside>.container>.slider-track>input{
-        display:inline-block;
-        margin:0 -1.5%;
-    }
-    .types>aside>div{
-        display:flex;
-        flex-direction:column;
-        width:100%;
-    }
-    .types>aside>div>span{
-        justify-content: flex-start;
-        margin-top:1%;
-    }
-    .types>aside>.wrapper>.century{
-        display:flex;
-        flex-direction:row;
-        font-weight:bold;
-        justify-content:space-around;
-    }
-    .types>aside>.wrapper>.container{
-        background:none;
-    }
-    input,label{
+
+    .types > aside > .container > h4 > b {
+        padding: 12px;
         display: inline-block;
     }
-    .types>.catalog{
-        display:flex;
-        flex-direction:column;
-        width:75%;
-        flex-wrap:wrap;
+
+    .types > aside > .container > .slider-track > input {
+        display: inline-block;
+        margin: 0 -1.5%;
     }
-    .types>.catalog>span>a{
-        font-weight:bold;
-        color:black;
-        margin-top:2vh;
-        font-size:larger;
+
+    .types > aside > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .types>.catalog>span>h4{
-        margin-top:0;
+
+    .types > aside > div > span {
+        justify-content: flex-start;
+        margin-top: 1%;
+    }
+
+    .types > aside > .wrapper > .century {
+        display: flex;
+        flex-direction: row;
+        font-weight: 400;
+        justify-content: space-around;
+    }
+
+    .types > aside > .wrapper > .container {
+        background: none;
+    }
+
+    input, label {
+        display: inline-block;
+    }
+
+    .types > .catalog {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        flex-wrap: wrap;
+    }
+
+    .types > .catalog > span > a {
+        font-weight: 400;
+        color: black;
+        margin-top: 2vh;
+        font-size: larger;
+    }
+
+    .types > .catalog > span > h4 {
+        margin-top: 0;
         font-weight: light;
     }
-    .types>.catalog>.params{
-        display:flex;
-        flex-direction:row;
+
+    .types > .catalog > .params {
+        display: flex;
+        flex-direction: row;
         justify-content: flex-start;
     }
-    .types>.catalog>.params>button{
-        height:auto;
-        background:rgba(244, 241, 255, 1);
-        border:none;
-        color:rgba(124, 103, 255, 1);
-        margin-right:1%;
+
+    .types > .catalog > .params > button {
+        height: auto;
+        background: rgba(244, 241, 255, 1);
+        border: none;
+        color: rgba(124, 103, 255, 1);
+        margin-right: 1%;
     }
-    .types>.catalog>section>.gallery{
-        flex-wrap:wrap;
+
+    .types > .catalog > section > .gallery {
+        flex-wrap: wrap;
         overflow: unset;
-        height:3400px;
+        height: 3400px;
     }
-    .types>.catalog>section>.gallery>.card{
-        width:20%;
-        margin:1%;
+
+    .types > .catalog > section > .gallery > .card {
+        width: 20%;
+        margin: 1%;
     }
+
     /*дополнительные стили для витрины*/
-    .product{
-        display:flex;
-        flex-direction:column;
-        width:100%;
+    .product {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .product:first-child{
-        width:100%;
+
+    .product:first-child {
+        width: 100%;
     }
-    .product:nth-child(2){
-        display:flex;
-        flex-direction:row;
-        width:100%;  
+
+    .product:nth-child(2) {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
     }
-    span>.product>span>button{
-        background:rgba(244, 241, 255, 1);
-        border:none;
-        color:rgba(124, 103, 255, 1);
-        margin-right:1%;
-        width:35%;
-        border-radius:0;
-        height:60%;
-        margin-top:2%;
-        padding:1%;
+
+    span > .product > span > button {
+        background: rgba(244, 241, 255, 1);
+        border: none;
+        color: rgba(124, 103, 255, 1);
+        margin-right: 1%;
+        width: 35%;
+        border-radius: 0;
+        height: 60%;
+        margin-top: 2%;
+        padding: 1%;
     }
-    .additional{
-        width:100%;
-        display:flex;
-        flex-direction:row;
+
+    .additional {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
         justify-content: space-around;
-        margin-left:10%;
-        margin-right:2%;
+        margin-left: 10%;
+        margin-right: 2%;
     }
-    .additional>img{
-        margin-bottom:2%;
-        border-radius:2%;
+
+    .additional > img {
+        margin-bottom: 2%;
+        border-radius: 2%;
     }
-    .choose_colors{
-        display:flex;
-        margin-top:5%;
-        margin-left:-20%;
-        width:100%;
-        flex-direction:column-reverse;
+
+    .choose_colors {
+        display: flex;
+        margin-top: 5%;
+        margin-left: -20%;
+        width: 100%;
+        flex-direction: column-reverse;
     }
-    .choose_colors>span{
-        width:100%;
+
+    .choose_colors > span {
+        width: 100%;
     }
-    .choose_colors>span>a{
-        width:10%;
-        height:1%;
-        border-radius:20px;
-        padding:100%;
-        display:block;
+
+    .choose_colors > span > a {
+        width: 10%;
+        height: 1%;
+        border-radius: 20px;
+        padding: 100%;
+        display: block;
     }
-    .price{
-        text-transform:uppercase;
-        font-weight:bold;
-        font-size:3vh;
-        width:15%;
+
+    .price {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 3vh;
+        width: 15%;
     }
-    .price>button,.catalog>button{
-        background:rgba(124, 103, 255, 1);
-        color:rgba(244, 241, 255, 1);
-        border:none;
-        padding:5%;
-        border-radius:5%;
+
+    .price > button, .catalog > button {
+        background: rgba(124, 103, 255, 1);
+        color: rgba(244, 241, 255, 1);
+        border: none;
+        padding: 5%;
+        border-radius: 5%;
     }
-    .price>button>a{
-        color:rgba(244, 241, 255, 1);
+
+    .price > button > a {
+        color: rgba(244, 241, 255, 1);
     }
-    .price>button>a>img{
-        background:rgba(244, 241, 255, 1);
-        border-radius:5%;
+
+    .price > button > a > img {
+        background: rgba(244, 241, 255, 1);
+        border-radius: 5%;
     }
-    .price>p>button{
-        background:rgba(244, 241, 255, 1);
-        border:none;
-        padding:5%;
-        border-radius:5%;
+
+    .price > p > button {
+        background: rgba(244, 241, 255, 1);
+        border: none;
+        padding: 5%;
+        border-radius: 5%;
     }
-    .price>p>button>a{
-        color:rgba(124, 103, 255, 1);
+
+    .price > p > button > a {
+        color: rgba(124, 103, 255, 1);
     }
-    hr{
-        height:5px;
-        border:none;
-        background:rgba(124, 103, 255, 1);
+
+    hr {
+        height: 5px;
+        border: none;
+        background: rgba(124, 103, 255, 1);
     }
-    .catalog>div>span{
-        justify-content:flex-start;
+
+    .catalog > div > span {
+        justify-content: flex-start;
     }
-    .catalog>button>a{
-        color:white;
+
+    .catalog > button > a {
+        color: white;
     }
-    span>aside{
-        display:flex;
-        flex-direction:column-reverse;
-        width:100%;
-        align-items:flex-start;
+
+    span > aside {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        align-items: flex-start;
     }
-    span>.catalog{
-        flex-direction:column;
+
+    span > .catalog {
+        flex-direction: column;
     }
 }
 

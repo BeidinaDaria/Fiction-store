@@ -5,135 +5,209 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-    <title>Fiction-store</title>
+    <title>FictionStore</title>
 </head>
 <body>
-    
-    <header>
-        <span>
-            <a href="#">О проекте</a>
-            <a href="#">Контакты</a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">GitHub</a>
-        </span>
-        <div class="navigator">
-            <img src="static/img/logo2.svg">
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/Catalog.svg"></button>
-            <nav class="hide">
+
+<header>
+    <div class="navigator">
+        <img src="static/img/logo.svg">
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/Catalog.svg"></button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/home.svg">
-                    <a href="index">Главная</a>
+                    <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/Search.svg">
                     <a href="#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/favourite.svg">
                     <a href="favourites">Избранное (10)</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/backets.svg">
                     <a href="basket">Корзина (4)</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/Profile.svg">
                     <a href="#">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Ищите <b>любые</b> несуществующие изобретения!</h1>
-            <form action="product">
-                <select id="searchCharacter">
-                    <option>Каталог</option>
-                    <option>Избранное</option>
-                    <option>Sales</option>
-                    <option>Картины</option>
-                    <option>Модель</option>
-                </select>
-                <input type="text" method="GET" name="search" placeholder="Название товара" id="search">
-                <button id="search" onclick="searchInfo()"><img src="static/img/arrow.svg"></button>
-            </form>
-        <p>Попробуйте: <a href="product" id="1">tardis</a></p>
-    </main>
-    <section>
-        <div class="head">
+        </nav>
+    </div>
+</header>
+<main>
+    <h1>Ищите <b>любые</b> несуществующие изобретения!</h1>
+    <form class="searcher" action="product">
+        <select id="searchCharacter">
+            <option>Каталог</option>
+            <option>Избранное</option>
+            <option>Sales</option>
+            <option>Картины</option>
+            <option>Модель</option>
+        </select>
+        <input type="text" method="GET" name="search" placeholder="Название товара" id="search">
+        <button id="search" onclick="searchInfo()"><img src="static/img/arrow.svg"></button>
+    </form>
+    <p>Попробуйте: <a href="product" id="1">tardis</a></p>
+</main>
+<section>
+    <div class="head">
             <span>
-                <img src="static/img/telega.svg" alt="">
-                <h3>Что у нас есть</h3>
+                <h3>🛒 Что у нас есть</h3>
             </span>
-            <button><a href="catalog" >Весь каталог</a></button>
+        <button><a href="catalog">Весь каталог</a></button>
+    </div>
+    <div class="gallery">
+        <div class="card">
+            <a href="product">
+                <img src="static/img/invention.png" alt="">
+                <h4>Машина времени</h4>
+            </a>
+            <p>Это искривленное пространство-время, иначе говоря — «червоточины». Ученые представляют их как туннели
+                между удаленными точками пространства-времени.</p>
         </div>
-        <div class="gallery">
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/invention.png" alt="">
-                    <h4>Машина времени</h4>
-                </a>
-                <p>Это искривленное пространство-время, иначе говоря — «червоточины». Ученые представляют их как туннели между удаленными точками пространства-времени.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Neuralyzer (1).png" alt="">
-                    <h4>Нейтрализатор</h4>
-                </a>
-                <p>Специальное устройство, созданное с помощью инопланетных технологий и используемое агентами ЛВЧ в целях конспирации. Устройство выдает сильную 
-                    вспышку, воздействующую на мозг и "стирающую" память.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Portal (1).png" alt="">
-                    <h4>Портал</h4>
-                </a>
-                <p>Структура, позволяющая игроку попадать в другие измерения. Благодаря такому прибору и вы могли бы повстречать другие версии себя.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Flying car (1).png" alt="">
-                    <h4>Летающий автомобиль</h4>
-                </a>
-                <p>Транспортное средство, сочетающее в себе свойства автомобиля и летательного аппарата. Причём, соотношение этих свойств у различных моделей может 
+        <div class="card">
+            <a href="product">
+                <img src="static/img/Neuralyzer (1).png" alt="">
+                <h4>Нейтрализатор</h4>
+            </a>
+            <p>Специальное устройство, созданное с помощью инопланетных технологий и используемое агентами ЛВЧ в целях
+                конспирации. Устройство выдает сильную
+                вспышку, воздействующую на мозг и "стирающую" память.</p>
+        </div>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/Portal (1).png" alt="">
+                <h4>Портал</h4>
+            </a>
+            <p>Структура, позволяющая игроку попадать в другие измерения. Благодаря такому прибору и вы могли бы
+                повстречать другие версии себя.</p>
+        </div>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/Flying car (1).png" alt="">
+                <h4>Летающий автомобиль</h4>
+            </a>
+            <p>Транспортное средство, сочетающее в себе свойства автомобиля и летательного аппарата. Причём, соотношение
+                этих свойств у различных моделей может
+                быть различным.</p>
+        </div>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/A device that changes people's behavior (1).png" alt="">
+                <h4> Устройство, меняющее поведение людей</h4>
+            </a>
+            <p>Прибор, заставляющий людей вести себя не так, как обычно. Благодаря воздействию этого устройства ребенок
+                точно бы не стал выпрашивать новые игрушки
+                в магазине или отказываться убирать в своей комнате.</p>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="head">
+            <span>
+                <h3>🔥 Бестселлеры</h3>
+            </span>
+        <button><a href="catalog.html">Весь каталог</a></button>
+    </div>
+    <div class="gallery">
+        <div class="card">
+            <a href="product">
+                <img src="static/img/invention.png" alt="">
+                <span>
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">   
+                        <p>4.8</p>
+                    </span>
+                <p>Машина времени - это искривленное пространство-время, иначе говоря — «червоточины». Ученые
+                    представляют их как туннели между удаленными точками
+                    пространства-времени.</p>
+            </a>
+            <span>
+                    <div class="price">
+                        <p>77 &#8381;</p>
+                    </div>
+                    <div class="icons">
+                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
+                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
+                    </div>
+                </span>
+        </div>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/A device to combat improper eating (1).png" alt="">
+                <span>
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">   
+                        <p>4.8</p>
+                    </span>
+                <p>Стоит вам только потянуться к шоколадке, устройство для борьбы с неправильным питанием заметит
+                    начавшееся слюноотделение и усиленное
+                    сердцебиение, и тут же отправит вам предупреждение.</p>
+            </a>
+            <span>
+                    <div class="price">
+                        <p>77 &#8381;</p>
+                    </div>
+                    <div class="icons">
+                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
+                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
+                    </div>
+                </span>
+        </div>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/Flying car (1).png" alt="">
+                <span>
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">   
+                        <p>4.8</p>
+                    </span>
+                <p>Летающий автомобиль сочетает в себе свойства автомобиля и летательного аппарата. Причём, соотношение
+                    этих свойств у различных моделей может
                     быть различным.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/A device that changes people's behavior (1).png" alt="">
-                    <h4> Устройство, меняющее поведение людей</h4>
-                </a>
-                <p>Прибор, заставляющий людей вести себя не так, как обычно. Благодаря воздействию этого устройства ребенок точно бы не стал выпрашивать новые игрушки 
-                    в магазине или отказываться убирать в своей комнате.</p>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="head">
+            </a>
             <span>
-                <img src="static/img/fire.svg">
-                <h3>Бестселлеры</h3>
-            </span>
-            <button><a href="catalog.html">Весь каталог</a></button>
+                    <div class="price">
+                        <p>77 &#8381;</p>
+                    </div>
+                    <div class="icons">
+                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
+                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
+                    </div>
+                </span>
         </div>
-        <div class="gallery">
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/invention.png" alt="">
-                     <span>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/Health monitoring rings (1).png" alt="">
+                <span>
                         <img src="static/img/star.svg" alt="">
                         <img src="static/img/star.svg" alt="">
                         <img src="static/img/star.svg" alt="">
                         <img src="static/img/star.svg" alt="">
                         <img src="static/img/star.svg" alt="">   
                         <p>4.8</p>
-                    </span> 
-                    <p>Машина времени - это искривленное пространство-время, иначе говоря — «червоточины». Ученые представляют их как туннели между удаленными точками 
-                        пространства-времени.</p>
-                </a>
-                <span>
+                    </span>
+                <p>Кольцо, следящие за состоянием здоровья, меняет цвет каждый раз, когда вы находитесь в среде, которая
+                    негативно влияет на микрофлору, намекая,
+                    что вам лучше уйти или хотя бы помыть руки.</p>
+            </a>
+            <span>
                     <div class="price">
                         <p>77 &#8381;</p>
                     </div>
@@ -142,107 +216,36 @@
                         <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
                     </div>
                 </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/A device to combat improper eating (1).png" alt="">
-                     <span>
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">   
-                        <p>4.8</p>
-                    </span> 
-                    <p>Стоит вам только потянуться к шоколадке, устройство для борьбы с неправильным питанием заметит начавшееся слюноотделение и усиленное 
-                        сердцебиение, и тут же отправит вам предупреждение.</p>
-                </a>
-                <span>
-                    <div class="price">
-                        <p>77 &#8381;</p>
-                    </div>
-                    <div class="icons">
-                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
-                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
-                    </div>
-                </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Flying car (1).png" alt="">
-                     <span>
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">   
-                        <p>4.8</p>
-                    </span> 
-                    <p>Летающий автомобиль сочетает в себе свойства автомобиля и летательного аппарата. Причём, соотношение этих свойств у различных моделей может 
-                        быть различным.</p>
-                </a>
-                <span>
-                    <div class="price">
-                        <p>77 &#8381;</p>
-                    </div>
-                    <div class="icons">
-                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
-                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
-                    </div>
-                </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Health monitoring rings (1).png" alt="">
-                     <span>
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">   
-                        <p>4.8</p>
-                    </span> 
-                    <p>Кольцо, следящие за состоянием здоровья, меняет цвет каждый раз, когда вы находитесь в среде, которая негативно влияет на микрофлору, намекая, 
-                        что вам лучше уйти или хотя бы помыть руки.</p>
-                </a>
-                <span>
-                    <div class="price">
-                        <p>77 &#8381;</p>
-                    </div>
-                    <div class="icons">
-                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
-                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
-                    </div>
-                </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Thought-reading implants (1).png" alt="">
-                     <span>
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">
-                        <img src="static/img/star.svg" alt="">   
-                        <p>4.8</p>
-                    </span> 
-                    <p>Больше не придется спрашивать, как настроение у вашей жены или мужа — вы будете просто о нем знать, благодаря имплантам позволяющим читать его 
-                        или её мысли.</p>
-                </a>
-                <span>
-                    <div class="price">
-                        <p>77 &#8381;</p>
-                    </div>
-                    <div class="icons">
-                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
-                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
-                    </div>
-                </span>
-            </div>
         </div>
-        <button id="nav_adaptiv"><a href="catalog.html">Весь каталог</a></button>
-    </section>
-    <article>
+        <div class="card">
+            <a href="product">
+                <img src="static/img/Thought-reading implants (1).png" alt="">
+                <span>
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">
+                        <img src="static/img/star.svg" alt="">   
+                        <p>4.8</p>
+                    </span>
+                <p>Больше не придется спрашивать, как настроение у вашей жены или мужа — вы будете просто о нем знать,
+                    благодаря имплантам позволяющим читать его
+                    или её мысли.</p>
+            </a>
+            <span>
+                    <div class="price">
+                        <p>77 &#8381;</p>
+                    </div>
+                    <div class="icons">
+                        <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
+                        <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>                  
+                    </div>
+                </span>
+        </div>
+    </div>
+    <button id="nav_adaptiv"><a href="catalog.html">Весь каталог</a></button>
+</section>
+<article>
         <span>
             <img src="static/img/logo.svg" alt="">
             <p>FictionStore – это развлекательный продукт с примесью веселья и волшебства, где вы сможете приобрести несуществующие в реальном мире товары и не только.
@@ -250,57 +253,58 @@
                 двигателя, картинки или постеры с увлекательными приспособлениями. Также вы можете создать свою коллекцию моделей устройств, представленных на нашем 
                 сайте. Все, что вам нужно это воспользоваться удобным поиском на сайте, выбрать понравившийся вам товар и заказать.</p>
         </span>
-    </article>
-    <div class="container">
-        <div class="content">
-            <img src="static/img/github_logo.png" alt="">
-            <img src="static/img/github.svg" alt="">
-            <div class="text">
+</article>
+<div class="container">
+    <div class="content">
+        <img src="static/img/github_logo.png" alt="">
+        <img src="static/img/github.svg" alt="">
+        <div class="text">
             <h3>Следите за FictionStore</h3>
             <a href="https://github.com/BeidinaDaria/Fiction-store">Переходите на наш репозиторий</a>
-            </div>
         </div>
     </div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="#"><p>О проекте</p></a>
-            <a href="#"><p>Контакты</p></a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git"><p>GitHub</p></a>         
-        </div>
-    </footer>
-    <script>
-        function searchInfo(){
-            console.log("searching...");
-            window.location.replace("product");
-            let info=document.getElementById("searchCharacter").value+document.getElementById("search").value;
-            let acc=JSON.stringify(info);
-            let request;
-            if(window.XMLHttpRequest){
-                request = new XMLHttpRequest();
-            }
-            else{
-                request = new ActiveXObject("Microsoft.XMLHTTP");
-            };
-            request.open("GET", "/");
-            request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            request.onreadystatechange = function(){
-            if(request.readyState === 4 && request.status == 200){
-                let product = request.response;
-                localStorage.setItem("product",product);
-                }
-            }
-            request.send("search="+info);
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="#"><p>О проекте</p></a>
+        <a href="#"><p>Контакты</p></a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git"><p>GitHub</p></a>
+    </div>
+</footer>
+<script>
+    function searchInfo() {
+        console.log("searching...");
+        window.location.replace("product");
+        let info = document.getElementById("searchCharacter").value + document.getElementById("search").value;
+        let acc = JSON.stringify(info);
+        let request;
+        if (window.XMLHttpRequest) {
+            request = new XMLHttpRequest();
+        } else {
+            request = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        function adaptivMenu(){
-            let navig=document.querySelector("nav");
-            if (navig.className=="show")
-                navig.className='hide';
-            else navig.className='show';
-        };
-    </script>
+        ;
+        request.open("GET", "/");
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status == 200) {
+                let product = request.response;
+                localStorage.setItem("product", product);
+            }
+        }
+        request.send("search=" + info);
+    }
+
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
+</script>
 </body>
 </html>
