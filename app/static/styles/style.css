@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+	font-family: 'Jost'; 
+	src: url(../fonts/Jost-VariableFont_wght.ttf); 
+}
 
 body, html {
     margin: 0;
@@ -706,11 +709,6 @@ body, html {
 }
 
 @media (max-width: 899px) {
-    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
-    * {
-        font-family: 'Jost', sans-serif;
-    }
-
     body {
         overflow-x: hidden;
     }

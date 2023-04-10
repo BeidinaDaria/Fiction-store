@@ -1,14 +1,17 @@
-from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+
+# INITIALIZING
 
 # init application
 app = Flask(__name__)
 
 # load config
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../app/database/fiction_store.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_pyfile("config.cfg")
 
 # init database
 db = SQLAlchemy(app)
 
+# init controllers
 from . import controllers

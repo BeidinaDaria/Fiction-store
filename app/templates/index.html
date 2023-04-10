@@ -43,7 +43,7 @@
 </header>
 <main>
     <h1>Ищите <b>любые</b> несуществующие изобретения!</h1>
-    <form class="searcher" action="product">
+    <form class="searcher" action="catalog">
         <select id="searchCharacter">
             <option>Каталог</option>
             <option>Избранное</option>
@@ -278,7 +278,7 @@
 <script>
     function searchInfo() {
         console.log("searching...");
-        window.location.replace("product");
+        window.location.replace("catalog");
         let info = document.getElementById("searchCharacter").value + document.getElementById("search").value;
         let acc = JSON.stringify(info);
         let request;
@@ -287,13 +287,12 @@
         } else {
             request = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        ;
         request.open("GET", "/");
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status == 200) {
-                let product = request.response;
-                localStorage.setItem("product", product);
+                let catalog = request.response;
+                localStorage.setItem("catalog", catalog);
             }
         }
         request.send("search=" + info);
@@ -302,8 +301,8 @@
     function adaptivMenu() {
         let navig = document.querySelector("nav");
         if (navig.className == "show")
-            navig.className = 'hide';
-        else navig.className = 'show';
+            navig.className = "hide";
+        else navig.className = "show";
     };
 </script>
 </body>
