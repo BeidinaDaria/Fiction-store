@@ -5,38 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>showcase</title>
-    <link rel="stylesheet" href="..static/styles/style.css">
+    <link rel="stylesheet" href="static/styles/style.css">
+    <title>Название продукта</title>
 </head>
 
 <body>
     <header>
-       <div class="navigator">
-            <img src="..static/img/logo.svg">
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="..static/img/Catalog.svg"></button>
+        <div class="navigator">
+            <img src="static/img/logo.svg">
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/Catalog.svg"></button>
             <nav class="hide">
                 <span>
-                    <img src="..static/img/home.svg">
+                    <img src="static/img/home.svg">
                     <a href="/">Главная</a>
                 </span>
                 <span>
-                    <img src="..static/img/Catalog.svg">
+                    <img src="static/img/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
                 <span>
-                    <img scr="..static/img/Search.svg">
+                    <img scr="static/img/Search.svg">
                     <a href="index">Поиск</a>
                 </span>
                 <span>
-                    <img src="..static/img/favourite.svg">
+                    <img src="static/img/favourite.svg">
                     <a href="favourites">Избранное (10)</a>
                 </span>
                 <span>
-                    <img src="..static/img/backets.svg">
+                    <img src="static/img/backets.svg">
                     <a href="basket">Корзина (4)</a>
                 </span>
                 <span>
-                    <img src="..static/img/Profile.svg">
+                    <img src="static/img/Profile.svg">
                     <a href="entrance">Профиль</a>
                 </span>
             </nav>
@@ -45,32 +45,33 @@
     <main>
         <h1>Витрина</h1>
     </main>
-    <h2>Tardis - Time and Relative Dimension in Space</h2>
+
+    <h2>{{ item.title }}</h2>
     <span style="width:100%;">
         <div class="product">
             <span style="width:70%">
-                <img src="..static/img/star.svg" alt="">
-                <img src="..static/img/star.svg" alt="">
-                <img src="..static/img/star.svg" alt="">
-                <img src="..static/img/star.svg" alt="">
-                <img src="..static/img/star.svg" alt="">
+                <img src="static/img/star.svg" alt="">
+                <img src="static/img/star.svg" alt="">
+                <img src="static/img/star.svg" alt="">
+                <img src="static/img/star.svg" alt="">
+                <img src="static/img/star.svg" alt="">
                 <p>4.8</p>
-                <a href="#" style="margin-top:2%;">21 отзыв</a>
-                <button><img src="..static/img/favourite.svg">Убрать из избранного</button>
+                <a href="#" style="margin-top:2%;">{{ item.comments|length }}</a>
+                <button><img src="static/img/favourite.svg">Убрать из избранного</button>
             </span>
 
             <span style="width:35%;margin-left:15%;">
                 <div class="additional">
-                    <img src="..static/img/invention.png" width="100" height="108">
-                    <img src="..static/img/invention.png" width="100" height="108">
-                    <img src="..static/img/invention.png" width="100" height="108">
+                    {% for image in item.images[1:] %}
+                    <img src="{{ image }}" width="100" height="108">
+                    {% endfor %}
                 </div>
-                <img src="..static/img/invention.png" width="300" height="333">
+                <img src="{{ item.images.0 }}" width="300" height="333">
             </span>
         </div>
         <aside>
             <div class="choose_color">
-                <h3>Цвет:Синий</h3>
+                <h3>Цвет:{% for color in item.colors %}{{ color }}{% endfor %}</h3>
                 <span>
                     <a style="background:blue;color:blue">aaaa</a>
                     <a style="background:rgba(57, 158, 21, 1);color:rgba(57, 158, 21, 1)">aaaa</a>
@@ -98,10 +99,10 @@
             </div>
 
             <div class="price">
-                <p>77 ₽</p>
+                <p>{{ item.price }}</p>
 
                 <button>
-                    <a href="#"><img src="..static/img/telega_small.svg">В корзину</a>
+                    <a href="#"><img src="static/img/telega_small.svg">В корзину</a>
                 </button>
                 <p><button><a href="#">Быстрый заказ</a></button></p>
             </div>
@@ -110,23 +111,23 @@
 
     <div class="description">
         <h2><b>Описание</b></h2>
-        <h4>Это искривленное пространство-время, иначе говоря — «червоточины». Ученые представляют их как туннели между удаленными точками пространства-времени.</h4>
+        <h4>{{ item.description }}</h4>
     </div>
     <span>
         <aside style="width:50%">
             <div class="reviews">
-                <h2>Отзывы(21)</h2>
+                <h2>Отзывы({{ item.comments|length }})</h2>
                 <span>
-                    <button><a href="#"><img src="..static/img/bukva k v krujke"></a></button>
+                    <button><a href="#"><img src="static/img/bukva k v krujke"></a></button>
                     <h4>Кристофер</h4>
                     <p>
                     <h5>17 ноября</h5>
                     </p>
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
                 </span>
                 <h4><b>Преимущества</b></h4>
 
@@ -150,16 +151,16 @@
 
 
                 <span>
-                    <button width="300"><a href="#"><img src="..static/img/bukva k v krujke"></a></button>
+                    <button width="300"><a href="#"><img src="static/img/bukva k v krujke"></a></button>
                     <h4>Екатерина II</h4>
                     <p>
                     <h5>17 ноября</h5>
                     </p>
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
-                    <img src="..static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
+                    <img src="static/img/star.svg" alt="">
                 </span>
                 <h4><b>Преимущества</b></h4>
 
@@ -179,9 +180,9 @@
 
         <div class="catalog">
             <span>
-                <img src="..static/img/like.jpg">
+                <img src="static/img/like.jpg">
                 <b>4.8</b>
-                <h5>основано на 21 оценке</h5>
+                <h5>основано на {{ item.comments|length }} оценке</h5>
             </span>
             <div style="width:100%">
                 <span>
@@ -215,12 +216,13 @@
                     </p>
                 </span>
             </div>
-            <button><a href="#"><img src="..static/img/star.svg">Оставить отзыв</a></button>
+            <button><a href="#"><img src="static/img/star.svg">Оставить отзыв</a></button>
         </div>
     </span>
+
     <footer>
         <div class="annotation">
-            <img src="..static/img/white_logo.png">
+            <img src="static/img/white_logo.png">
             <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
         </div>
         <div class="nav_footer">
