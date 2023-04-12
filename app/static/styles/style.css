@@ -102,7 +102,7 @@ body, html {
 
     main {
         height: 70vh;
-        background: url(../img/kruzhochki.svg);
+        background: url(../img/gui/kruzhochki.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: scroll;
@@ -787,7 +787,7 @@ body, html {
 
     main {
         height: 40vh;
-        background: url(../img/kruzhochki_mob.svg);
+        background: url(../img/gui/kruzhochki_mob.svg);
         background-position: bottom;
         margin-top: 0;
         display: flex;

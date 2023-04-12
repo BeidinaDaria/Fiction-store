@@ -12,31 +12,31 @@
 <body>
     <header>
         <div class="navigator">
-            <img src="static/img/logo.svg">
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/Catalog.svg"></button>
+            <img src="static/img/gui/logo.svg">
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
             <nav class="hide">
                 <span>
-                    <img src="static/img/home.svg">
+                    <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
                 <span>
-                    <img src="static/img/Catalog.svg">
+                    <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
                 <span>
-                    <img src="static/img/Search.svg">
+                    <img src="static/img/gui/Search.svg">
                     <a href="#search">Поиск</a>
                 </span>
                 <span>
-                    <img src="static/img/favourite.svg">
+                    <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное (10)</a>
                 </span>
                 <span>
-                    <img src="static/img/backets.svg">
+                    <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина (4)</a>
                 </span>
                 <span>
-                    <img src="static/img/Profile.svg">
+                    <img src="static/img/gui/Profile.svg">
                     <a href="entrance">Профиль</a>
                 </span>
             </nav>
@@ -150,22 +150,22 @@
                             <img src="{{ item.images.0 }}" alt="">
                             <h4>{{ item.title }}</h4>
                             <span>
-                                <img src="static/img/star.svg" alt="">
-                                <img src="static/img/star.svg" alt="">
-                                <img src="static/img/star.svg" alt="">
-                                <img src="static/img/star.svg" alt="">
-                                <img src="static/img/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
                                 <p>4.8</p>
                             </span>
-                            <p>{{ item.description }}</p>
+                            <p>{{ item.description[:150] }}…</p>
                         </a>
                         <span>
                             <div class="price">
                                 <p>{{ item.price }}</p>
                             </div>
                             <div class="icons">
-                                <a href='#'> <img src="static/img/telega_small.svg" alt=""> </a>
-                                <a href='#'><img src="static/img/favourite_small.svg" alt=""> </a>
+                                <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
+                                <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>
                             </div>
                         </span>
                     </div>
@@ -178,7 +178,7 @@
     </div>
     <footer>
         <div class="annotation">
-            <img src="static/img/white_logo.png">
+            <img src="static/img/gui/white_logo.png">
             <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
         </div>
         <div class="nav_footer">

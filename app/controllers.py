@@ -1,16 +1,16 @@
-import json
 from app import app, db
-from flask import render_template, request
 from .models import Items
+from flask import render_template, request
+from sqlalchemy import func
 
 
 #   APP ROUTING
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
-@app.route('/product')
+@app.route('/product', methods=['GET'])
 def product():
     req = request.args.get('id')
     item = db.session.query(Items).filter(Items.id == req).first()
@@ -19,7 +19,7 @@ def product():
 @app.route('/catalog', methods=['GET'])
 def catalog():
     req = request.args.get('search')
-    items = db.session.query(Items).filter(Items.title == req).all() \
+    items = db.session.query(Items).filter(func.lower(Items.title) == req.lower()).all() \
             if req else db.session.query(Items).all()
     # TODO: Добавить вёрстку в случае, когда по запросу ничего не найдено
     return render_template('catalog.html', items=items)
