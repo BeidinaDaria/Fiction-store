@@ -6,9 +6,13 @@ from sqlalchemy import func
 
 #   APP ROUTING
 
+
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    items = db.session.query(Items).limit(5).all()
+    # TODO: Пока что сортировка по цене, а не рейтингу в комментариях
+    best_items = db.session.query(Items).order_by(Items.price).limit(5).all()
+    return render_template('index.html', items=items, best_items=best_items)
 
 @app.route('/product', methods=['GET'])
 def product():

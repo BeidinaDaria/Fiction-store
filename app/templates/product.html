@@ -63,10 +63,10 @@
             <span style="width:35%;margin-left:15%;">
                 <div class="additional">
                     {% for image in item.images[1:] %}
-                    <img src="{{ image }}" width="100" height="108">
+                    <img src="/static/img/items/{{ image }}" width="100" height="108">
                     {% endfor %}
                 </div>
-                <img src="{{ item.images.0 }}" width="300" height="333">
+                <img src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
         </div>
         <aside>

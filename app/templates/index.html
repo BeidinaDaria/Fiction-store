@@ -65,49 +65,19 @@
             <button><a href="catalog">Весь каталог</a></button>
         </div>
         <div class="gallery">
+
+            {% for item in items %}
+
             <div class="card">
-                <a href="product">
-                    <img src="static/img/invention.png" alt="">
-                    <h4>Машина времени</h4>
+                <a href="product?id={{ item.id }}">
+                    <img src="/static/img/items/{{ item.images.0 }}" alt="">
+                    <h4>{{ item.title }}</h4>
                 </a>
-                <p>Это искривленное пространство-время, иначе говоря — «червоточины». Ученые представляют их как туннели
-                    между удаленными точками пространства-времени.</p>
+                <p>{{ item.description[:150] }}…</p>
             </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Neuralyzer (1).png" alt="">
-                    <h4>Нейтрализатор</h4>
-                </a>
-                <p>Специальное устройство, созданное с помощью инопланетных технологий и используемое агентами ЛВЧ в целях
-                    конспирации. Устройство выдает сильную
-                    вспышку, воздействующую на мозг и "стирающую" память.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Portal (1).png" alt="">
-                    <h4>Портал</h4>
-                </a>
-                <p>Структура, позволяющая игроку попадать в другие измерения. Благодаря такому прибору и вы могли бы
-                    повстречать другие версии себя.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Flying car (1).png" alt="">
-                    <h4>Летающий автомобиль</h4>
-                </a>
-                <p>Транспортное средство, сочетающее в себе свойства автомобиля и летательного аппарата. Причём, соотношение
-                    этих свойств у различных моделей может
-                    быть различным.</p>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/A device that changes people's behavior (1).png" alt="">
-                    <h4> Устройство, меняющее поведение людей</h4>
-                </a>
-                <p>Прибор, заставляющий людей вести себя не так, как обычно. Благодаря воздействию этого устройства ребенок
-                    точно бы не стал выпрашивать новые игрушки
-                    в магазине или отказываться убирать в своей комнате.</p>
-            </div>
+
+            {% endfor%}
+
         </div>
     </section>
     <section>
@@ -118,9 +88,12 @@
             <button><a href="catalog">Весь каталог</a></button>
         </div>
         <div class="gallery">
+
+            {% for item in best_items %}
+
             <div class="card">
-                <a href="product">
-                    <img src="static/img/invention.png" alt="">
+                <a href="product?id={{ item.id }}">
+                    <img src="/static/img/items/{{ item.images.0 }}" alt="">
                     <span>
                             <img src="static/img/gui/star.svg" alt="">
                             <img src="static/img/gui/star.svg" alt="">
@@ -129,13 +102,11 @@
                             <img src="static/img/gui/star.svg" alt="">   
                             <p>4.8</p>
                         </span>
-                    <p>Машина времени - это искривленное пространство-время, иначе говоря — «червоточины». Ученые
-                        представляют их как туннели между удаленными точками
-                        пространства-времени.</p>
+                    <p>{{ item.title }} — {{ item.description[:150 - (item.title|length)] }}…</p>
                 </a>
                 <span>
                         <div class="price">
-                            <p>77 &#8381;</p>
+                            <p>{{ item.price }} &#8381;</p>
                         </div>
                         <div class="icons">
                             <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
@@ -143,106 +114,9 @@
                         </div>
                     </span>
             </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/A device to combat improper eating (1).png" alt="">
-                    <span>
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">   
-                            <p>4.8</p>
-                        </span>
-                    <p>Стоит вам только потянуться к шоколадке, устройство для борьбы с неправильным питанием заметит
-                        начавшееся слюноотделение и усиленное
-                        сердцебиение, и тут же отправит вам предупреждение.</p>
-                </a>
-                <span>
-                        <div class="price">
-                            <p>77 &#8381;</p>
-                        </div>
-                        <div class="icons">
-                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>                  
-                        </div>
-                    </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Flying car (1).png" alt="">
-                    <span>
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">   
-                            <p>4.8</p>
-                        </span>
-                    <p>Летающий автомобиль сочетает в себе свойства автомобиля и летательного аппарата. Причём, соотношение
-                        этих свойств у различных моделей может
-                        быть различным.</p>
-                </a>
-                <span>
-                        <div class="price">
-                            <p>77 &#8381;</p>
-                        </div>
-                        <div class="icons">
-                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>                  
-                        </div>
-                    </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Health monitoring rings (1).png" alt="">
-                    <span>
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">   
-                            <p>4.8</p>
-                        </span>
-                    <p>Кольцо, следящие за состоянием здоровья, меняет цвет каждый раз, когда вы находитесь в среде, которая
-                        негативно влияет на микрофлору, намекая,
-                        что вам лучше уйти или хотя бы помыть руки.</p>
-                </a>
-                <span>
-                        <div class="price">
-                            <p>77 &#8381;</p>
-                        </div>
-                        <div class="icons">
-                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>                  
-                        </div>
-                    </span>
-            </div>
-            <div class="card">
-                <a href="product">
-                    <img src="static/img/Thought-reading implants (1).png" alt="">
-                    <span>
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">   
-                            <p>4.8</p>
-                        </span>
-                    <p>Больше не придется спрашивать, как настроение у вашей жены или мужа — вы будете просто о нем знать,
-                        благодаря имплантам позволяющим читать его
-                        или её мысли.</p>
-                </a>
-                <span>
-                        <div class="price">
-                            <p>77 &#8381;</p>
-                        </div>
-                        <div class="icons">
-                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>                  
-                        </div>
-                    </span>
-            </div>
+
+            {% endfor %}
+
         </div>
         <button id="nav_adaptiv"><a href="catalog">Весь каталог</a></button>
     </section>
