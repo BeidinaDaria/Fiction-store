@@ -139,14 +139,14 @@ body, html {
         box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.1);
     }
 
-    main > form  select {
+    main > form>select {
         border-top-left-radius: 100px;
         border-bottom-left-radius: 100px;
         width: 30%;
         text-align: center;
     }
 
-    main > form input, main > form select {
+    main > form>input, main > form> select {
         position: static;
         height: 100%;
         align-items: top;
@@ -154,12 +154,12 @@ body, html {
         border: none;
     }
 
-    main > form input {
+    main > form>input {
         height: 96%;
         width: 70%;
     }
 
-    main > form button {
+    main > form>button {
         height: 100%;
         line-height: normal;
         display: inline-block;
@@ -172,7 +172,7 @@ body, html {
         background: rgba(255, 255, 255, 0.5);
     }
 
-    main > form button > img {
+    main > form>button > img {
         height: 80%;
         width: auto;
         line-height: normal;
@@ -408,28 +408,40 @@ body, html {
     }
 
     span > button {
-        width: 12%;
-        height: 22vh;
+        width: 190px;
+        height: 190px;
         border-radius: 50%;
-        border: none;
-        background: rgba(244, 241, 255, 1);
+        border-color:rgba(30, 30, 30, 1);
+        background:none;
+        display:flex;
+        justify-content: center;
     }
 
     span > button > a {
-        color: rgba(124, 103, 255, 1);
-        font-size: 30px;
-        height: 100%;
+        color: rgba(30, 30, 30, 1);
+        font-size: 35px;
         padding: 25%;
+        height:100%;
         text-align: center;
+        border-radius: 50%;
+        align-items:center;
     }
 
     span > button:hover {
         background: rgba(124, 103, 255, 1);
+        border:none;
+        display:flex;
+        align-content:center;
+        justify-content: center;
     }
 
     span > button > a:hover {
         color: rgba(244, 241, 255, 1);
-        font-size: 30px;
+        font-size: 35px;
+        padding: 25%;
+        text-align: center;
+        border-radius: 50%;
+        align-content:center;
     }
 
     form {
@@ -584,6 +596,7 @@ body, html {
 
     .types > .catalog > section > .gallery {
         height: 2000px;
+        max-height: fit-content;
     }
 
     .catalog > section > .gallery {
@@ -1091,32 +1104,47 @@ body, html {
     /* стили для страницы каталогов  */
     span {
         margin-bottom: 2vh;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     span > button {
-        width: 15%;
-        height: 10vh;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
-        border: none;
-        background: rgba(244, 241, 255, 1);
+        border-color:rgba(30, 30, 30, 1);
+        background:none;
+        justify-content: center;
+        display:flex;
+        flex-wrap:wrap;
     }
 
     span > button > a {
-        color: rgba(124, 103, 255, 1);
-        font-size: 20px;
-        height: 100%;
+        color: rgba(30, 30, 30, 1);
+        font-size: 120%;
         padding: 25%;
+        height:100%;
         text-align: center;
+        border-radius: 50%;
+        align-items:center;
     }
 
     span > button:hover {
         background: rgba(124, 103, 255, 1);
+        display:flex;
+        border:none;
+        align-items:center;
+        justify-content: center;
+        min-width: 100px;
+        min-height: 100px;
     }
 
     span > button > a:hover {
         color: rgba(244, 241, 255, 1);
-        font-size: 20px;
+        font-size: 120%;
+        height:100%;
+        padding: 25%;
+        text-align: center;
+        align-items:center;
     }
 
     form {
@@ -1186,6 +1214,7 @@ body, html {
         display: flex;
         flex-direction: column;
         width: 75%;
+        height:fit-content;
         flex-wrap: wrap;
     }
 
