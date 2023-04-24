@@ -37,7 +37,7 @@
                 </span>
                 <span>
                     <img src="static/img/gui/Profile.svg">
-                    <a href="entrance">Профиль</a>
+                    <a href="profile">Профиль</a>
                 </span>
             </nav>
         </div>
@@ -56,7 +56,7 @@
                 <img src="static/img/gui/star.svg" alt="">
                 <img src="static/img/gui/star.svg" alt="">
                 <p>4.8</p>
-                <a href="#" style="margin-top:2%;">{{ item.comments|length }}</a>
+                <a href="#" style="margin-top:2%;">/{/{ item.comments|length /}/}</a>
                 <button><img src="static/img/gui/favourite.svg">Убрать из избранного</button>
             </span>
 
@@ -116,7 +116,7 @@
     <span>
         <aside style="width:50%">
             <div class="reviews">
-                <h2>Отзывы({{ item.comments|length }})</h2>
+                <h2>Отзывы(/{/{ item.comments|length /}/})</h2>
                 <span>
                     <button><a href="#"><img src="static/img/gui/bukva k v krujke"></a></button>
                     <h4>Кристофер</h4>
@@ -182,7 +182,7 @@
             <span>
                 <img src="static/img/gui/like.jpg">
                 <b>4.8</b>
-                <h5>основано на {{ item.comments|length }} оценке</h5>
+                <h5>основано на /{/{ item.comments|length /}/} оценке</h5>
             </span>
             <div style="width:100%">
                 <span>

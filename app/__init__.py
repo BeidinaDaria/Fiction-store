@@ -1,9 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-
-# INITIALIZING
-
+#   INITIALIZING
 
 # init application
 app = Flask(__name__)

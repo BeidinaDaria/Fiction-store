@@ -37,7 +37,7 @@
                 </span>
                 <span>
                     <img src="static/img/gui/Profile.svg">
-                    <a href="#">Профиль</a>
+                    <a href="profile">Профиль</a>
                 </span>
             </nav>
         </div>
@@ -45,16 +45,15 @@
     <main>
         <h1>С возвращением!<h1>
     </main>
-    <div>
-    <input type="email" id="email"
-       pattern=".+@globex\.com" size="30" required>
-    </div>
-    <div>
-       <label for="userPassword">Пароль:</label>
-        <input id="userPassword" type="password">
-    </div>
-    <a href='#'><button>Войти</button></a>
-    <a href='#'><button>Зарегистрироваться</button></a>
+
+    <form method="POST" action="/login">
+        <div >{{ message }}</div>
+        <input name="email" placeholder="Адрес электронной почты" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="100" required>
+        <input name="password" placeholder="Пароль" id="userPassword" type="password" size="100" required>
+        <button type="submit">Войти</button>
+    </form>
+    <a href="/register"><button>Зарегистрироваться</button></a>
+
     <div>
         <button style="background:none;border:none;"><img GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. github.com src="static/img/gui/delete.svg"></button>
     </div>

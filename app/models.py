@@ -1,8 +1,6 @@
 from app import db
 
-
 #   MODEL OF ITEMS TABLE
-
 
 class Items(db.Model):
     __tablename__ = "items"
@@ -10,15 +8,30 @@ class Items(db.Model):
     title       = db.Column(db.String(100), nullable=False)
     price       = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(1000), nullable=False)
-    images      = db.Column(db.JSON)
-    colors      = db.Column(db.JSON)
+    images      = db.Column(db.JSON) # [ "str", ... ]
+    colors      = db.Column(db.JSON) # [ "str", ... ]
     science     = db.Column(db.String(50))
-    comments    = db.Column(db.JSON)
-class User(db.Model):
+    comments    = db.relationship("Comments", backref="item_comments")
+
+#   MODEL OF USERS TABLE
+
+class Users(db.Model):
     __tablename__ = "users"
     id          = db.Column(db.Integer, primary_key=True)
-    login       = db.Column(db.String(100), nullable=False)
+    email       = db.Column(db.String(100), nullable=False)
     password    = db.Column(db.String(100), nullable=False)
-    name        = db.Column(db.String(100), nullable=False)
-    surname     = db.Column(db.String(100), nullable=False)
-    comments    = db.Column(db.JSON)
+    token       = db.Column(db.String(100))
+    name        = db.Column(db.String(50), nullable=False)
+    surname     = db.Column(db.String(50))
+    comments    = db.relationship("Comments", backref="user_comments")
+
+#   MODEL OF COMMENTS TABLE
+
+class Comments(db.Model):
+    __tablename__ = "comments"
+    id          = db.Column(db.Integer, primary_key=True)
+    user_id     = db.Column(db.Integer, db.ForeignKey('users.id'))
+    item_id     = db.Column(db.Integer, db.ForeignKey('items.id'))
+    date        = db.Column(db.String(10), nullable=False) # "day.month.year"
+    score       = db.Column(db.Integer, nullable=False)
+    text        = db.Column(db.String(1000))
