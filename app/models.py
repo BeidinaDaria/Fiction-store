@@ -11,19 +11,19 @@ class Items(db.Model):
     images      = db.Column(db.JSON) # [ "str", ... ]
     colors      = db.Column(db.JSON) # [ "str", ... ]
     science     = db.Column(db.String(50))
-    comments    = db.relationship("Comments", backref="item_comments")
+    comments    = db.relationship("Comments", backref="item")
 
 #   MODEL OF USERS TABLE
 
 class Users(db.Model):
     __tablename__ = "users"
     id          = db.Column(db.Integer, primary_key=True)
-    email       = db.Column(db.String(100), nullable=False)
+    email       = db.Column(db.String(100), nullable=False, unique=True)
     password    = db.Column(db.String(100), nullable=False)
     token       = db.Column(db.String(100))
     name        = db.Column(db.String(50), nullable=False)
     surname     = db.Column(db.String(50))
-    comments    = db.relationship("Comments", backref="user_comments")
+    comments    = db.relationship("Comments", backref="user")
 
 #   MODEL OF COMMENTS TABLE
 

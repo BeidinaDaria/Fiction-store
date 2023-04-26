@@ -1,37 +1,64 @@
-from app.models import Items, Users, Comments
+from app.models import Users, Items, Comments
 from app import app, db
 
 #   DATABASE MANAGEMENT
 
 def clear_db():
     with app.app_context():
-        Items.query.delete()
-        Users.query.delete()
-        Comments.query.delete()
+        db.session.query(Users).delete()
+        db.session.query(Items).delete()
+        db.session.query(Comments).delete()
+        db.session.commit()
 
 
 def create_db():
     with app.app_context():
         db.create_all()
-        
+
+
+def print_db():
+    with app.app_context():
+        for table in [Users, Items, Comments]:
+            print("\n", table.__tablename__.upper())
+            for item in table.query.all():
+                print()
+                [print(column.key+"\t", getattr(item, column.key)) for column in table.__table__.columns]
+                [print("comments\t"+comment.text) for comment in item.comments] if hasattr(item, 'comments') else None
+
 
 def fill_db():
     with app.app_context():
         db.session.add_all([
 
-            # USERS
+            # USERS & COMMENTS
 
             Users(
                 email       = "me@mail.com",
                 password    = "testpass",
                 token       = "VmVyeSBzdHJvbmcgcGFzcw==",
                 name        = "Кирилл",
-                surname     = "Логунов"
+                surname     = "Логунов",
+                comments    = [
+                    Comments(
+                        date    = "05.09.2022",
+                        score   = 4,
+                        text    = "Первый!",
+                        item_id = 1
+                    ),
+                    Comments(
+                        date    = "01.12.2022",
+                        score   = 5,
+                        text    = "Отличный товар, рекомендую.",
+                        item_id = 1
+                    ),
+                    Comments(
+                        date    = "15.03.2023",
+                        score   = 1,
+                        text    = "Размер не подошёл :c",
+                        item_id = 2
+                    )
+                ]
             ),
-
-            # COMMENTS
-
-            # Comments(),
 
             # ITEMS
 
