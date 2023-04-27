@@ -34,4 +34,6 @@ class Comments(db.Model):
     item_id     = db.Column(db.Integer, db.ForeignKey('items.id'))
     date        = db.Column(db.String(10), nullable=False) # "day.month.year"
     score       = db.Column(db.Integer, nullable=False)
-    text        = db.Column(db.String(1000))
+    pros        = db.Column(db.String(400))
+    cons        = db.Column(db.String(400))
+    text        = db.Column(db.String(800))

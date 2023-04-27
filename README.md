@@ -11,7 +11,7 @@
 А выбранная нами идея, с точки зрения придумывания дизайнов для товаров, дает широкую свободу для творчества.
 
 # Продакшн
-Сайт уже доступен по адресу **http://90.156.211.242:5000/**
+Сайт уже доступен по адресу **[fictionstore.u-pov.ru](http://fictionstore.u-pov.ru/)**
 
 # Макет
 [Ссылка на макет в Figma](https://www.figma.com/file/2bCb1b597vPO4qzRbfd5GS/FictionStore-%D0%9C%D0%B0%D0%BA%D0%B5%D1%82?node-id=0%3A1&t=dOddYqfMkBlvf4LL-1)

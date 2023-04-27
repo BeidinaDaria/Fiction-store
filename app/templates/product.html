@@ -56,7 +56,7 @@
                 <img src="static/img/gui/star.svg" alt="">
                 <img src="static/img/gui/star.svg" alt="">
                 <p>4.8</p>
-                <a href="#" style="margin-top:2%;">/{/{ item.comments|length /}/}</a>
+                <a href="#" style="margin-top:2%;">{{ item.comments|length }}</a>
                 <button><img src="static/img/gui/favourite.svg">Убрать из избранного</button>
             </span>
 
@@ -116,64 +116,36 @@
     <span>
         <aside style="width:50%">
             <div class="reviews">
-                <h2>Отзывы(/{/{ item.comments|length /}/})</h2>
-                <span>
-                    <button><a href="#"><img src="static/img/gui/bukva k v krujke"></a></button>
-                    <h4>Кристофер</h4>
-                    <p>
-                    <h5>17 ноября</h5>
-                    </p>
-                    <img src="static/img/gui/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                </span>
-                <h4><b>Преимущества</b></h4>
+                <h2>Отзывы({{ item.comments|length }})</h2>
 
-                <h5>Et harum quidem rerum facilis est et expedita distinctio, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam eaque ipsa, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</h5>
+                {% for comment in item.comments %}
+                    <span>
+                        <button width="300"><a href="#"><img src="static/img/gui/bukva k v krujke"></a></button>
+                        <h4>{{ comment.user.name }} {{ comment.user.surname }}</h4>
+                        <h5>{{ comment.date }}</h5>
 
-                <h4><b>Недостатки</b></h4>
+                        {% for _ in range(comment.score) %}
+                            <img src="static/img/gui/star.svg" alt="">
+                        {% endfor %}
 
-                <h5>Et harum quidem rerum facilis est et expedita distinctio, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam eaque ipsa, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</h5>
-                <h4><b>Комментарий</b></h4>
+                    </span>
 
-                <h5>Et harum quidem rerum facilis est et expedita distinctio, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam eaque ipsa, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                    Excepteur sint occaecat cupidatat non proident, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-                    ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis...Et harum quidem rerum facilis est et expedita distinctio,
-                    unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, facere possimus, omnis voluptas assumenda est,
-                    omnis dolor repellendus
-                    Excepteur sint occaecat cupidatat non proident, quis nostrum exercitationem ullam corporis suscipit laboriosam, ut aut reiciendis voluptatibus maiores alias
-                    consequatur aut perferendis...</h5>
+                    {% if comment.pors %}
+                        <h4><b>Преимущества</b></h4>
+                        <h5>{{ comment.pors }}</h5>
+                    {% endif %}
+                    
+                    {% if comment.cons %}
+                        <h4><b>Недостатки</b></h4>
+                        <h5>comment.cons</h5>
+                    {% endif %}
 
-
-                <span>
-                    <button width="300"><a href="#"><img src="static/img/gui/bukva k v krujke"></a></button>
-                    <h4>Екатерина II</h4>
-                    <p>
-                    <h5>17 ноября</h5>
-                    </p>
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                </span>
-                <h4><b>Преимущества</b></h4>
-
-                <h5>Деревянная прочная модель, красивый цвет, хорошо вписвается в дизайн.</h5>
-
-                <h4><b>Недостатки</b></h4>
-
-                <h5>Долгая доставка</h5>
-
-                <h4><b>Комментарий</b></h4>
-
-                <h5>Заказал модель в подарок брату на день рождения, он был в восторге. Фигурка точно понравится фанатам фильмов о путешествиях во времени. Из минусов - 
-                    очень долгая доставка, но здесь, скорее всего, продавцы не виноваты.</h5>
+                    {% if comment.text %}
+                        <h4><b>Комментарий</b></h4>
+                        <h5>{{ comment.text }} </h5>
+                    {% endif %}
+                    
+                {% endfor %}
 
             </div>
         </aside>
@@ -182,7 +154,7 @@
             <span>
                 <img src="static/img/gui/like.jpg">
                 <b>4.8</b>
-                <h5>основано на /{/{ item.comments|length /}/} оценке</h5>
+                <h5>основано на {{ item.comments|length }} оценке</h5>
             </span>
             <div style="width:100%">
                 <span>
