@@ -29,11 +29,11 @@
                 </span>
                 <span>
                     <img src="static/img/gui/favourite.svg">
-                    <a href="favourites">Избранное (10)</a>
+                    <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
                 <span>
                     <img src="static/img/gui/backets.svg">
-                    <a href="basket">Корзина (4)</a>
+                    <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
                 <span>
                     <img src="static/img/gui/Profile.svg">
@@ -47,20 +47,23 @@
     </main>
     <div class="types">
         <div class="catalog">
-            <h2>10 товаров в избранном</h2>
+            <h2>{{ favourites|length }} товаров(ов) в избранном</h2>
+
+            {% for item in favourites %}
+
             <div class="item">
                 <span>
-                    <img src="static/img/items/tardis_1.jpg" height="auto" width="25%">
+                    <img src="/static/img/items/{{ item.images.0 }}" height="auto" width="25%">
                     <div class="character">
                         <span>
-                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
+                            <h3 style="margin:0;">{{ item.title }}</h3>
                             <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
                                 <button class="bt_minus">-</button>
                                 <input type="text" class="quantity" value="1" data-max-count="20">
                                 <button class="bt_plus">+</button>
                             </div>
                             <div class="price">
-                                <p>77 ₽</p>
+                                <p>{{ item.price }} ₽</p>
                             </div>
                         </span>
                         <div class="characteristic">
@@ -71,76 +74,10 @@
                     </div>
                 </span>
             </div>
-            <div class="item">
-                <span>
-                    <img src="static/img/items/genericboots_1.jpeg" height="auto" width="25%">
-                    <div class="character">
-                        <span>
-                            <h3 style="margin:0;">Super puper time machine </h3>
-                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
-                                <button class="bt_minus">-</button>
-                                <input type="text" class="quantity" value="1" data-max-count="20">
-                                <button class="bt_plus">+</button>
-                            </div>
-                            <div class="price">
-                                <p>1000 ₽</p>
-                            </div>
-                        </span>
-                        <div class="characteristic">
-                            <h4>Размер - - - - - 402см</h4>
-                            <h4>Век - - - - - - - -XXV</h4>
-                        </div>
-                        <button style="background:none;border:none;"><img src="static/img/gui/delete.svg"></button>
-                    </div>
-                </span>
-            </div>
-            <div class="item">
-                <span>
-                    <img src="static/img/items/tardis_1.jpg" height="auto" width="25%">
-                    <div class="character">
-                        <span>
-                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
-                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
-                                <button class="bt_minus">-</button>
-                                <input type="text" class="quantity" value="1" data-max-count="20">
-                                <button class="bt_plus">+</button>
-                            </div>
-                            <div class="price">
-                                <p>77 ₽</p>
-                            </div>
-                        </span>
-                        <div class="characteristic">
-                            <h4>Размер - - - - - 40см</h4>
-                            <h4>Век - - - - - - - -XX</h4>
-                        </div>
-                        <button style="background:none;border:none;"><img src="static/img/gui/delete.svg"></button>
-                    </div>
-                </span>
-            </div>
-            <div class="item">
-                <span>
-                    <img src="static/img/items/tardis_1.jpg" height="auto" width="25%">
-                    <div class="character">
-                        <span>
-                            <h3 style="margin:0;">TARDIS – Time And Relative Dimension In Space </h3>
-                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
-                                <button class="bt_minus">-</button>
-                                <input type="text" class="quantity" value="1" data-max-count="20">
-                                <button class="bt_plus">+</button>
-                            </div>
-                            <div class="price">
-                                <p>77 ₽</p>
-                            </div>
-                        </span>
-                        <div class="characteristic">
-                            <h4>Размер - -
-                                GitHub — - - 40см</h4>
-                            <h4>Век - - - - - - - -XX</h4>
-                        </div>
-                        <button style="background:none;border:none;"><img src="static/img/gui/delete.svg"></button>
-                    </div>
-                </span>
-            </div><button><a href="#">Показать еще</a>
+
+            {% endfor %}
+
+            <button><a href="#">Показать еще</a>
             </button>
         </div>
 

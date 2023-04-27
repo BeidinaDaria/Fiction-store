@@ -29,11 +29,11 @@
                 </span>
                 <span>
                     <img src="static/img/gui/favourite.svg">
-                    <a href="favourites">Избранное (10)</a>
+                    <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
                 <span>
                     <img src="static/img/gui/backets.svg">
-                    <a href="basket">Корзина (4)</a>
+                    <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
                 <span>
                     <img src="static/img/gui/Profile.svg">
@@ -99,7 +99,7 @@
             </div>
 
             <div class="price">
-                <p>{{ item.price }}</p>
+                <p>{{ item.price }} ₽</p>
 
                 <button>
                     <a href="#"><img src="static/img/gui/telega_small.svg">В корзину</a>
