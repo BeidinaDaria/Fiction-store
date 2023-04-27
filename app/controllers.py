@@ -1,6 +1,5 @@
 from app import app, db
 from .models import Items, Users
-from sqlalchemy import func
 from flask import render_template, request, redirect, make_response
 
 #   APP ROUTING
