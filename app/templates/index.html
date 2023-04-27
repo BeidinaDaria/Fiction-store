@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="navigator">
-            <img src="static/img/gui/logo.svg">
+            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
             <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
             <nav class="hide">
                 <span>
@@ -55,7 +55,7 @@
             <input type="text" method="GET" name="search" placeholder="Название товара" id="search">
             <button id="search" onclick="searchInfo()"><img src="static/img/gui/arrow.svg"></button>
         </form>
-        <p>Попробуйте: <a href="product" id="1">tardis</a></p>
+        <p>Попробуйте: <a href="/catalog?search=tardis" id="1">tardis</a></p>
     </main>
     <section>
         <div class="head">

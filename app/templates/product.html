@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="navigator">
-            <img src="static/img/gui/logo.svg">
+            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
             <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
             <nav class="hide">
                 <span>
@@ -56,7 +56,7 @@
                 <img src="static/img/gui/star.svg" alt="">
                 <img src="static/img/gui/star.svg" alt="">
                 <p>4.8</p>
-                <a href="#" style="margin-top:2%;">{{ item.comments|length }}</a>
+                <a href="#" style="margin-top:2%;">{{ item.comments|length }} отзыва(ов)</a>
                 <button><img src="static/img/gui/favourite.svg">Убрать из избранного</button>
             </span>
 
@@ -130,14 +130,14 @@
 
                     </span>
 
-                    {% if comment.pors %}
+                    {% if comment.pros %}
                         <h4><b>Преимущества</b></h4>
-                        <h5>{{ comment.pors }}</h5>
+                        <h5>{{ comment.pros }}</h5>
                     {% endif %}
                     
                     {% if comment.cons %}
                         <h4><b>Недостатки</b></h4>
-                        <h5>comment.cons</h5>
+                        <h5>{{ comment.cons }}</h5>
                     {% endif %}
 
                     {% if comment.text %}
@@ -154,7 +154,7 @@
             <span>
                 <img src="static/img/gui/like.jpg">
                 <b>4.8</b>
-                <h5>основано на {{ item.comments|length }} оценке</h5>
+                <h5>основано на {{ item.comments|length }} оценке(ах)</h5>
             </span>
             <div style="width:100%">
                 <span>

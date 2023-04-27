@@ -16,15 +16,17 @@ def index():
 @app.route('/product', methods=['GET'])
 def product():
     req = request.args.get('id')
-    item = db.session.query(Items).filter(Items.id == req).first()
-    return render_template('product.html', item=item)
+    if req:
+        item = db.session.query(Items).filter(Items.id == req).first()
+        return render_template('product.html', item=item)
+    return "Page not found", 404
 
 
 @app.route('/catalog', methods=['GET'])
 def catalog():
     req = request.args.get('search')
-    items = db.session.query(Items).filter(Items.title == req[0].upper()+req[1:].lower()).all() \
-            if req else db.session.query(Items).all()
+    items = db.session.query(Items).filter(Items.title == req[0].upper()+req[1:].lower()).all() if req \
+        else db.session.query(Items).all()
     # TODO: Добавить вёрстку в случае, когда по запросу ничего не найдено
     return render_template('catalog.html', items=items)
 
@@ -45,7 +47,7 @@ def profile():
     token = request.cookies.get('token')
     if not token:
         return redirect('/login')
-    
+    # find user in DB
     user = db.session.query(Users).filter_by(token=token).first()
     if not user:
         return redirect('/login')
@@ -64,7 +66,7 @@ def login():
     password = request.form.get('password')
     if not email or not password:
         return render_template('login.html')
-    # search in DB
+    # find user in DB
     user = db.session.query(Users).filter_by(email=email, password=password).first()
     # set token in cookie
     if user:
