@@ -378,6 +378,7 @@ body, html {
     footer {
         background: rgba(44, 44, 44, 1);
         margin-top: 2%;
+        padding: 1rem;
     }
 
     footer > .annotation, footer > .nav_footer {
@@ -718,6 +719,24 @@ body, html {
     /* дополнительные стили для страницы Корзина */
     .character {
         margin-left: 3%;
+    }
+    /*дополнительные стили для страницы Регистрация*/
+    .register{
+        width:400px;
+        justify-content: space-between;
+        margin:2rem;
+    }
+    .register>label::before{
+        display:none;
+    }
+    .register>button {
+        height: 3rem;
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 12px;
+        color: rgba(244, 241, 255, 1);
+        font-size:1rem;
+        padding:1rem;
     }
 }
 
@@ -1076,6 +1095,7 @@ body, html {
     footer {
         background: rgba(44, 44, 44, 1);
         margin-top: 2%;
+        padding: 0.5em;
     }
 
     footer > .annotation {
@@ -1377,5 +1397,23 @@ body, html {
     span > .catalog {
         flex-direction: column;
     }
+    /*дополнительные стили для страницы Регистрация*/
+    .register{
+        width:300px;
+        justify-content: space-between;
+        margin:2rem;
+    }
+    .register>label::before{
+        display:none;
+    }
+    .register>button {
+        height: 3rem;
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 12px;
+        color: rgba(244, 241, 255, 1);
+        font-size:1rem;
+        padding:1rem;
+        width:fit-content;
+    }
 }
-
