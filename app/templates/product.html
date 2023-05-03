@@ -57,7 +57,57 @@
                 <img src="static/img/gui/star.svg" alt="">
                 <p>4.8</p>
                 <a href="#" style="margin-top:2%;">{{ item.comments|length }} отзыва(ов)</a>
-                <button><img src="static/img/gui/favourite.svg">Убрать из избранного</button>
+
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+                <script type=text/javascript>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    $(function() {
+                        var box = $('div#favBox');
+                        $.fn.sendFav = function(method, correctText, incorrectText, newLabel) {
+                            console.log(method+urlParams.get('id'));
+                            $.ajax({
+                                url: "{{ url_for('set_remove_fav') }}",
+                                method: "POST",
+                                data: method+urlParams.get('id'),
+                                contentType: 'application/json;charset=UTF-8',
+                                success: function(data) {
+                                    if (data == "not auth")
+                                        alert("Вы не авторизированы"); // TODO: Изменить
+                                    else if (data == "incorrect")
+                                        alert(incorrectText); // TODO: Изменить
+                                    else {
+                                        alert(correctText); // TODO: Изменить
+                                        box.children('label').text(newLabel);
+                                    }
+                                }
+                            });
+                        };
+                        box.children('input').on('change', function() {
+                            if ($(this).is(':checked'))
+                                $.fn.sendFav("set:",
+                                    "Предмет добавлен в избранное",
+                                    "Не удалось добавить предмет в избранное",
+                                    "Убрать из избранного"
+                                );
+                            else
+                                $.fn.sendFav("rem:",
+                                    "Предмет убран из избранного",
+                                    "Не удалось убрать предмет из избранное",
+                                    "Добавить в избранное"
+                                );
+                        })
+                    });
+                </script>
+
+                <div id="favBox">
+                    {% if in_fav %}
+                        <input type="checkbox" id="fav" checked>
+                        <img src="static/img/gui/favourite.svg"><label for="fav">Убрать из избранного</label>
+                    {% else %}
+                        <input type="checkbox" id="fav">
+                        <img src="static/img/gui/favourite.svg"><label for="fav">Добавить в избранное</label>
+                    {% endif %}
+                </div>
             </span>
 
             <span style="width:35%;margin-left:15%;">

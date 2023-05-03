@@ -31,7 +31,7 @@ def fill_db():
     with app.app_context():
         db.session.add_all([
 
-            # USERS & COMMENTS & BASKET & FAVOURITES
+            # USERS & COMMENTS
 
             User(
                 email       = "me@mail.com",
