@@ -64,7 +64,6 @@
                     $(function() {
                         var box = $('div#favBox');
                         $.fn.sendFav = function(method, correctText, incorrectText, newLabel) {
-                            console.log(method+urlParams.get('id'));
                             $.ajax({
                                 url: "{{ url_for('set_remove_fav') }}",
                                 method: "POST",

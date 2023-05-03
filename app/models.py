@@ -1,17 +1,17 @@
 from app import db
 
-#   MODEL OF BASKET AND FAVOURITES TABLES
+#   MODELS OF TABLES
 
 basket = db.Table("basket",
             db.Column("user_id", db.Integer, db.ForeignKey('user.id')),
             db.Column("item_id", db.Integer, db.ForeignKey('item.id'))
 )
+
 favourites = db.Table("favourites",
             db.Column("user_id", db.Integer, db.ForeignKey('user.id')),
             db.Column("item_id", db.Integer, db.ForeignKey('item.id'))
 )
 
-#   MODEL OF ITEMS TABLE
 
 class Item(db.Model):
     __tablename__ = "item"
@@ -24,7 +24,6 @@ class Item(db.Model):
     science         = db.Column(db.String(50))
     comments        = db.relationship("Comment", backref="item")
 
-#   MODEL OF USERS TABLE
 
 class User(db.Model):
     __tablename__ = "user"
@@ -38,7 +37,6 @@ class User(db.Model):
     basket      = db.relationship("Item", secondary=basket, backref=db.backref('users_have_basket'))
     favourites  = db.relationship("Item", secondary=favourites, backref=db.backref('users_have_fav'))
 
-#   MODEL OF COMMENTS TABLE
 
 class Comment(db.Model):
     __tablename__ = "comment"
