@@ -62,37 +62,56 @@
                 <script type=text/javascript>
                     const urlParams = new URLSearchParams(window.location.search);
                     $(function() {
-                        var box = $('div#favBox');
-                        $.fn.sendFav = function(method, correctText, incorrectText, newLabel) {
+                        const id = urlParams.get('id');
+                        const fav = $('div#favBox');
+                        const basket = $('div#basketBox');
+
+                        const add_fav_url = '/favourites/add';
+                        const remove_fav_url = '/favourites/remove';
+                        const add_basket_url = '/basket/add';
+                        const remove_basket_url = '/basket/remove';
+
+                        $.fn.changeFavBasket = function(url, box, correctText, incorrectText, newLabel) {
                             $.ajax({
-                                url: "{{ url_for('set_remove_fav') }}",
-                                method: "POST",
-                                data: method+urlParams.get('id'),
+                                url: url,
+                                type: 'POST',
+                                data: id,
                                 contentType: 'application/json;charset=UTF-8',
-                                success: function(data) {
-                                    if (data == "not auth")
-                                        alert("Вы не авторизированы"); // TODO: Изменить
-                                    else if (data == "incorrect")
-                                        alert(incorrectText); // TODO: Изменить
-                                    else {
-                                        alert(correctText); // TODO: Изменить
-                                        box.children('label').text(newLabel);
-                                    }
+                                success: function() {
+                                    alert(correctText); // TODO: Изменить
+                                    box.children('label').text(newLabel);
+                                },
+                                error: function(err) {
+                                    alert(incorrectText);
                                 }
                             });
                         };
-                        box.children('input').on('change', function() {
+                        fav.children('input').on('change', function() {
                             if ($(this).is(':checked'))
-                                $.fn.sendFav("set:",
+                                $.fn.changeFavBasket(add_fav_url, fav,
                                     "Предмет добавлен в избранное",
                                     "Не удалось добавить предмет в избранное",
-                                    "Убрать из избранного"
+                                    "В избранном"
                                 );
                             else
-                                $.fn.sendFav("rem:",
+                                $.fn.changeFavBasket(remove_fav_url, fav,
                                     "Предмет убран из избранного",
-                                    "Не удалось убрать предмет из избранное",
-                                    "Добавить в избранное"
+                                    "Не удалось убрать предмет из избранного",
+                                    "В избранное"
+                                );
+                        })
+                        basket.children('input').on('change', function() {
+                            if ($(this).is(':checked'))
+                                $.fn.changeFavBasket(add_basket_url, basket,
+                                    "Предмет добавлен в корзину",
+                                    "Не удалось добавить предмет в корзину",
+                                    "В корзине"
+                                );
+                            else
+                                $.fn.changeFavBasket(remove_basket_url, basket,
+                                    "Предмет убран из корзины",
+                                    "Не удалось убрать предмет из корзины",
+                                    "В корзину"
                                 );
                         })
                     });
@@ -100,11 +119,11 @@
 
                 <div id="favBox">
                     {% if in_fav %}
-                        <input type="checkbox" id="fav" checked>
-                        <img src="static/img/gui/favourite.svg"><label for="fav">Убрать из избранного</label>
+                        <input type="checkbox" checked>
+                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
                     {% else %}
-                        <input type="checkbox" id="fav">
-                        <img src="static/img/gui/favourite.svg"><label for="fav">Добавить в избранное</label>
+                        <input type="checkbox">
+                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
                     {% endif %}
                 </div>
             </span>
@@ -150,9 +169,15 @@
             <div class="price">
                 <p>{{ item.price }} ₽</p>
 
-                <button>
-                    <a href="#"><img src="static/img/gui/telega_small.svg">В корзину</a>
-                </button>
+                <div id="basketBox">
+                    {% if in_basket %}
+                        <input type="checkbox" checked>
+                        <img src="static/img/gui/telega_small.svg"><label for="fav">В корзине</label>
+                    {% else %}
+                        <input type="checkbox">
+                        <img src="static/img/gui/telega_small.svg"><label for="fav">В корзину?</label>
+                    {% endif %}
+                </div>
                 <p><button><a href="#">Быстрый заказ</a></button></p>
             </div>
         </aside>

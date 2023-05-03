@@ -47,35 +47,40 @@
     </main>
     <div class="types">
         <div class="catalog">
-            <h2>{{ favourites|length }} товаров(ов) в избранном</h2>
 
-            {% for item in favourites %}
+            {% if favourites %}
 
-            <div class="item">
-                <span>
-                    <img src="/static/img/items/{{ item.images.0 }}" height="auto" width="25%">
-                    <div class="character">
-                        <span>
-                            <h3 style="margin:0;">{{ item.title }}</h3>
-                            <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
-                                <button class="bt_minus">-</button>
-                                <input type="text" class="quantity" value="1" data-max-count="20">
-                                <button class="bt_plus">+</button>
+                <h2>{{ favourites|length }} товаров(ов) в избранном</h2>
+
+                {% for item in favourites %}
+
+                <div class="item">
+                    <span>
+                        <img src="/static/img/items/{{ item.images.0 }}" height="auto" width="25%">
+                        <div class="character">
+                            <span>
+                                <h3 style="margin:0;">{{ item.title }}</h3>
+                                <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
+                                    <button class="bt_minus">-</button>
+                                    <input type="text" class="quantity" value="1" data-max-count="20">
+                                    <button class="bt_plus">+</button>
+                                </div>
+                                <div class="price">
+                                    <p>{{ item.price }} ₽</p>
+                                </div>
+                            </span>
+                            <div class="characteristic">
+                                <h4>Размер - - - - - 40см</h4>
+                                <h4>Век - - - - - - - -XX</h4>
                             </div>
-                            <div class="price">
-                                <p>{{ item.price }} ₽</p>
-                            </div>
-                        </span>
-                        <div class="characteristic">
-                            <h4>Размер - - - - - 40см</h4>
-                            <h4>Век - - - - - - - -XX</h4>
+                            <button style="background:none;border:none;"><img src="static/img/gui/delete.svg"></button>
                         </div>
-                        <button style="background:none;border:none;"><img src="static/img/gui/delete.svg"></button>
-                    </div>
-                </span>
-            </div>
+                    </span>
+                </div>
 
-            {% endfor %}
+                {% endfor %}
+
+            {% endif %}
 
             <button><a href="#">Показать еще</a>
             </button>
