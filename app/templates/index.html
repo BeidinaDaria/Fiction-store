@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="static/img/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,87 +11,120 @@
 </head>
 
 <body>
-    <header>
-        <div class="navigator">
-            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
-            <nav class="hide">
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Search.svg">
                     <a href="#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
                     <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Ищите <b>любые</b> несуществующие изобретения!</h1>
-        <form class="searcher" action="catalog">
-            <select id="searchCharacter">
-                <option>Каталог</option>
-                <option>Избранное</option>
-                <option>Sales</option>
-                <option>Картины</option>
-                <option>Модель</option>
-            </select>
-            <input type="text" method="GET" name="search" placeholder="Название товара" id="search">
-            <button id="search" onclick="searchInfo()"><img src="static/img/gui/arrow.svg"></button>
-        </form>
-        <p>Попробуйте: <a href="/catalog?search=tardis" id="1">tardis</a></p>
-    </main>
-    <section>
-        <div class="head">
+        </nav>
+    </div>
+</header>
+<main>
+    <h1>Ищите <b>любые</b> несуществующие изобретения!</h1>
+    <form class="searcher" action="catalog">
+        <select id="searchCharacter">
+            <option>Каталог</option>
+            <option>Избранное</option>
+            <option>Sales</option>
+            <option>Картины</option>
+            <option>Модель</option>
+        </select>
+        <input type="text" method="GET" name="search" placeholder="Название товара" id="search">
+        <button id="search" onclick="searchInfo()"><img src="static/img/gui/arrow.svg"></button>
+    </form>
+    <p>Попробуйте: <a href="/catalog?search=tardis" id="1">tardis</a></p>
+</main>
+<section>
+    <div class="head">
                 <span>
                     <h3>🛒 Что у нас есть</h3>
                 </span>
-            <button><a href="catalog">Весь каталог</a></button>
-        </div>
-        <div class="gallery">
+        <button><a href="catalog">Весь каталог</a></button>
+    </div>
+    <div class="gallery">
 
-            {% for item in items %}
+        {% for item in items %}
 
             <div class="card">
                 <a href="product?id={{ item.id }}">
                     <img src="/static/img/items/{{ item.images.0 }}" alt="">
-                    <h4>{{ item.title }}</h4>
                 </a>
-                <p>{{ item.description[:150] }}…</p>
+                <div>
+                    <a href="product?id={{ item.id }}">
+                        <h4>{{ item.title }}</h4>
+                    </a>
+                    <p>{{ item.description[:130] }}…</p>
+                </div>
             </div>
 
-            {% endfor%}
+        {% endfor %}
 
-        </div>
-    </section>
-    <section>
-        <div class="head">
+    </div>
+</section>
+<section>
+    <div class="head">
                 <span>
                     <h3>🔥 Бестселлеры</h3>
                 </span>
-            <button><a href="catalog">Весь каталог</a></button>
-        </div>
-        <div class="gallery">
+        <button><a href="catalog">Весь каталог</a></button>
+    </div>
+    <div class="gallery">
 
-            {% for item in best_items %}
+        {% for item in best_items %}
 
+            <div class="card">
+                <a href="product?id={{ item.id }}">
+                    <img src="/static/img/items/{{ item.images.0 }}" alt="">
+                </a>
+                <div>
+                    <a href="product?id={{ item.id }}">
+                        <h4>{{ item.title }}</h4>
+                    </a>
+                    <span class="stars">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <p>4.8</p>
+                    </span>
+                    <span>
+                        <div class="price">
+                            <p>{{ item.price }} &#8381;</p>
+                        </div>
+                        <div class="icons">
+                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
+                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <!--
             <div class="card">
                 <a href="product?id={{ item.id }}">
                     <img src="/static/img/items/{{ item.images.0 }}" alt="">
@@ -114,71 +148,68 @@
                         </div>
                     </span>
             </div>
+-->
+        {% endfor %}
 
-            {% endfor %}
-
-        </div>
-        <button id="nav_adaptiv"><a href="catalog">Весь каталог</a></button>
-    </section>
-    <article>
-            <span>
-                <img src="static/img/gui/logo.svg" alt="">
-                <p>FictionStore – это развлекательный продукт с примесью веселья и волшебства, где вы сможете приобрести несуществующие в реальном мире товары и не только.
-                    По сути, это сайт, с помощью которого вы сможете купить технологии далекого будущего, невозможные изобретения по типу машины времени или бесконечного 
-                    двигателя, картинки или постеры с увлекательными приспособлениями. Также вы можете создать свою коллекцию моделей устройств, представленных на нашем 
-                    сайте. Все, что вам нужно это воспользоваться удобным поиском на сайте, выбрать понравившийся вам товар и заказать.</p>
-            </span>
-    </article>
-    <div class="container">
-        <div class="content">
-            <img src="static/img/gui/github_logo.png" alt="">
-            <img src="static/img/gui/github.svg" alt="">
-            <div class="text">
-                <h3>Следите за FictionStore</h3>
-                <a href="https://github.com/BeidinaDaria/Fiction-store">Переходите на наш репозиторий</a>
-            </div>
+    </div>
+</section>
+<span class="description">
+    <img src="static/img/gui/logowhite2.svg" alt="">
+    <p class="dtext">FictionStore – это развлекательный продукт с примесью веселья и волшебства, где вы сможете приобрести несуществующие в реальном мире товары и не только.
+        По сути, это сайт, с помощью которого вы сможете купить технологии далекого будущего, невозможные изобретения по типу машины времени или бесконечного
+        двигателя, картинки или постеры с увлекательными приспособлениями. Также вы можете создать свою коллекцию моделей устройств, представленных на нашем
+        сайте. Все, что вам нужно это воспользоваться удобным поиском на сайте, выбрать понравившийся вам товар и заказать.</p>
+</span>
+<div class="container">
+    <div class="content">
+        <img src="static/img/gui/github_logo.png" alt="">
+        <img src="static/img/gui/github.svg" alt="">
+        <div class="text">
+            <h3>Следите за FictionStore</h3>
+            <a href="https://github.com/BeidinaDaria/Fiction-store">Переходите на наш репозиторий</a>
         </div>
     </div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="#"><p>О проекте</p></a>
-            <a href="#"><p>Контакты</p></a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git"><p>GitHub</p></a>
-        </div>
-    </footer>
-    <script>
-        function searchInfo() {
-            console.log("searching...");
-            window.location.replace("catalog");
-            let info = document.getElementById("searchCharacter").value + document.getElementById("search").value;
-            let acc = JSON.stringify(info);
-            let request;
-            if (window.XMLHttpRequest) {
-                request = new XMLHttpRequest();
-            } else {
-                request = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            request.open("GET", "/");
-            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            request.onreadystatechange = function () {
-                if (request.readyState === 4 && request.status == 200) {
-                    let catalog = request.response;
-                    localStorage.setItem("catalog", catalog);
-                }
-            }
-            request.send("search=" + info);
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="#"><p>О проекте</p></a>
+        <a href="#"><p>Контакты</p></a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git"><p>GitHub</p></a>
+    </div>
+</footer>
+<script>
+    function searchInfo() {
+        console.log("searching...");
+        window.location.replace("catalog");
+        let info = document.getElementById("searchCharacter").value + document.getElementById("search").value;
+        let acc = JSON.stringify(info);
+        let request;
+        if (window.XMLHttpRequest) {
+            request = new XMLHttpRequest();
+        } else {
+            request = new ActiveXObject("Microsoft.XMLHTTP");
         }
+        request.open("GET", "/");
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status == 200) {
+                let catalog = request.response;
+                localStorage.setItem("catalog", catalog);
+            }
+        }
+        request.send("search=" + info);
+    }
 
-        function adaptivMenu() {
-            let navig = document.querySelector("nav");
-            if (navig.className == "show")
-                navig.className = "hide";
-            else navig.className = "show";
-        };
-    </script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = "hide";
+        else navig.className = "show";
+    };
+</script>
 </body>
 </html>

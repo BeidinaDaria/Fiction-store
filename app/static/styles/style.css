@@ -1,6 +1,6 @@
 @font-face {
-	font-family: 'Jost'; 
-	src: url(../fonts/Jost-VariableFont_wght.ttf); 
+    font-family: 'Jost';
+    src: url(../fonts/Jost-VariableFont_wght.ttf);
 }
 
 body, html {
@@ -8,15 +8,15 @@ body, html {
     overflow-x: hidden;
 }
 
+* {
+    font-family: 'Jost', sans-serif;
+}
 @media (min-width: 900px) {
-    * {
-        font-family: 'Jost', sans-serif;
-    }
 
     span {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        /* justify-content: space-around; */
     }
 
     h2 {
@@ -139,14 +139,14 @@ body, html {
         box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.1);
     }
 
-    main > form>select {
+    main > form > select {
         border-top-left-radius: 100px;
         border-bottom-left-radius: 100px;
         width: 30%;
         text-align: center;
     }
 
-    main > form>input, main > form> select {
+    main > form > input, main > form > select {
         position: static;
         height: 100%;
         align-items: top;
@@ -154,12 +154,12 @@ body, html {
         border: none;
     }
 
-    main > form>input {
+    main > form > input {
         height: 96%;
         width: 70%;
     }
 
-    main > form>button {
+    main > form > button {
         height: 100%;
         line-height: normal;
         display: inline-block;
@@ -172,7 +172,7 @@ body, html {
         background: rgba(255, 255, 255, 0.5);
     }
 
-    main > form>button > img {
+    main > form > button > img {
         height: 80%;
         width: auto;
         line-height: normal;
@@ -181,7 +181,7 @@ body, html {
     }
 
     main > p {
-        font-size: 2vh;
+        font-size: 2.5vh;
     }
 
     main > p > a {
@@ -251,6 +251,95 @@ body, html {
         display: inline-block;
     }
 
+    .card > a {
+        text-decoration: none;
+    }
+
+    .card > a > img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .card h4 {
+        font-size: 25px;
+        color: black;
+        line-height: 25px;
+    }
+
+    .card > p {
+        color: black;
+        padding: 0% 4% 4%;
+    }
+
+
+    .product-link {
+        text-decoration: none;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+    }
+
+    .rating > p {
+        margin-left: 5px;
+    }
+
+    .price-icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 3vh;
+        color: black;
+        margin-right: 30px;
+    }
+
+    .icons {
+        display: flex;
+    }
+
+    .icons > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-right: 3px;
+    }
+
+    .icons > a:hover {
+        background: rgba(124, 103, 255, 1);
+        border: none;
+        border-radius: 100px;
+    }
+
+    .icons > a > img {
+        width: 50%;
+        /*height: auto;*/
+
+    }
+
+    /*
+
+    .card {
+        border-radius: 20px;
+        background: rgba(248, 245, 245, 1);
+        margin-right: 3%;
+        min-width: 350px;
+        height: 610px;
+        width: 35%;
+        display: inline-block;
+    }
+
     .card > a > img {
         width: 100%;
         height: auto;
@@ -266,12 +355,14 @@ body, html {
         vertical-align: top;
     }
 
-    .card > a > h4 {
+    .card a h4 {
         font-size: 30px;
-        margin-bottom: 0;
-        margin-top: 2%;
         color: black;
         text-decoration: none;
+    }
+
+    .card h4card {
+        margin: 3%;
     }
 
     .card > p {
@@ -323,6 +414,40 @@ body, html {
         border-radius: 1px;
         border: none;
     }
+     */
+
+    .card > div {
+        margin: 4%;
+    }
+
+    .card > div > span {
+        line-height: 0;
+    }
+    .stars {
+        margin-top: -15px;
+    }
+
+    .stars img {
+        padding-right: 7px;
+    }
+
+    .description {
+        margin: 70px;
+        padding: 20px;
+        background: rgba(124, 103, 255, 1);
+        border-radius: 30px;
+        justify-content: center;
+    }
+    .description p {
+        color: white;
+
+    }
+    .description img {
+
+    }
+    .dtext {
+        margin-left: 30px;
+    }
 
     article {
         margin-top: 5%;
@@ -346,6 +471,7 @@ body, html {
         display: flex;
         justify-content: center;
         height: 25vh;
+        display: none;
     }
 
     .container > .content {
@@ -412,9 +538,9 @@ body, html {
         width: 190px;
         height: 190px;
         border-radius: 50%;
-        border-color:rgba(30, 30, 30, 1);
-        background:none;
-        display:flex;
+        border-color: rgba(30, 30, 30, 1);
+        background: none;
+        display: flex;
         justify-content: center;
     }
 
@@ -422,17 +548,17 @@ body, html {
         color: rgba(30, 30, 30, 1);
         font-size: 35px;
         padding: 25%;
-        height:100%;
+        height: 100%;
         text-align: center;
         border-radius: 50%;
-        align-items:center;
+        align-items: center;
     }
 
     span > button:hover {
         background: rgba(124, 103, 255, 1);
-        border:none;
-        display:flex;
-        align-content:center;
+        border: none;
+        display: flex;
+        align-content: center;
         justify-content: center;
     }
 
@@ -442,7 +568,7 @@ body, html {
         padding: 25%;
         text-align: center;
         border-radius: 50%;
-        align-content:center;
+        align-content: center;
     }
 
     form {
@@ -662,9 +788,9 @@ body, html {
 
     .price {
         text-transform: uppercase;
-        font-weight: 400;
-        font-size: 3vh;
-        width: 15%;
+        font-weight: 500;
+        font-size: 120%;
+
     }
 
     .price > button, .catalog > button {
@@ -720,23 +846,26 @@ body, html {
     .character {
         margin-left: 3%;
     }
+
     /*дополнительные стили для страницы Регистрация*/
-    .register{
-        width:400px;
+    .register {
+        width: 400px;
         justify-content: space-between;
-        margin:2rem;
+        margin: 2rem;
     }
-    .register>label::before{
-        display:none;
+
+    .register > label::before {
+        display: none;
     }
-    .register>button {
+
+    .register > button {
         height: 3rem;
         background: rgba(124, 103, 255, 1);
         border: none;
         border-radius: 12px;
         color: rgba(244, 241, 255, 1);
-        font-size:1rem;
-        padding:1rem;
+        font-size: 1rem;
+        padding: 1rem;
     }
 }
 
@@ -1131,28 +1260,28 @@ body, html {
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border-color:rgba(30, 30, 30, 1);
-        background:none;
+        border-color: rgba(30, 30, 30, 1);
+        background: none;
         justify-content: center;
-        display:flex;
-        flex-wrap:wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     span > button > a {
         color: rgba(30, 30, 30, 1);
         font-size: 120%;
         padding: 25%;
-        height:100%;
+        height: 100%;
         text-align: center;
         border-radius: 50%;
-        align-items:center;
+        align-items: center;
     }
 
     span > button:hover {
         background: rgba(124, 103, 255, 1);
-        display:flex;
-        border:none;
-        align-items:center;
+        display: flex;
+        border: none;
+        align-items: center;
         justify-content: center;
         min-width: 100px;
         min-height: 100px;
@@ -1161,10 +1290,10 @@ body, html {
     span > button > a:hover {
         color: rgba(244, 241, 255, 1);
         font-size: 120%;
-        height:100%;
+        height: 100%;
         padding: 25%;
         text-align: center;
-        align-items:center;
+        align-items: center;
     }
 
     form {
@@ -1234,7 +1363,7 @@ body, html {
         display: flex;
         flex-direction: column;
         width: 75%;
-        height:fit-content;
+        height: fit-content;
         flex-wrap: wrap;
     }
 
@@ -1397,23 +1526,26 @@ body, html {
     span > .catalog {
         flex-direction: column;
     }
+
     /*дополнительные стили для страницы Регистрация*/
-    .register{
-        width:300px;
+    .register {
+        width: 300px;
         justify-content: space-between;
-        margin:2rem;
+        margin: 2rem;
     }
-    .register>label::before{
-        display:none;
+
+    .register > label::before {
+        display: none;
     }
-    .register>button {
+
+    .register > button {
         height: 3rem;
         background: rgba(124, 103, 255, 1);
         border: none;
         border-radius: 12px;
         color: rgba(244, 241, 255, 1);
-        font-size:1rem;
-        padding:1rem;
-        width:fit-content;
+        font-size: 1rem;
+        padding: 1rem;
+        width: fit-content;
     }
 }
