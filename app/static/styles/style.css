@@ -11,6 +11,39 @@ body, html {
 * {
     font-family: 'Jost', sans-serif;
 }
+
+.catalogue-circles {
+    margin: 30px;
+    align-content: center;
+    justify-content: center;
+}
+
+.catalogue-circles button {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-color: #67676c;
+
+}
+
+.catalogue-circles button a {
+    color: rgb(47, 47, 51);
+    text-decoration: none;
+}
+
+.catalogue-search input {
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    height: 40px;
+}
+
+.catalogue-search {
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
 @media (min-width: 900px) {
 
     span {
@@ -415,7 +448,6 @@ body, html {
         border: none;
     }
      */
-
     .card > div {
         margin: 4%;
     }
@@ -423,6 +455,7 @@ body, html {
     .card > div > span {
         line-height: 0;
     }
+
     .stars {
         margin-top: -15px;
     }
@@ -438,13 +471,16 @@ body, html {
         border-radius: 30px;
         justify-content: center;
     }
+
     .description p {
         color: white;
 
     }
+
     .description img {
 
     }
+
     .dtext {
         margin-left: 30px;
     }
@@ -515,6 +551,7 @@ body, html {
     footer > .annotation {
         width: 25%;
         margin-left: 5%;
+        padding-top: 15px;
     }
 
     footer > .annotation > p {
@@ -545,7 +582,6 @@ body, html {
     }
 
     span > button > a {
-        color: rgba(30, 30, 30, 1);
         font-size: 35px;
         padding: 25%;
         height: 100%;
@@ -573,12 +609,6 @@ body, html {
 
     form {
         border: rgba(177, 177, 177, 0.42);
-    }
-
-    form > input {
-        width: 100%;
-        height: 5vh;
-        text-align: center;
     }
 
     .types {
