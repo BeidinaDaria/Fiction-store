@@ -138,7 +138,9 @@
             </div>
             <section>
                 <div class="gallery">
+
                     {% for item in items %}
+
                     <div class="card">
                         <a href="product?id={{ item.id }}">
                             <img src="/static/img/items/{{ item.images.0 }}" alt="">
@@ -154,15 +156,6 @@
                             <p>{{ item.description[:150] }}…</p>
                         </a>
                         <span>
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <p>4.8</p>
-                        </span>
-                        <p>{{ item.description[:150] }}…</p>
-                        <span>
                             <div class="price">
                                 <p>{{ item.price }}</p>
                             </div>
@@ -172,6 +165,7 @@
                             </div>
                         </span>
                     </div>
+                    
                     {% endfor %}
 
                 </div>

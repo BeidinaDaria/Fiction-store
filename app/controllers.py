@@ -15,7 +15,7 @@ def favs_basket_len(user):
     if user:
         return len(user.favourites), len(user.basket)
     else:
-        # get from cookies
+        # TODO: get from cookies
         return 0, 0
 
 
@@ -34,7 +34,7 @@ def index():
 def product():
     req = request.args.get('id')
     if not req or not (item := db.session.query(Item).filter(Item.id == req).first()):
-        return "Page not found", 404
+        return redirect("404", code=404), {"Refresh": "0; url=/404"}
     user = authToken(request)
     if user:
         in_fav = user.favourites.count(item) != 0
@@ -121,11 +121,22 @@ def login():
                            basket_len=basket_len,
                            message="Неправильный логин или пароль")
 
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    return render_template('registration.html')
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return "Page not found", 404
+
+
 #   AJAX METHODS
 
 def basket_favourites(request, attr_name, method_name):
     if not request.data.isdigit():
-        return Response(status=402)
+        return Response(status=400)
     if not (user := authToken(request)):
         # TODO: set in/get from cookie
         return Response(status=200)
@@ -134,7 +145,7 @@ def basket_favourites(request, attr_name, method_name):
         method(db.session.query(Item).filter_by(id=int(request.data)).one())
         db.session.commit()
     except ValueError:
-        return Response(status=402)
+        return Response(status=412)
     return Response(status=200)
 
 @app.route('/favourites/add', methods=['POST'])
