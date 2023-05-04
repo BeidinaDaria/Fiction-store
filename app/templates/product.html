@@ -119,10 +119,10 @@
 
                 <div id="favBox">
                     {% if in_fav %}
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="fav" checked>
                         <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
                     {% else %}
-                        <input type="checkbox">
+                        <input type="checkbox" id="fav">
                         <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
                     {% endif %}
                 </div>
@@ -171,11 +171,11 @@
 
                 <div id="basketBox">
                     {% if in_basket %}
-                        <input type="checkbox" checked>
-                        <img src="static/img/gui/telega_small.svg"><label for="fav">В корзине</label>
+                        <input type="checkbox" id="basket" checked>
+                        <img src="static/img/gui/telega_small.svg"><label for="basket">В корзине</label>
                     {% else %}
-                        <input type="checkbox">
-                        <img src="static/img/gui/telega_small.svg"><label for="fav">В корзину?</label>
+                        <input type="checkbox" id="basket">
+                        <img src="static/img/gui/telega_small.svg"><label for="basket">В корзину?</label>
                     {% endif %}
                 </div>
                 <p><button><a href="#">Быстрый заказ</a></button></p>
