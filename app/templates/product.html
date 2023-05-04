@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="shortcut icon" href="static/img/favicon.ico">
     <meta charset="UTF-8">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="static/styles/style.css">
     <title>Название продукта</title>
 </head>
-
 <body>
     <header>
         <div class="navigator">
@@ -46,7 +44,6 @@
     <main>
         <h1>Витрина</h1>
     </main>
-
     <h2>{{ item.title }}</h2>
     <span style="width:100%;">
         <div class="product">
@@ -58,42 +55,58 @@
                 <img src="static/img/gui/star.svg" alt="">
                 <p>4.8</p>
                 <a href="#" style="margin-top:2%;">{{ item.comments|length }} отзыва(ов)</a>
-
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
                 <script type=text/javascript>
                     const urlParams = new URLSearchParams(window.location.search);
                     $(function() {
-                        var box = $('div#favBox');
-                        $.fn.sendFav = function(method, correctText, incorrectText, newLabel) {
+                        const id = urlParams.get('id');
+                        const fav = $('div#favBox');
+                        const basket = $('div#basketBox');
+                        const add_fav_url = '/favourites/add';
+                        const remove_fav_url = '/favourites/remove';
+                        const add_basket_url = '/basket/add';
+                        const remove_basket_url = '/basket/remove';
+                        $.fn.changeFavBasket = function(url, box, correctText, incorrectText, newLabel) {
                             $.ajax({
-                                url: "{{ url_for('set_remove_fav') }}",
-                                method: "POST",
-                                data: method+urlParams.get('id'),
+                                url: url,
+                                type: 'POST',
+                                data: id,
                                 contentType: 'application/json;charset=UTF-8',
-                                success: function(data) {
-                                    if (data == "not auth")
-                                        alert("Вы не авторизированы"); // TODO: Изменить
-                                    else if (data == "incorrect")
-                                        alert(incorrectText); // TODO: Изменить
-                                    else {
-                                        alert(correctText); // TODO: Изменить
-                                        box.children('label').text(newLabel);
-                                    }
+                                success: function() {
+                                    alert(correctText); // TODO: Изменить
+                                    box.children('label').text(newLabel);
+                                },
+                                error: function(err) {
+                                    alert(incorrectText);
                                 }
                             });
                         };
-                        box.children('input').on('change', function() {
+                        fav.children('input').on('change', function() {
                             if ($(this).is(':checked'))
-                                $.fn.sendFav("set:",
+                                $.fn.changeFavBasket(add_fav_url, fav,
                                     "Предмет добавлен в избранное",
                                     "Не удалось добавить предмет в избранное",
-                                    "Убрать из избранного"
+                                    "В избранном"
                                 );
                             else
-                                $.fn.sendFav("rem:",
+                                $.fn.changeFavBasket(remove_fav_url, fav,
                                     "Предмет убран из избранного",
-                                    "Не удалось убрать предмет из избранное",
-                                    "Добавить в избранное"
+                                    "Не удалось убрать предмет из избранного",
+                                    "В избранное"
+                                );
+                        })
+                        basket.children('input').on('change', function() {
+                            if ($(this).is(':checked'))
+                                $.fn.changeFavBasket(add_basket_url, basket,
+                                    "Предмет добавлен в корзину",
+                                    "Не удалось добавить предмет в корзину",
+                                    "В корзине"
+                                );
+                            else
+                                $.fn.changeFavBasket(remove_basket_url, basket,
+                                    "Предмет убран из корзины",
+                                    "Не удалось убрать предмет из корзины",
+                                    "В корзину"
                                 );
                         })
                     });
@@ -101,15 +114,16 @@
 
                 <div id="favBox">
                     {% if in_fav %}
+                        <input type="checkbox" checked>
                         <input type="checkbox" id="fav" checked>
-                        <img src="static/img/gui/favourite.svg"><label for="fav">Убрать из избранного</label>
+                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
                     {% else %}
+                        <input type="checkbox">
                         <input type="checkbox" id="fav">
-                        <img src="static/img/gui/favourite.svg"><label for="fav">Добавить в избранное</label>
+                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
                     {% endif %}
                 </div>
             </span>
-
             <span style="width:35%;margin-left:15%;">
                 <div class="additional">
                     {% for image in item.images[1:] %}
@@ -147,18 +161,26 @@
                     </div>
                 </div>
             </div>
-
             <div class="price">
                 <p>{{ item.price }} ₽</p>
 
-                <button>
-                    <a href="#"><img src="static/img/gui/telega_small.svg">В корзину</a>
-                </button>
+                <div id="basketBox">
+                    {% if in_basket %}
+                        <input type="checkbox" checked>
+                        <img src="static/img/gui/telega_small.svg"><label for="fav">В корзине</label>
+                        <input type="checkbox" id="basket" checked>
+                        <img src="static/img/gui/telega_small.svg"><label for="basket">В корзине</label>
+                    {% else %}
+                        <input type="checkbox">
+                        <img src="static/img/gui/telega_small.svg"><label for="fav">В корзину?</label>
+                        <input type="checkbox" id="basket">
+                        <img src="static/img/gui/telega_small.svg"><label for="basket">В корзину?</label>
+                    {% endif %}
+                </div>
                 <p><button><a href="#">Быстрый заказ</a></button></p>
             </div>
         </aside>
     </span>
-
     <div class="description">
         <h2><b>Описание</b></h2>
         <h4>{{ item.description }}</h4>
@@ -167,39 +189,32 @@
         <aside style="width:50%">
             <div class="reviews">
                 <h2>Отзывы({{ item.comments|length }})</h2>
-
                 {% for comment in item.comments %}
                     <span>
                         <button width="300"><a href="#"><img src="static/img/gui/bukva k v krujke"></a></button>
                         <h4>{{ comment.user.name }} {{ comment.user.surname }}</h4>
                         <h5>{{ comment.date }}</h5>
-
                         {% for _ in range(comment.score) %}
                             <img src="static/img/gui/star.svg" alt="">
                         {% endfor %}
-
                     </span>
-
                     {% if comment.pros %}
                         <h4><b>Преимущества</b></h4>
                         <h5>{{ comment.pros }}</h5>
                     {% endif %}
-                    
+
                     {% if comment.cons %}
                         <h4><b>Недостатки</b></h4>
                         <h5>{{ comment.cons }}</h5>
                     {% endif %}
-
                     {% if comment.text %}
                         <h4><b>Комментарий</b></h4>
                         <h5>{{ comment.text }} </h5>
                     {% endif %}
-                    
-                {% endfor %}
 
+                {% endfor %}
             </div>
         </aside>
-
         <div class="catalog">
             <span>
                 <img src="static/img/gui/like.jpg">
@@ -241,7 +256,6 @@
             <button><a href="#"><img src="static/img/gui/star.svg">Оставить отзыв</a></button>
         </div>
     </span>
-
     <footer>
         <div class="annotation">
             <img src="static/img/gui/white_logo.png">
@@ -268,5 +282,4 @@
         };
     </script>
 </body>
-
 </html>
