@@ -142,10 +142,10 @@ def basket_favourites(request, attr_name, method_name):
         return Response(status=200)
     method = getattr(getattr(user, attr_name), method_name)
     try:
-        method(db.session.query(Item).filter_by(id=int(request.data)).one())
-        db.session.commit()
+        method(db.session.query(Item).filter_by(id=int(request.data)).first())
     except ValueError:
         return Response(status=412)
+    db.session.commit()
     return Response(status=200)
 
 @app.route('/favourites/add', methods=['POST'])

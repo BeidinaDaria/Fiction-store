@@ -46,11 +46,11 @@
     </main>
     <div class="types">
         <div class="catalog">
+            {% set vars = {'sum': 0} %}
 
             {% if basket %}
 
                 <h2>{{ basket|length }} товара(ов) в корзине</h2>
-                {% set vars = {'sum': 0} %}
 
                 {% for item in basket %}
 
