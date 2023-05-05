@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link rel="shortcut icon" href="static/img/gui/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
                 </span>
                 <span>
                     <img src="static/img/gui/Search.svg">
-                    <a href="index">Поиск</a>
+                    <a href="/#search">Поиск</a>
                 </span>
                 <span>
                     <img src="static/img/gui/favourite.svg">
@@ -50,7 +50,7 @@
     <form method="POST" action="/login">
         <div >{{ message }}</div>
         <input name="email" placeholder="Адрес электронной почты" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="100" required>
-        <input name="password" placeholder="Пароль" id="userPassword" type="password" size="100" required>
+        <input name="pwd" placeholder="Пароль" id="pwd" type="password" size="100" required>
         <button type="submit">Войти</button>
     </form>
     <a href="/signup"><button>Зарегистрироваться</button></a>

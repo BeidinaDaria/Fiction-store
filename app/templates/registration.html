@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link rel="shortcut icon" href="static/img/gui/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
                 </span>
                 <span>
                     <img src="static/img/gui/Search.svg">
-                    <a href="#search">Поиск</a>
+                    <a href="/#search">Поиск</a>
                 </span>
                 <span>
                     <img src="static/img/gui/favourite.svg">
@@ -47,23 +47,26 @@
         <h1>Зарегистрируйтесь, пожалуйста!</h1>
         <h4 style="color: rgba(124, 103, 255, 1);">Чтобы получить больше преимуществ</h4>
     </main>
-    <span class="register">
-        <label for="username"><b>Имя пользователя</b></label>
-        <input type="text" placeholder="Введите" name="username" id="username" required />
-    </span>
-    <span class="register">
-        <label for="pwd"><b>Пароль</b></label>
-        <input type="password" placeholder="Введите пароль" name="pwd" id="pwd" required />
-    </span>
-    <span class="register">
-        <label for="pwd-repeat"><b>Повторите пароль</b></label>
-        <input type="password" placeholder="Повторите пароль" name="pwd-repeat" id="pwd-repeat" required />
-    </span>
-    <span class="register">
-        <label for="email"><b>Электронная почта</b></label>
-        <input type="text" placeholder="Электронная почта" name="email" id="email" required />
-    </span>
-    <span class="register"><button>Зарегистрироваться</button></span>
+    <form method="POST" action="/signup">
+        <div >{{ message }}</div>
+        <span class="register">
+            <label for="username"><b>Имя пользователя</b></label>
+            <input type="text" placeholder="Введите" name="username" id="username" required />
+        </span>
+        <span class="register">
+            <label for="pwd"><b>Пароль</b></label>
+            <input type="password" placeholder="Введите пароль" name="pwd" id="pwd" required />
+        </span>
+        <span class="register">
+            <label for="pwd-repeat"><b>Повторите пароль</b></label>
+            <input type="password" placeholder="Повторите пароль" name="pwd-repeat" id="pwd-repeat" required />
+        </span>
+        <span class="register">
+            <label for="email"><b>Электронная почта</b></label>
+            <input type="text" placeholder="Электронная почта" name="email" id="email" required />
+        </span>
+        <span class="register"><button type="submit">Зарегистрироваться</button></span>
+    </form>
     <div>
         <button style="background:none;border:none;"><img GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. github.com src="styles/img/delete.svg"></button>
     </div>

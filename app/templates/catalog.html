@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link rel="shortcut icon" href="static/img/gui/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
                 </span>
                 <span>
                     <img src="static/img/gui/Search.svg">
-                    <a href="#search">Поиск</a>
+                    <a href="/#search">Поиск</a>
                 </span>
                 <span>
                     <img src="static/img/gui/favourite.svg">
@@ -116,7 +116,7 @@
             </div>
         </aside>
         <div class="catalog">
-            <h2>Машины времени - 15 товаров</h2>
+            <h2>Изобретения - {{ items|length }} товара(ов)</h2>
             <span>
                 <h3>Сортировка по:</h3>
                 <a href="#">Популярность</a>
@@ -153,8 +153,8 @@
                                 <img src="static/img/gui/star.svg" alt="">
                                 <p>4.8</p>
                             </span>
-                            <p>{{ item.description[:150] }}…</p>
                         </a>
+                        <p>{{ item.description[:138] }}…</p>
                         <span>
                             <div class="price">
                                 <p>{{ item.price }}</p>
