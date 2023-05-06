@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles/style.css">
+    <title>not found</title>
+</head>
+
+<body>
+    <header>
+        <div class="navigator">
+            <img src="static/img/gui/logo.svg">
+            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
+            <nav class="hide">
+                <span>
+                    <img src="static/img/gui/home.svg">
+                    <a href="/">Главная</a>
+                </span>
+                <span>
+                    <img src="static/img/gui/Catalog.svg">
+                    <a href="catalog">Каталог</a>
+                </span>
+                <span>
+                    <img src="static/img/gui/Search.svg">
+                    <a href="#search">Поиск</a>
+                </span>
+                <span>
+                    <img src="static/img/gui/favourite.svg">
+                    <a href="favourites">Избранное</a>
+                </span>
+                <span>
+                    <img src="static/img/gui/backets.svg">
+                    <a href="basket">Корзина</a>
+                </span>
+                <span>
+                    <img src="static/img/gui/Profile.svg">
+                    <a href="entrance">Профиль</a>
+                </span>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2>В каталоге по этому запросу ничего не найдено.</h2>
+    </main>
+    
+        <div class="annotation">
+            <img src="styles/img/white_logo.svg">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab dolores recusandae non quo eum provident!</p>
+        </div>
+        <div class="nav_footer">
+            <a href="#">
+                <p>О проекте</p>
+            </a>
+            <a href="#">
+                <p>Контакты</p>
+            </a>
+            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+                <p>GitHub</p>
+            </a>
+        </div>
+    </footer>
+    <script>
+        function adaptivMenu() {
+            let navig = document.querySelector("nav");
+            if (navig.className == "show")
+                navig.className = 'hide';
+            else navig.className = 'show';
+        };
+
+    </script>
+</body>
