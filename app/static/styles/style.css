@@ -31,17 +31,52 @@ body, html {
 }
 
 .catalogue-search input {
-    justify-content: center;
-    text-align: center;
     width: 60%;
     height: 40px;
+
 }
 
 .catalogue-search {
     justify-content: center;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    height: 40px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.catalogue-search .search-motivation {
+    font-size: 130%;
+    font-weight: 600;
+    color: rgba(124, 103, 255, 1);
+}
+
+.textrange-fields {
+    display: inline;
+    flex-direction: row;
+}
+
+.textrange-field {
+    display: inline;
+    width: 43%;
+}
+
+.github {
+    display: none;
+}
+
+.sortby {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+}
+
+.sortby li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.sortby li:first-child {
+    font-weight: 700;
 }
 
 @media (min-width: 900px) {
@@ -53,7 +88,7 @@ body, html {
     }
 
     h2 {
-        text-align: center;
+        /*text-align: center;*/
     }
 
     p {
@@ -506,8 +541,7 @@ body, html {
         border-radius: 30px;
         display: flex;
         justify-content: center;
-        height: 25vh;
-        display: none;
+        /* height: 25vh; */
     }
 
     .container > .content {
@@ -617,48 +651,48 @@ body, html {
         justify-content: space-around;
     }
 
-    .types > aside {
+    .types > .aside {
         display: flex;
         flex-direction: column;
         width: 20%;
     }
 
-    .types > aside > .container {
+    .types > .aside > .container {
         background: none;
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    .types > aside > .container > h4 > b {
+    .types > .aside > .container > h4 > b {
         padding: 12px;
         display: inline-block;
     }
 
-    .types > aside > .container > .slider-track > input {
+    .types > .aside > .container > .slider-track > input {
         display: inline-block;
         margin: 0 -1.5%;
     }
 
-    .types > aside > div {
+    .types > .aside > div {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    .types > aside > div > span {
+    .types > .aside > div > span {
         justify-content: flex-start;
         margin-top: 1%;
     }
 
-    .types > aside > .wrapper > .century {
+    .types > .aside > .wrapper > .century {
         display: flex;
         flex-direction: row;
         font-weight: 400;
         justify-content: space-around;
     }
 
-    .types > aside > .wrapper > .container {
+    .types > .aside > .wrapper > .container {
         background: none;
     }
 
@@ -680,6 +714,7 @@ body, html {
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 50% 50%;
+        margin-top: 8px;
     }
 
     #france:before, #russia:before, #usa:before, #britain:before {
@@ -865,7 +900,7 @@ body, html {
         color: white;
     }
 
-    span > aside {
+    span > .aside {
         display: flex;
         flex-direction: row;
         width: 40%;
@@ -1341,47 +1376,47 @@ body, html {
         flex-direction: column;
     }
 
-    .types > aside {
+    .types > .aside {
         display: none;
         position: absolute;
     }
 
-    .types > aside > .container {
+    .types > .aside > .container {
         background: none;
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    .types > aside > .container > h4 > b {
+    .types > .aside > .container > h4 > b {
         padding: 12px;
         display: inline-block;
     }
 
-    .types > aside > .container > .slider-track > input {
+    .types > .aside > .container > .slider-track > input {
         display: inline-block;
         margin: 0 -1.5%;
     }
 
-    .types > aside > div {
+    .types > .aside > div {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    .types > aside > div > span {
+    .types > .aside > div > span {
         justify-content: flex-start;
         margin-top: 1%;
     }
 
-    .types > aside > .wrapper > .century {
+    .types > .aside > .wrapper > .century {
         display: flex;
         flex-direction: row;
         font-weight: 400;
         justify-content: space-around;
     }
 
-    .types > aside > .wrapper > .container {
+    .types > .aside > .wrapper > .container {
         background: none;
     }
 
@@ -1546,7 +1581,7 @@ body, html {
         color: white;
     }
 
-    span > aside {
+    span > .aside {
         display: flex;
         flex-direction: column-reverse;
         width: 100%;

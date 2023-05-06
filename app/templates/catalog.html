@@ -9,42 +9,43 @@
     <title>Каталог</title>
 </head>
 <body>
-    <header>
-        <div class="navigator">
-            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
-            <nav class="hide">
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Search.svg">
                     <a href="/#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
                     <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Каталог изобретений</h1>
-    </main>
-    <span class="catalogue-circles">
+        </nav>
+    </div>
+</header>
+<main>
+    <h1>Каталог изобретений</h1>
+</main>
+<span class="catalogue-circles">
         <button>
             <a href="#">Все</a>
         </button>
@@ -64,20 +65,24 @@
             <a href="#">еще</a>
         </button>
     </span>
-    <form class="catalogue-search">
-        <input type="text" method="GET" name="search" placeholder="Название товара">
-    </form>
-    <div class="types">
-        <aside>
-            <h2>Фильтры</h2>
+<!-- <form class="catalogue-search">
+    <input type="text" method="GET" name="search" placeholder="Название товара">
+</form> -->
+<div class="types">
+    <form class="aside" action="#">
+        <h2>Фильтры</h2>
             <h3>Цена</h3>
             <div class="container">
-                <h4><b>119₽</b> - <b>999₽</b></h4>
-                <a href="#"></a>
-                <div class="slider-track">
+                <!--<div class="slider-track">
+                    <p>119₽ - 999₽</p>
                     <input type="range" min="0" max="1500" value="30" id="slider-1" oninput="slideOne()">
                     <input type="range" min="0" max="1500" value="70" id="slider-2" oninput="slideTwo()">
+                </div>-->
+                <div class="textrange-fields">
+                    <input class="textrange-field" type="text" id="minprice" placeholder="Мин.">
+                    <input class="textrange-field" type="text" id="maxprice" placeholder="Макс.">
                 </div>
+
             </div>
             <h3>Страны происхождения</h3>
             <div>
@@ -88,7 +93,11 @@
             </div>
             <h3>Век</h3>
             <div class="wrapper">
-                <div class="century">
+                <div class="textrange-fields">
+                    <input class="textrange-field" type="text" id="mincentury" placeholder="Мин.">
+                    <input class="textrange-field" type="text" id="maxcentury" placeholder="Макс.">
+                </div>
+                <!--<div class="century">
                     <span id="range1">
                         X
                     </span>
@@ -101,7 +110,7 @@
                     <div class="slider-track"></div>
                     <input type="range" min="0" max="100" value="30" id="slider-1" oninput="slideOne()">
                     <input type="range" min="0" max="100" value="70" id="slider-2" oninput="slideTwo()">
-                </div>
+                </div>-->
             </div>
             <h3>Цвет</h3>
             <div>
@@ -114,36 +123,36 @@
                 <span><input type="checkbox" name="green" for="green"><label id="green">Зеленый</label></span>
                 <span><input type="checkbox" name="violet" for="violet"><label id="violet">Фиолетовый</label></span>
             </div>
-        </aside>
-        <div class="catalog">
-            <h2>Изобретения - {{ items|length }} товара(ов)</h2>
-            <span>
-                <h3>Сортировка по:</h3>
-                <a href="#">Популярность</a>
-                <a href="#">Цена</a>
-                <a href="#">Рейтинг<img src="ctrelkavniz.jpg"></a>
-            </span>
-            <div class="wrapper">
-                <div class="values">
-                    <span id="range1"></span>
-                    <span id="range2"></span>
-                </div>
+        </form>
+    <div class="catalog">
+        <h2>Изобретения - {{ items|length }} шт.</h2>
+        <ul class="sortby">
+            <li style="font-weight: 700">Сортировка по:</li>
+            <li><a href="#">Популярность</a></li>
+            <li><a href="#">Цена</a></li>
+            <li><a href="#">Рейтинг</a></li>
+        </ul>
+        <div class="wrapper">
+            <div class="values">
+                <span id="range1"></span>
+                <span id="range2"></span>
             </div>
-            <div class="params">
-                <button><a>Страна:Франция</a></button>
-                <button><a>Страна:США</a></button>
-                <button>Век:X - XXI</button>
-                <button><a></a>Очистить фильтры</a></button>
-                <form action="handler.php">
-            </div>
-            <section>
-                <div class="gallery">
+        </div>
+        <div class="params">
+            <button><a>Страна:Франция</a></button>
+            <button><a>Страна:США</a></button>
+            <button>Век:X - XXI</button>
+            <button><a></a>Очистить фильтры</a></button>
+            <form action="handler.php">
+        </div>
+        <section>
+            <div class="gallery">
 
-                    {% if not items %}
-                        <h2>В каталоге по этому запросу ничего не найдено.</h2>
-                    {% endif %}
+                {% if not items %}
+                    <h2>В каталоге по этому запросу ничего не найдено.</h2>
+                {% endif %}
 
-                    {% for item in items %}
+                {% for item in items %}
 
                     <div class="card">
                         <a href="product?id={{ item.id }}">
@@ -169,37 +178,37 @@
                             </div>
                         </span>
                     </div>
-                    
-                    {% endfor %}
 
-                </div>
-            </section>
-        </div>
+                {% endfor %}
+
+            </div>
+        </section>
     </div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>О проекте</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
-    <script>
-        function adaptivMenu(){
-            let navig=document.querySelector("nav");
-            if (navig.className=="show")
-                navig.className='hide';
-            else navig.className='show';
-        };
-    </script>
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>О проекте</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>Контакты</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+            <p>GitHub</p>
+        </a>
+    </div>
+</footer>
+<script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
+</script>
 </body>
 </html>
