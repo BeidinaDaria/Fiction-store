@@ -139,6 +139,10 @@
             <section>
                 <div class="gallery">
 
+                    {% if not items %}
+                        <h2>В каталоге по этому запросу ничего не найдено.</h2>
+                    {% endif %}
+
                     {% for item in items %}
 
                     <div class="card">
