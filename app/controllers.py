@@ -58,28 +58,26 @@ def catalog():
 
 @app.route('/favourites')
 def favourites():
-    user = authToken(request)
-    favs_len, basket_len = favs_basket_len(user, request.cookies)
-    if user:
+    if user := authToken(request):
         favourites = user.favourites
     elif (ids := request.cookies.get('favourites')):
         favourites = db.session.query(Item).filter(Item.id.in_(ids.split(',')[:-1])).all()
     else:
         favourites = 0
+    favs_len, basket_len = favs_basket_len(user, request.cookies)
     return render_template('favourites.html', favs_len=favs_len,
                            basket_len=basket_len, favourites=favourites)
 
 
 @app.route('/basket')
 def basket():
-    user = authToken(request)
-    favs_len, basket_len = favs_basket_len(user, request.cookies)
-    if user:
+    if user := authToken(request):
         basket = user.basket
     elif (ids := request.cookies.get('basket')):
         basket = db.session.query(Item).filter(Item.id.in_(ids.split(',')[:-1])).all()
     else:
         basket = 0
+    favs_len, basket_len = favs_basket_len(user, request.cookies)
     return render_template('basket.html', favs_len=favs_len,
                            basket_len=basket_len, basket=basket)
 
