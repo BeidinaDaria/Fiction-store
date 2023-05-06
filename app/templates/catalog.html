@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="../static/styles/style.css">
     <title>Каталог</title>
 </head>
 <body>
@@ -84,12 +84,14 @@
                 </div>
 
             </div>
-            <h3>Страны происхождения</h3>
+            <h3>Научная сфера</h3>
             <div>
-                <label id="france"><input type="checkbox" name="france" for="france" checked>Франция</label>
-                <label id="russia"><input type="checkbox" name="russia" for="russia">Россия</label>
-                <label id="britain"><input type="checkbox" name="britain" for="britain">Великобритания</label>
-                <label id="usa"><input type="checkbox" name="usa" for="usa" checked>США</label>
+                <label id="physics"><input type="checkbox" name="france" for="physics" checked>Физика</label>
+                <label id="chemistry"><input type="checkbox" name="russia" for="chemistry">Химия</label>
+                <label id="biology"><input type="checkbox" name="britain" for="biology">Биология</label>
+                <label id="history"><input type="checkbox" name="usa" for="history">История</label>
+                <label id="psycho"><input type="checkbox" name="usa" for="psycho">Психология</label>
+                <label id="geography"><input type="checkbox" name="usa" for="geography" checked>География</label>
             </div>
             <h3>Век</h3>
             <div class="wrapper">
@@ -139,9 +141,7 @@
             </div>
         </div>
         <div class="params">
-            <button><a>Страна:Франция</a></button>
-            <button><a>Страна:США</a></button>
-            <button>Век:X - XXI</button>
+            <button id="nav_filter" class="nav_adaptiv" onclick="adaptivFilter()">Открыть фильтры</button>
             <button><a></a>Очистить фильтры</a></button>
             <form action="handler.php">
         </div>
@@ -208,6 +208,12 @@
         if (navig.className == "show")
             navig.className = 'hide';
         else navig.className = 'show';
+    };
+    function adaptivFilter() {
+        let navig = document.querySelector("form");
+        if (navig.className == "showFilter")
+            navig.className = 'hideFilter';
+        else navig.className = 'showFilter';
     };
 </script>
 </body>
