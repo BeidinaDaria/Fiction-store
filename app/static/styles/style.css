@@ -52,7 +52,7 @@ body, html {
 
 .textrange-fields {
     display: inline;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .textrange-field {
@@ -1613,4 +1613,30 @@ body, html {
         padding: 1rem;
         width: fit-content;
     }
+    .hideFilter {
+        display: none;
+    }
+
+    .showFilter {
+        display: flex;
+        flex-direction: column;
+        width:400px;
+        padding:2vh;
+        background: rgba(248, 245, 245, 1);
+    }
+    .textrange-fields {
+    display: inline;
+    flex-direction: row;
+    align-items: center;
 }
+
+.textrange-field {
+    display: inline;
+    width: 43%;
+    margin-top:5px;
+    height:15px;
+}
+
+}
+
+
