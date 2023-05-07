@@ -6,45 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles/style.css">
-    <title>Название продукта</title>
+    <title>{{ item.title }} - витрина FictionStore</title>
 </head>
 <body>
-    <header>
-        <div class="navigator">
-            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
-            <nav class="hide">
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img scr="static/img/gui/Search.svg">
                     <a href="/#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
                     <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Витрина</h1>
-    </main>
-    <h2>{{ item.title }}</h2>
+        </nav>
+    </div>
+</header>
+<style>
+    main.product-main {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+        url(/static/img/items/{{ item.images.0 }});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    main.product-main h1 {
+        background: #fff;
+        border-radius: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+    }
+</style>
+<main class="product-main">
+    <h1>{{ item.title }}</h1>
+</main>
+
+<div class="item-container">
     <span style="width:100%;">
         <div class="product">
             <span style="width:70%">
@@ -54,11 +74,11 @@
                 <img src="static/img/gui/star.svg" alt="">
                 <img src="static/img/gui/star.svg" alt="">
                 <p>4.8</p>
-                <a href="#" style="margin-top:2%;">{{ item.comments|length }} отзыва(ов)</a>
+                <a href="#" style="margin-top:2%;">Отзывы: {{ item.comments|length }} шт.</a>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
                 <script type=text/javascript>
                     const urlParams = new URLSearchParams(window.location.search);
-                    $(function() {
+                    $(function () {
                         const id = urlParams.get('id');
                         const fav = $('div#favBox');
                         const basket = $('div#basketBox');
@@ -66,23 +86,23 @@
                         const remove_fav_url = '/favourites/remove';
                         const add_basket_url = '/basket/add';
                         const remove_basket_url = '/basket/remove';
-                        $.fn.changeFavBasket = function(url, box, correctText, incorrectText, newLabel) {
+                        $.fn.changeFavBasket = function (url, box, correctText, incorrectText, newLabel) {
                             $.ajax({
                                 url: url,
                                 type: 'POST',
                                 data: id,
                                 contentType: 'application/json;charset=UTF-8',
-                                success: function() {
+                                success: function () {
                                     alert(correctText); // TODO: Изменить
                                     box.children('label').text(newLabel);
                                 },
-                                error: function(err) {
+                                error: function (err) {
                                     alert(incorrectText); // TODO: Изменить
                                     console.log(err);
                                 }
                             });
                         };
-                        fav.children('input').on('change', function() {
+                        fav.children('input').on('change', function () {
                             if ($(this).is(':checked'))
                                 $.fn.changeFavBasket(add_fav_url, fav,
                                     "Предмет добавлен в избранное",
@@ -96,7 +116,7 @@
                                     "В избранное"
                                 );
                         })
-                        basket.children('input').on('change', function() {
+                        basket.children('input').on('change', function () {
                             if ($(this).is(':checked'))
                                 $.fn.changeFavBasket(add_basket_url, basket,
                                     "Предмет добавлен в корзину",
@@ -126,7 +146,7 @@
             <span style="width:35%;margin-left:15%;">
                 <div class="additional">
                     {% for image in item.images[1:] %}
-                    <img src="/static/img/items/{{ image }}" width="100" height="108">
+                        <img src="/static/img/items/{{ image }}" width="100" height="108">
                     {% endfor %}
                 </div>
                 <img src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
@@ -251,30 +271,32 @@
             <button><a href="#"><img src="static/img/gui/star.svg">Оставить отзыв</a></button>
         </div>
     </span>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="#">
-                <p>О проекте</p>
-            </a>
-            <a href="#">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
- <script>
-        function adaptivMenu(){
-            let navig=document.querySelector("nav");
-            if (navig.className=="show")
-                navig.className='hide';
-            else navig.className='show';
-        };
-    </script>
+</div>
+
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="#">
+            <p>О проекте</p>
+        </a>
+        <a href="#">
+            <p>Контакты</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+            <p>GitHub</p>
+        </a>
+    </div>
+</footer>
+<script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
+</script>
 </body>
 </html>

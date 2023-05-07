@@ -30,10 +30,29 @@ body, html {
     text-decoration: none;
 }
 
-.catalogue-search input {
-    width: 60%;
-    height: 40px;
+.catalogue-search {
+    text-align: center;
+}
 
+.catalogue-search input[type="text"] {
+    display: inline-block;
+    margin: 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 0;
+}
+
+.catalogue-search input[type="text"]:focus {
+    border-bottom: 2px solid #000;
+}
+
+.catalogue-search input[type="submit"] {
+    display: none;
 }
 
 .catalogue-search {
@@ -79,7 +98,32 @@ body, html {
     font-weight: 700;
 }
 
+.description {
+    margin: 70px 70px 70px 0;
+    padding: 30px 50px;
+    background: rgb(106, 89, 220);
+    border-radius: 30px;
+    justify-content: center;
+}
+
+.description {
+    color: white;
+
+}
+
+.description img {
+
+}
+
+.dtext {
+    margin-left: 30px;
+}
+
 @media (min-width: 900px) {
+
+    .item-container {
+        margin: 5%;
+    }
 
     span {
         display: flex;
@@ -499,26 +543,6 @@ body, html {
         padding-right: 7px;
     }
 
-    .description {
-        margin: 70px;
-        padding: 20px;
-        background: rgba(124, 103, 255, 1);
-        border-radius: 30px;
-        justify-content: center;
-    }
-
-    .description p {
-        color: white;
-
-    }
-
-    .description img {
-
-    }
-
-    .dtext {
-        margin-left: 30px;
-    }
 
     article {
         margin-top: 5%;
@@ -797,9 +821,9 @@ body, html {
     }
 
     .catalog > section > .gallery > .card {
-        width: 42%;
-        margin: 3%;
-        padding-bottom: 8%;
+        width: 46%;
+        margin: 3% 3% 3% 0%;
+        padding-bottom: 10%;
     }
 
     /*дополнительные стили для витрины*/
@@ -933,8 +957,9 @@ body, html {
         font-size: 1rem;
         padding: 1rem;
     }
-    #nav_filter{
-    display:none;
+
+    #nav_filter {
+        display: none;
     }
 }
 
@@ -1617,6 +1642,7 @@ body, html {
         padding: 1rem;
         width: fit-content;
     }
+
     .hideFilter {
         display: none;
     }
@@ -1624,22 +1650,23 @@ body, html {
     .showFilter {
         display: flex;
         flex-direction: column;
-        width:400px;
-        padding:2vh;
+        width: 400px;
+        padding: 2vh;
         background: rgba(248, 245, 245, 1);
     }
-    .textrange-fields {
-    display: inline;
-    flex-direction: row;
-    align-items: center;
-}
 
-.textrange-field {
-    display: inline;
-    width: 43%;
-    margin-top:5px;
-    height:15px;
-}
+    .textrange-fields {
+        display: inline;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .textrange-field {
+        display: inline;
+        width: 43%;
+        margin-top: 5px;
+        height: 15px;
+    }
 
 }
 
