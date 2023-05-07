@@ -106,12 +106,24 @@ body, html {
     justify-content: center;
 }
 
+
 .description {
     color: white;
 
 }
 
-.description img {
+
+.description-index {
+    padding: 30px 50px;
+    background: rgb(106, 89, 220);
+    border-radius: 30px;
+    margin: 7%;
+    justify-content: center;
+}
+
+
+.description-index {
+    color: white;
 
 }
 
