@@ -1838,3 +1838,7 @@ body, html {
         grid-template-columns: 1fr;
     }
 }
+
+.item.favbasket {
+    height: 19vw;
+}

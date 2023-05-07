@@ -77,7 +77,7 @@
                 {% for item in basket %}
 
                 {% if vars.update({'sum': vars['sum']+item.price}) %} {% endif %}
-                <div class="item" id="item{{ item.id }}">
+                <div class="item favbasket" id="item{{ item.id }}">
                     <span>
                         <img src="static/img/items/{{ item.images.0 }}" height="auto" width="25%" onclick="location.href='/product?id={{ item.id }}'">
                         <div class="character">
