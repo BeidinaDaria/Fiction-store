@@ -1842,3 +1842,7 @@ body, html {
 .item.favbasket {
     height: 19vw;
 }
+
+img.preview {
+    object-fit: cover;
+}

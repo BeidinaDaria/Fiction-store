@@ -141,13 +141,13 @@
             <span style="width:35%;">
                 <div class="additional">
                     {% for image in item.images[1:] %}
-                        <img data-enlargable src="/static/img/items/{{ image }}" width="100" height="108">
+                        <img preview src="/static/img/items/{{ image }}" width="100" height="108">
                     {% endfor %}
                 </div>
-                <img data-enlargable src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
+                <img preview src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
             <script>
-                $('img[data-enlargable]').addClass('img-enlargable').click(function(){
+                $('img[preview]').addClass('preview').click(function(){
                     var src = $(this).attr('src');
                     $('<div>').css({
                         background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
@@ -177,10 +177,8 @@
             </div>
             <div class="characteristic">
                 <span style="padding-top: 3px">Сфера:</span>
-                {% for color in item.colors %}
                     <span style="padding: 3px; margin-left: 5px">{% for sci in item.science %}
                         {{ sci }}{% endfor %}</span>
-                {% endfor %}
             </div>
             <div class="price-label">{{ item.price }} ₽</div>
             <div class="favcart" id="basketBox">
