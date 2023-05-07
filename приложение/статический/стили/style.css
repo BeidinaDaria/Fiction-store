@@ -932,6 +932,9 @@ body, html {
         font-size: 1rem;
         padding: 1rem;
     }
+    .hideFilter, .showFilter{
+    display:none;
+    }
 }
 
 @media (max-width: 899px) {
