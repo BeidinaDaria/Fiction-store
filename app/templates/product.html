@@ -137,16 +137,31 @@
                     });
                 </script>
             </span>
-
             <!-- imgs -->
             <span style="width:35%;">
                 <div class="additional">
                     {% for image in item.images[1:] %}
-                        <img src="/static/img/items/{{ image }}" width="100" height="108">
+                        <img data-enlargable src="/static/img/items/{{ image }}" width="100" height="108">
                     {% endfor %}
                 </div>
-                <img src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
+                <img data-enlargable src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
+            <script>
+                $('img[data-enlargable]').addClass('img-enlargable').click(function(){
+                    var src = $(this).attr('src');
+                    $('<div>').css({
+                        background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
+                        backgroundSize: 'contain',
+                        width:'100%', height:'100%',
+                        position:'fixed',
+                        zIndex:'10000',
+                        top:'0', left:'0',
+                        cursor: 'zoom-out'
+                    }).click(function(){
+                        $(this).remove();
+                    }).appendTo('body');
+                });
+            </script>
         </div>
     <aside class="item-column3 product description">
         <h2><b>Описание</b></h2>
@@ -167,22 +182,27 @@
                         {{ sci }}{% endfor %}</span>
                 {% endfor %}
             </div>
-        <div class="price-label">{{ item.price }} ₽</div>
-        <div class="favcart" id="basketBox">
-                    {% if in_basket %}
-                        <input type="checkbox" id="basket" checked>
-                        <img style="color: rgba(124, 103, 255, 1)" src="static/img/gui/cart.svg">
-                        <label for="basket">В корзине</label>
-                    {% else %}
-                        <input type="checkbox" id="basket">
-                        <img style="color: rgba(124, 103, 255, 1)" src="static/img/gui/cart.svg">
-                        <label for="basket">В корзину</label>
-                    {% endif %}
-                </div>
+            <div class="price-label">{{ item.price }} ₽</div>
+            <div class="favcart" id="basketBox">
+                {% if in_basket %}
+                    <input type="checkbox" id="basket" checked>
+                    <img style="color: rgba(124, 103, 255, 1)" src="static/img/gui/cart.svg">
+                    <label for="basket">В корзине</label>
+                {% else %}
+                    <input type="checkbox" id="basket">
+                    <img style="color: rgba(124, 103, 255, 1)" src="static/img/gui/cart.svg">
+                    <label for="basket">В корзину</label>
+                {% endif %}
+            </div>
             <div class="favcart" id="favBox">
+                {% if in_fav %}
+                    <input type="checkbox" id="fav" checked>
+                    <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
+                {% else %}
                     <input type="checkbox" id="fav">
                     <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
-                </div>
+                {% endif %}
+            </div>
         </div>
         </aside>
 
@@ -192,7 +212,11 @@
         <aside style="width:50%">
             <div id="reviews" class="reviews">
                 <h2>Отзывы ({{ item.comments|length }})</h2>
+                {% set vars = {'score': 0} %}
+
                 {% for comment in item.comments %}
+
+                    {% if vars.update({'score': vars['score'] + (comment.score | int)}) %} {% endif %}
                     <span class="review-head">
                         <img class="reviewer-pic" src="static/img/gui/favicon.ico">
                     <div class="reviewer-name">
@@ -219,10 +243,13 @@
                     {% endif %}
 
                 {% endfor %}
+
             </div>
         </aside>
         <div class="catalog">
-            <h2>Средняя оценка: 👍 4.8</h2>
+            {% if item.comments %}
+                <h2>Средняя оценка: 👍 {{ vars['score'] / item.comments|length }}</h2>
+            {% endif %}
             <a href="#"><img src="static/img/gui/star.svg">Оставить свой отзыв</a>
         </div>
     </span>
