@@ -73,7 +73,7 @@
     {% endif %}
 </form>
 <div class="types">
-    <form class="aside" action="#">
+    <form class="aside">
         <h2>Фильтры</h2>
         <h3>Цена</h3>
         <div class="container">
@@ -90,12 +90,10 @@
         </div>
         <h3>Научная сфера</h3>
         <div>
-            <label id="physics"><input type="checkbox" name="france" for="physics" checked>Физика</label>
-            <label id="chemistry"><input type="checkbox" name="russia" for="chemistry">Химия</label>
-            <label id="biology"><input type="checkbox" name="britain" for="biology">Биология</label>
-            <label id="history"><input type="checkbox" name="usa" for="history">История</label>
-            <label id="psycho"><input type="checkbox" name="usa" for="psycho">Психология</label>
-            <label id="geography"><input type="checkbox" name="usa" for="geography" checked>География</label>
+            <label id="physics"><input type="checkbox" name="sci" for="physics" value="physics">Физика</label>
+            <label id="biology"><input type="checkbox" name="sci" for="biology" value="biology">Биология</label>
+            <label id="psycho"><input type="checkbox" name="sci" for="psycho" value="psycho">Психология</label>
+            <label id="magic"><input type="checkbox" name="sci" for="magic" value="magic">Магия</label>
         </div>
         <h3>Век</h3>
         <div class="wrapper">
@@ -127,8 +125,9 @@
             <span><input type="checkbox" name="red" for="red"><label id="red">Красный</label></span>
             <span><input type="checkbox" name="yellow" for="yellow"><label id="yellow">Желтый</label></span>
             <span><input type="checkbox" name="green" for="green"><label id="green">Зеленый</label></span>
-            <span><input type="checkbox" name="violet" for="violet"><label id="violet">Фиолетовый</label></span>
+            <span><input type="checkbox" name="golden" for="golden"><label id="golden">Золотой</label></span>
         </div>
+        <button type="submit">Применить</button>
     </form>
     <div class="catalog">
         <h2>Изобретения - {{ items|length }} шт.</h2>

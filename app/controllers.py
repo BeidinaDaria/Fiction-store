@@ -48,7 +48,8 @@ def product():
 
 @app.route('/catalog', methods=['GET', 'POST'])
 def catalog():
-    print(request.form.getlist('sci'))
+    # ["physics", "biology", magic, psycho]
+    print(request.args.getlist('sci'))
     search = request.args.get('search')
     items = db.session.query(Item).filter(Item.title == search[0].upper()+search[1:].lower()).all() \
             if search else db.session.query(Item).all()

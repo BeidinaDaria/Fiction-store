@@ -21,7 +21,7 @@ class Item(db.Model):
     description     = db.Column(db.String(1000), nullable=False)
     images          = db.Column(db.JSON) # [ "str", ... ]
     colors          = db.Column(db.JSON) # [ "str", ... ]
-    science         = db.Column(db.String(50))
+    science         = db.Column(db.JSON) # [ "str", ... ]
     comments        = db.relationship("Comment", backref="item")
 
 
