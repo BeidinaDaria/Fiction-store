@@ -189,7 +189,7 @@
     </span>
 
     <span class="reviews-container">
-        <aside style="width:50%">
+        <aside class="reviews-texts">
             <div id="reviews" class="reviews">
                 <h2>Отзывы ({{ item.comments|length }})</h2>
                 {% for comment in item.comments %}
@@ -223,7 +223,27 @@
         </aside>
         <div class="catalog">
             <h2>Средняя оценка: 👍 4.8</h2>
-            <a href="#"><img src="static/img/gui/star.svg">Оставить свой отзыв</a>
+            <div class="itemcomm_body">
+                <form action="#" method="post" class="itemcomm_form">
+                    <h3 class="itemcomm_title">😉 Оставьте свой отзыв, ИМЯПОЛЬЗОВАТЕЛЯ</h3>
+                    <div class="itemcomm_formgroup">
+                        <label for="itemcomm_pros" class="itemcomm_label">Преимущества:</label>
+                        <textarea name="pros" id="itemcomm_pros" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
+                        <label for="itemcomm_cons" class="itemcomm_label">Недостатки:</label>
+                        <textarea name="cons" id="itemcomm_cons" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
+                    </div>
+                    <label for="itemcomm_comment" class="itemcomm_label">Комментарий:</label>
+                    <textarea name="comment" id="itemcomm_comment" rows="10" class="itemcomm_input itemcomm_textarea"></textarea>
+                    <label for="itemcomm_rating" class="itemcomm_label">Общая оценка:</label>
+                    <input type="number" name="rating" id="itemcomm_rating" min="1" max="5" value="5" class="itemcomm_input itemcomm_number" />
+                    <input type="submit" value="Отправить" class="itemcomm_submit" />
+                </form>
+            </div>
+            <div class="itemcomm_body">
+                <div class="itemcomm_form">
+                    <h3 class="itemcomm_title">Чтобы оставить отзыв, нужно <a href="/login">авторизоваться</a> ✨</h3>
+                </div>
+            </div>
         </div>
     </span>
 </div>

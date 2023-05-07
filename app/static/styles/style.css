@@ -211,9 +211,15 @@ body, html {
 
 @media (min-width: 900px) {
 
+    .reviews-texts {
+        width: 55%;
+        margin-right: 10px;
+    }
+
     .item-column2 {
         width: 60%;
     }
+
     .item-container {
         margin: 5%;
     }
@@ -497,16 +503,15 @@ body, html {
         justify-content: space-between;
         align-items: center;
     }
-/*
-    .price {
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 3vh;
-        color: black;
-        margin-right: 30px;
-    } */
 
-
+    /*
+        .price {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 3vh;
+            color: black;
+            margin-right: 30px;
+        } */
     /*
 
     .card {
@@ -951,7 +956,6 @@ body, html {
         font-weight: 500;
         font-size: 120%;
     } */
-
     .price > button, .catalog > button {
         background: rgba(124, 103, 255, 1);
         color: rgba(244, 241, 255, 1);
@@ -1740,10 +1744,7 @@ body, html {
 }
 
 
-
-
 .starsnfav {
-    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1752,4 +1753,75 @@ body, html {
 .characteristic {
     display: flex;
     flex-direction: row;
+}
+
+
+.itemcomm_title {
+    color: #333;
+}
+
+.itemcomm_form {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.itemcomm_label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.itemcomm_input,
+.itemcomm_textarea {
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    resize: none;
+}
+
+.itemcomm_submit {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.itemcomm_submit:hover {
+    background-color: #222;
+    transition: 0.3s;
+}
+
+.itemcomm_number {
+    width: 30px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.itemcomm_formgroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .itemcomm_formgroup {
+        grid-template-columns: 1fr;
+    }
 }
