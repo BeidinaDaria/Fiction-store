@@ -75,7 +75,7 @@
                         {% for _ in range (average | round(0, 'ceil') | int) %}
                             <img src="static/img/gui/star.svg" alt="">
                         {% endfor %}
-                        <p>{{ average }}</p>
+                        <p>{{ average | round(1, 'ceil') }}</p>
                     {% endif %}
                 </span>
                 <a href="#reviews">Отзывы: {{ item.comments|length }} шт.</a>
@@ -220,7 +220,7 @@
                     <div class="reviewer-name">
                         <h3>{{ comment.user.name }} {{ comment.user.surname }}</h3>
                         <p>{{ comment.date }}</p>
-                        {% for _ in range(comment.score) %}
+                        {% for _ in range(comment.score | int) %}
                             <img src="static/img/gui/star.svg" alt="">
                         {% endfor %}
                     </div>
@@ -245,12 +245,12 @@
             </div>
         </aside>
         <div class="catalog">
-            <h2>Средняя оценка: 👍 {{ average }}</h2>
+            <h2>Средняя оценка: 👍 {{ average | round(1, 'ceil') }}</h2>
             <div class="itemcomm_body">
 
                 {% if user %}
                 <form action="#" method="post" class="itemcomm_form">
-                    <h3 class="itemcomm_title">😉 Оставьте свой отзыв, ИМЯПОЛЬЗОВАТЕЛЯ</h3>
+                    <h3 class="itemcomm_title">😉 Оставьте свой отзыв, {{ user.name }}</h3>
                     <div class="itemcomm_formgroup">
                         <label for="itemcomm_pros" class="itemcomm_label">Преимущества:</label>
                         <textarea name="pros" id="itemcomm_pros" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
@@ -258,9 +258,9 @@
                         <textarea name="cons" id="itemcomm_cons" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
                     </div>
                     <label for="itemcomm_comment" class="itemcomm_label">Комментарий:</label>
-                    <textarea name="comment" id="itemcomm_comment" rows="10" class="itemcomm_input itemcomm_textarea"></textarea>
+                    <textarea name="text" id="itemcomm_comment" rows="10" class="itemcomm_input itemcomm_textarea"></textarea>
                     <label for="itemcomm_rating" class="itemcomm_label">Общая оценка:</label>
-                    <input type="number" name="rating" id="itemcomm_rating" min="1" max="5" value="5" class="itemcomm_input itemcomm_number" />
+                    <input type="number" name="score" id="itemcomm_rating" min="1" max="5" value="5" class="itemcomm_input itemcomm_number" />
                     <input type="submit" value="Отправить" class="itemcomm_submit" />
                 </form>
                 {% else %}

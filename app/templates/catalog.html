@@ -83,8 +83,8 @@
                 <input type="range" min="0" max="1500" value="70" id="slider-2" oninput="slideTwo()">
             </div>-->
             <div class="textrange-fields">
-                <input class="textrange-field" type="text" id="minprice" placeholder="Мин.">
-                <input class="textrange-field" type="text" id="maxprice" placeholder="Макс.">
+                <input class="textrange-field" name="price_from" type="text" id="minprice" placeholder="Мин.">
+                <input class="textrange-field" name="price_to" type="text" id="maxprice" placeholder="Макс.">
             </div>
 
         </div>
@@ -146,7 +146,7 @@
         </div>
         <div class="params">
             <button id="nav_filter" class="nav_adaptiv" onclick="adaptivFilter()">Открыть фильтры</button>
-            <button><a>Очистить фильтры</a></button>
+            <button onclick="location.href='/catalog'">Очистить фильтры</button>
             <form action="handler.php">
         </div>
         <section>
