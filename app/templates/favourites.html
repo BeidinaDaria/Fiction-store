@@ -60,6 +60,7 @@
                             success: function () {
                                 alert("Предмет убран из избранного"); // TODO: Изменить
                                 document.getElementById('item'+id).style.display = 'none';
+                                document.getElementById("count").innerHTML -= 1
                             },
                             error: function (err) {
                                 alert("Не удалось убрать предмет из избранного"); // TODO: Изменить
@@ -69,7 +70,7 @@
                     };
                 </script>
 
-                <h2>{{ favourites|length }} товаров(ов) в избранном</h2>
+                <h2><h id="count" style="display: inline;">{{ favourites|length }}</h> товаров(ов) в избранном</h2>
 
                 {% for item in favourites %}
 

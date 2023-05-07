@@ -61,6 +61,8 @@
                             success: function () {
                                 alert("Предмет убран из корзины"); // TODO: Изменить
                                 document.getElementById('item'+id).style.display = 'none';
+                                document.getElementById("count").innerHTML -= 1
+                                document.getElementById("sum").innerHTML -= document.getElementById("price"+id).innerHTML
                             },
                             error: function (err) {
                                 alert("Не удалось убрать предмет из корзины"); // TODO: Изменить
@@ -70,7 +72,7 @@
                     };
                 </script>
 
-                <h2>{{ basket|length }} товара(ов) в корзине</h2>
+                <h2><h id="count" style="display: inline;">{{ basket|length }}</h> товара(ов) в корзине</h2>
 
                 {% for item in basket %}
 
@@ -81,13 +83,8 @@
                         <div class="character">
                             <span>
                                 <h3 style="margin:0;">{{ item.title }}</h3>
-                                <div class="quantity_inner" width="60%" style="display:flex;flex-direction:row;height:20%;align-items:center;">
-                                    <button class="bt_minus">-</button>
-                                    <input type="text" class="quantity" value="1" data-max-count="20">
-                                    <button class="bt_plus">+</button>
-                                </div>
                                 <div class="price">
-                                    <p>{{ item.price }} ₽</p>
+                                    <p><p id="price{{ item.id }}" style="display: inline;">{{ item.price }}</p>₽</p>
                                 </div>
                             </span>
                             <div class="characteristic">
@@ -108,7 +105,7 @@
         </div>
         <aside style="background:rgba(248, 245, 245, 1);padding:10px;display:block;position:relative;" height="500px">
             <span>
-                <h2>Всего: {{ vars['sum'] }}₽</h2>
+                <h2>Всего: <h id="sum" style="display: inline;">{{ vars['sum'] }}</h>₽</h2>
             </span>
             <hr style="background:none;height:5px; width:100%">
             </hr>
