@@ -2,6 +2,7 @@ import uuid
 from app import app, db
 from .models import Item, User
 from flask import render_template, request, redirect, make_response, Response
+from sqlalchemy import func
 
 #   APP ROUTING
 
@@ -48,11 +49,15 @@ def product():
 
 @app.route('/catalog', methods=['GET', 'POST'])
 def catalog():
-    # ["physics", "biology", magic, psycho]
-    print(request.args.getlist('sci'))
+    # search
     search = request.args.get('search')
     items = db.session.query(Item).filter(Item.title == search[0].upper()+search[1:].lower()).all() \
             if search else db.session.query(Item).all()
+    # filter
+    if filter_sci := request.args.getlist('sci'):
+        items = [item for item in items for sci in filter_sci if sci in item.science]
+    if filter_color := request.args.getlist('color'):
+        items = [item for item in items for color in filter_color if color in item.colors]
     favs_len, basket_len = favs_basket_len(authToken(request), request.cookies)
     return render_template('catalog.html', favs_len=favs_len,
                            basket_len=basket_len, items=items, search=search)

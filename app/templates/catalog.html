@@ -73,7 +73,7 @@
     {% endif %}
 </form>
 <div class="types">
-    <form class="aside">
+    <form class="aside" method="GET">
         <h2>Фильтры</h2>
         <h3>Цена</h3>
         <div class="container">
@@ -118,16 +118,17 @@
         </div>
         <h3>Цвет</h3>
         <div>
-            <span><input type="checkbox" name="black" for="black"><label id="black">Черный</label></span>
-            <span><input type="checkbox" name="white" for="white"><label id="white">Белый</label></span>
-            <span><input type="checkbox" name="grey" for="grey"><label id="grey">Серый</label></span>
-            <span><input type="checkbox" name="blue" for="blue"><label id="blue">Синий</label></span>
-            <span><input type="checkbox" name="red" for="red"><label id="red">Красный</label></span>
-            <span><input type="checkbox" name="yellow" for="yellow"><label id="yellow">Желтый</label></span>
-            <span><input type="checkbox" name="green" for="green"><label id="green">Зеленый</label></span>
-            <span><input type="checkbox" name="golden" for="golden"><label id="golden">Золотой</label></span>
+            <span><input type="checkbox" name="color" for="black" value="black"><label id="black">Черный</label></span>
+            <span><input type="checkbox" name="color" for="white" value="white"><label id="white">Белый</label></span>
+            <span><input type="checkbox" name="color" for="grey" value="grey"><label id="grey">Серый</label></span>
+            <span><input type="checkbox" name="color" for="blue" value="blue"><label id="blue">Синий</label></span>
+            <span><input type="checkbox" name="color" for="red" value="red"><label id="red">Красный</label></span>
+            <span><input type="checkbox" name="color" for="yellow" value="yellow"><label id="yellow">Желтый</label></span>
+            <span><input type="checkbox" name="color" for="green" value="green"><label id="green">Зеленый</label></span>
+            <span><input type="checkbox" name="color" for="golden" value="golden"><label id="golden">Золотой</label></span>
+            <span><input type="checkbox" name="color" for="silver" value="silver"><label id="silver">Серебрянный</label></span>
         </div>
-        <button type="submit">Применить</button>
+        <button type="submit" name="search" value="{% if search %}{{ search }}{% endif %}">Применить</button>
     </form>
     <div class="catalog">
         <h2>Изобретения - {{ items|length }} шт.</h2>
