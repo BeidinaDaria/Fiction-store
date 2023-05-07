@@ -468,7 +468,7 @@ body, html {
         border-radius: 20px;
         background: rgba(248, 245, 245, 1);
         margin-right: 3%;
-        min-width: 350px;
+        min-width: 100px;
         height: 610px;
         width: 35%;
         display: inline-block;
@@ -1841,4 +1841,9 @@ body, html {
 
 .item.favbasket {
     height: 19vw;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
