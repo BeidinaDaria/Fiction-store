@@ -933,7 +933,7 @@ body, html {
         font-size: 1rem;
         padding: 1rem;
     }
-    .hideFilter, .showFilter{
+    #nav_filter{
     display:none;
     }
 }
