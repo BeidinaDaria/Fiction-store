@@ -76,10 +76,10 @@
 
                 <div class="item" id="item{{ item.id }}">
                     <span>
-                        <img src="/static/img/items/{{ item.images.0 }}" height="auto" width="25%">
+                        <img src="/static/img/items/{{ item.images.0 }}" height="auto" width="25%" onclick="location.href='/product?id={{ item.id }}'">
                         <div class="character">
                             <span>
-                                <h3 style="margin:0;">{{ item.title }}</h3>
+                                <h3 style="margin:0;" onclick="location.href='/product?id={{ item.id }}'">{{ item.title }}</h3>
                                 <div class="price">
                                     <p>{{ item.price }} ₽</p>
                                 </div>
