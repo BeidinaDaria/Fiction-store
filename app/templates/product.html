@@ -45,7 +45,7 @@
 <style>
     main.product-main {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-        url('/static/img/items/{{ item.images.0 }}');
+        url(/static/img/items/{{ item.images.0 }});
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -66,7 +66,7 @@
 
 <div class="item-container">
     <span style="width:100%;">
-        <div class="product">
+        <div class="product item-column1">
             <!-- stars, fav -->
 
             <span class="starsnfav">
@@ -78,77 +78,68 @@
                     <img src="static/img/gui/star.svg" alt="">
                     <p>4.8</p>
                 </span>
-                <a href="#">Отзывы: {{ item.comments|length }} шт.</a>
+                <a href="#reviews">Отзывы: {{ item.comments|length }} шт.</a>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-                <script type=text/javascript>
-                    const urlParams = new URLSearchParams(window.location.search);
-                    $(function () {
-                        const id = urlParams.get('id');
-                        const fav = $('div#favBox');
-                        const basket = $('div#basketBox');
-                        const add_fav_url = '/favourites/add';
-                        const remove_fav_url = '/favourites/remove';
-                        const add_basket_url = '/basket/add';
-                        const remove_basket_url = '/basket/remove';
-                        $.fn.changeFavBasket = function (url, box, correctText, incorrectText, newLabel) {
-                            $.ajax({
-                                url: url,
-                                type: 'POST',
-                                data: id,
-                                contentType: 'application/json;charset=UTF-8',
-                                success: function () {
-                                    alert(correctText); // TODO: Изменить
-                                    box.children('label').text(newLabel);
-                                },
-                                error: function (err) {
-                                    alert(incorrectText); // TODO: Изменить
-                                    console.log(err);
-                                }
-                            });
-                        };
-                        fav.children('input').on('change', function () {
-                            if ($(this).is(':checked'))
-                                $.fn.changeFavBasket(add_fav_url, fav,
-                                    "Предмет добавлен в избранное",
-                                    "Не удалось добавить предмет в избранное",
-                                    "В избранном"
-                                );
-                            else
-                                $.fn.changeFavBasket(remove_fav_url, fav,
-                                    "Предмет убран из избранного",
-                                    "Не удалось убрать предмет из избранного",
-                                    "В избранное"
-                                );
-                        })
-                        basket.children('input').on('change', function () {
-                            if ($(this).is(':checked'))
-                                $.fn.changeFavBasket(add_basket_url, basket,
-                                    "Предмет добавлен в корзину",
-                                    "Не удалось добавить предмет в корзину",
-                                    "В корзине"
-                                );
-                            else
-                                $.fn.changeFavBasket(remove_basket_url, basket,
-                                    "Предмет убран из корзины",
-                                    "Не удалось убрать предмет из корзины",
-                                    "В корзину"
-                                );
-                        })
-                    });
-                </script>
-                <div id="favBox">
-                    {% if in_fav %}
-                        <input type="checkbox" id="fav" checked>
-                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
-                    {% else %}
-                        <input type="checkbox" id="fav">
-                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
-                    {% endif %}
-                </div>
+                            <script type=text/javascript>
+                                const urlParams = new URLSearchParams(window.location.search);
+                                $(function () {
+                                    const id = urlParams.get('id');
+                                    const fav = $('div#favBox');
+                                    const basket = $('div#basketBox');
+                                    const add_fav_url = '/favourites/add';
+                                    const remove_fav_url = '/favourites/remove';
+                                    const add_basket_url = '/basket/add';
+                                    const remove_basket_url = '/basket/remove';
+                                    $.fn.changeFavBasket = function (url, box, correctText, incorrectText, newLabel) {
+                                        $.ajax({
+                                            url: url,
+                                            type: 'POST',
+                                            data: id,
+                                            contentType: 'application/json;charset=UTF-8',
+                                            success: function () {
+                                                alert(correctText); // TODO: Изменить
+                                                box.children('label').text(newLabel);
+                                            },
+                                            error: function (err) {
+                                                alert(incorrectText); // TODO: Изменить
+                                                console.log(err);
+                                            }
+                                        });
+                                    };
+                                    fav.children('input').on('change', function () {
+                                        if ($(this).is(':checked'))
+                                            $.fn.changeFavBasket(add_fav_url, fav,
+                                                "Предмет добавлен в избранное",
+                                                "Не удалось добавить предмет в избранное",
+                                                "В избранном"
+                                            );
+                                        else
+                                            $.fn.changeFavBasket(remove_fav_url, fav,
+                                                "Предмет убран из избранного",
+                                                "Не удалось убрать предмет из избранного",
+                                                "В избранное"
+                                            );
+                                    })
+                                    basket.children('input').on('change', function () {
+                                        if ($(this).is(':checked'))
+                                            $.fn.changeFavBasket(add_basket_url, basket,
+                                                "Предмет добавлен в корзину",
+                                                "Не удалось добавить предмет в корзину",
+                                                "В корзине"
+                                            );
+                                        else
+                                            $.fn.changeFavBasket(remove_basket_url, basket,
+                                                "Предмет убран из корзины",
+                                                "Не удалось убрать предмет из корзины",
+                                                "В корзину"
+                                            );
+                                    })
+                                });
+                            </script>
             </span>
 
             <!-- imgs -->
-            <span style="width:35%;margin-left:15%;">
+            <span style="width:35%;">
                 <div class="additional">
                     {% for image in item.images[1:] %}
                         <img src="/static/img/items/{{ image }}" width="100" height="108">
@@ -157,47 +148,43 @@
                 <img src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
         </div>
-        <aside>
-            <div class="choose_color">
-                <h3>Цвет:</h3>
-                <span>
-                    {% for color in item.colors %}
-                    <div style="background:{{ color }}; height:24px; width:24px;"></div>
-                    {% endfor %}
-                </span>
-                <div class="quantity">
-                    <h3>Количество</h3>
-                    <div class="quantity_inner">
-                        <button class="bt_minus">-</button>
-                        <input type="text" class="quantity" value="1" data-max-count="20">
-                        <button class="bt_plus">+</button>
-                    </div>
-                    <div class="characteristic">
-                        <b>
-                            <h3>Характеристика</h3>
-                        </b>
-                        <h4>Наука - - - - {% for sci in item.science %}{{ sci }},{% endfor %}</h4>
-                        <h4>Размер - - - - - 40см,</h4>
-                        <h4>Век - - - - - - - -XX,</h4>
-                        <h4>Dolor - - - - - - Sit,</h4>
-                        <h4>Amet - - - - - -lpsum</h4>
-                    </div>
-                </div>
+        <aside class="item-column2 product" style="margin-top: 1.1%;">
+        <div class="characteristics">
+            <div class="characteristic">
+                <span style="padding-top: 3px">Цвет:</span>
+                {% for color in item.colors %}
+                    <span style="background: {{ color }}; padding: 3px; margin-left: 5px">{{ color }}</span>
+                {% endfor %}
             </div>
-            <div class="price">
-                <p>{{ item.price }} ₽</p>
-
-                <div id="basketBox">
+            <div class="characteristic">
+                <span style="padding-top: 3px">Сфера:</span>
+                {% for color in item.colors %}
+                    <span style="padding: 3px; margin-left: 5px">{% for sci in item.science %}
+                        {{ sci }}{% endfor %}</span>
+                {% endfor %}
+            </div>
+        <div class="price-label">{{ item.price }} ₽</div>
+        <div class="favcart" id="basketBox">
                     {% if in_basket %}
                         <input type="checkbox" id="basket" checked>
-                        <img src="static/img/gui/telega_small.svg"><label for="basket">В корзине</label>
+                        <img style="color: rgba(124, 103, 255, 1)" src="static/img/gui/cart.svg">
+                        <label for="basket">В корзине</label>
                     {% else %}
                         <input type="checkbox" id="basket">
-                        <img src="static/img/gui/telega_small.svg"><label for="basket">В корзину?</label>
+                        <img style="color: rgba(124, 103, 255, 1)" src="static/img/gui/cart.svg">
+                        <label for="basket">В корзину</label>
                     {% endif %}
                 </div>
-                <p><button><a href="#">Быстрый заказ</a></button></p>
-            </div>
+            <div class="favcart" id="favBox">
+                    <input type="checkbox" id="fav">
+                    <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
+                </div>
+        </div>
+
+
+
+
+
         </aside>
     </span>
     <div class="description">
@@ -206,7 +193,7 @@
     </div>
     <span>
         <aside style="width:50%">
-            <div class="reviews">
+            <div id="reviews" class="reviews">
                 <h2>Отзывы({{ item.comments|length }})</h2>
                 {% for comment in item.comments %}
                     <span>

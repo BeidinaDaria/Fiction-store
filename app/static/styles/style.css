@@ -147,40 +147,50 @@ body, html {
 
 }
 
-.favcart {
+#favBox {
     align-items: center;
     display: flex;
     color: rgba(124, 103, 255, 1);
-    padding: 10px;
-    background: rgba(244, 241, 255, 1);
 }
 
-.favcart img {
+#favBox img {
     padding-right: 8px;
-    width: 20px;
 }
 
-.favcart input[type="checkbox"] {
+#favBox input[type="checkbox"] {
     display: none;
 }
 
-.favcart:hover {
+#favBox:hover {
     color: rgb(91, 79, 176);
     cursor: pointer;
 }
 
-.favcart label:hover {
+#favBox label:hover {
     cursor: pointer;
 }
 
-.favcart label:before {
+#basketBox {
+    align-items: center;
+    display: flex;
+    color: rgba(124, 103, 255, 1);
+}
+
+#basketBox img {
+    padding-right: 8px;
+}
+
+#basketBox input[type="checkbox"] {
     display: none;
 }
 
-.price-label {
-    color: rgba(124, 103, 255, 1);
-    font-weight: 700;
-    font-size: 350%;
+#basketBox:hover {
+    color: rgb(91, 79, 176);
+    cursor: pointer;
+}
+
+#favBox label:hover {
+    cursor: pointer;
 }
 
 @media (min-width: 900px) {
@@ -468,14 +478,14 @@ body, html {
         justify-content: space-between;
         align-items: center;
     }
-/*
+
     .price {
         text-transform: uppercase;
         font-weight: 400;
         font-size: 3vh;
         color: black;
         margin-right: 30px;
-    } */
+    }
 
 
     /*
@@ -766,6 +776,7 @@ body, html {
     }
 
     label:before {
+        content: '';
         display: inline-block;
         width: 1em;
         height: 1em;
@@ -869,7 +880,7 @@ body, html {
     /*дополнительные стили для витрины*/
     .product {
         display: inline-block;
-        margin-right: 8%;
+        width: 50%;
     }
 
     span > .product > span > button {
@@ -888,7 +899,7 @@ body, html {
         width: 100%;
         display: flex;
         flex-direction: column;
-        /*margin-left: 10%;*/
+        margin-left: 10%;
         margin-right: 2%;
     }
 
@@ -916,12 +927,12 @@ body, html {
         display: block;
     }
 
-    /*
     .price {
         text-transform: uppercase;
         font-weight: 500;
         font-size: 120%;
-    } */
+
+    }
 
     .price > button, .catalog > button {
         background: rgba(124, 103, 255, 1);
@@ -1711,16 +1722,13 @@ body, html {
 }
 
 
-
+#favBox label:before {
+    display: none;
+}
 
 .starsnfav {
-    width: 80%;
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.characteristic {
-    display: flex;
-    flex-direction: row;
 }
