@@ -45,7 +45,7 @@
 <style>
     main.product-main {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-        url(/static/img/items/{{ item.images.0 }});
+        url('/static/img/items/{{ item.images.0 }}');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -78,7 +78,7 @@
                     <img src="static/img/gui/star.svg" alt="">
                     <p>4.8</p>
                 </span>
-                <a href="#">Отзывы: 1 шт.</a>
+                <a href="#">Отзывы: {{ item.comments|length }} шт.</a>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
                             <script type=text/javascript>
                                 const urlParams = new URLSearchParams(window.location.search);
@@ -137,8 +137,13 @@
                                 });
                             </script>
                 <div id="favBox">
-                    <input type="checkbox" id="fav">
-                    <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
+                    {% if in_fav %}
+                        <input type="checkbox" id="fav" checked>
+                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
+                    {% else %}
+                        <input type="checkbox" id="fav">
+                        <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
+                    {% endif %}
                 </div>
             </span>
 
@@ -154,12 +159,11 @@
         </div>
         <aside>
             <div class="choose_color">
-                <h3>Цвет:{% for color in item.colors %}{{ color }}{% endfor %}</h3>
+                <h3>Цвет:</h3>
                 <span>
-                    <a style="background:blue;color:blue">aaaa</a>
-                    <a style="background:rgba(57, 158, 21, 1);color:rgba(57, 158, 21, 1)">aaaa</a>
-                    <a style="background:rgba(194, 94, 62, 1);color:rgba(194, 94, 62, 1)">aaaa</a>
-                    <a style="background:rgba(62, 194, 115, 1);color:rgba(62, 194, 115, 1)">aaaa</a>
+                    {% for color in item.colors %}
+                    <div style="background:{{ color }}; height:24px; width:24px;"></div>
+                    {% endfor %}
                 </span>
                 <div class="quantity">
                     <h3>Количество</h3>
