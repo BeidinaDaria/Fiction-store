@@ -50,7 +50,7 @@ def product():
     return render_template('product.html', favs_len=favs_len,
                            basket_len=basket_len, item=item,
                            in_fav=in_fav, in_basket=in_basket,
-                           average=average)
+                           average=average, user=user)
 
 
 @app.route('/catalog', methods=['GET', 'POST'])

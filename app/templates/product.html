@@ -71,10 +71,12 @@
 
             <span class="starsnfav">
                 <span class="item-stars">
-                    {% for _ in range (average | round(0, 'ceil') | int) %}
-                        <img src="static/img/gui/star.svg" alt="">
-                    {% endfor %}
-                    <p>{{ average }}</p>
+                    {% if item.comments %}
+                        {% for _ in range (average | round(0, 'ceil') | int) %}
+                            <img src="static/img/gui/star.svg" alt="">
+                        {% endfor %}
+                        <p>{{ average }}</p>
+                    {% endif %}
                 </span>
                 <a href="#reviews">Отзывы: {{ item.comments|length }} шт.</a>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -245,6 +247,8 @@
         <div class="catalog">
             <h2>Средняя оценка: 👍 {{ average }}</h2>
             <div class="itemcomm_body">
+
+                {% if user %}
                 <form action="#" method="post" class="itemcomm_form">
                     <h3 class="itemcomm_title">😉 Оставьте свой отзыв, ИМЯПОЛЬЗОВАТЕЛЯ</h3>
                     <div class="itemcomm_formgroup">
@@ -259,11 +263,11 @@
                     <input type="number" name="rating" id="itemcomm_rating" min="1" max="5" value="5" class="itemcomm_input itemcomm_number" />
                     <input type="submit" value="Отправить" class="itemcomm_submit" />
                 </form>
-            </div>
-            <div class="itemcomm_body">
+                {% else %}
                 <div class="itemcomm_form">
                     <h3 class="itemcomm_title">Чтобы оставить отзыв, нужно <a href="/login">авторизоваться</a> ✨</h3>
                 </div>
+                {% endif %}
             </div>
         </div>
     </span>
