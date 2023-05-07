@@ -50,12 +50,32 @@
 
             {% if basket %}
 
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+                <script type=text/javascript>
+                    function removeFromFav(id) {
+                        $.ajax({
+                            url: '/basket/remove',
+                            type: 'POST',
+                            data: id,
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function () {
+                                alert("Предмет убран из корзины"); // TODO: Изменить
+                                document.getElementById('item'+id).style.display = 'none';
+                            },
+                            error: function (err) {
+                                alert("Не удалось убрать предмет из корзины"); // TODO: Изменить
+                                console.log(err);
+                            }
+                        });
+                    };
+                </script>
+
                 <h2>{{ basket|length }} товара(ов) в корзине</h2>
 
                 {% for item in basket %}
 
                 {% if vars.update({'sum': vars['sum']+item.price}) %} {% endif %}
-                <div class="item">
+                <div class="item" id="item{{ item.id }}">
                     <span>
                         <img src="static/img/items/{{ item.images.0 }}" height="auto" width="25%">
                         <div class="character">
@@ -74,7 +94,9 @@
                                 <h4>Размер - - - - - 40см</h4>
                                 <h4>Век - - - - - - - -XX</h4>
                             </div>
-                            <button style="background:none;border:none;"><img src="static/img/gui/delete.svg"></button>
+                            <button style="background:none;border:none;" value="{{ item.id }}" onclick="removeFromFav(this.value)">
+                                <img src="static/img/gui/delete.svg">
+                            </button>
                         </div>
                     </span>
                 </div>
