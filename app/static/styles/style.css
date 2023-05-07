@@ -86,7 +86,7 @@ body, html {
 .sortby {
     list-style-type: none;
     display: inline-block;
-    margin: 0;
+    margin: 0 0 10px;
 }
 
 .sortby li {
@@ -117,6 +117,80 @@ body, html {
 
 .dtext {
     margin-left: 30px;
+}
+
+.icons {
+    display: flex;
+    margin-top: 5px;
+}
+
+.icons > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+}
+
+.icons > a:hover {
+    background: rgba(124, 103, 255, 1);
+    border: none;
+    border-radius: 100px;
+}
+
+.icons > a > img {
+    width: 50%;
+    /*height: auto;*/
+
+}
+
+#favBox {
+    align-items: center;
+    display: flex;
+    color: rgba(124, 103, 255, 1);
+}
+
+#favBox img {
+    padding-right: 8px;
+}
+
+#favBox input[type="checkbox"] {
+    display: none;
+}
+
+#favBox:hover {
+    color: rgb(91, 79, 176);
+    cursor: pointer;
+}
+
+#favBox label:hover {
+    cursor: pointer;
+}
+
+#basketBox {
+    align-items: center;
+    display: flex;
+    color: rgba(124, 103, 255, 1);
+}
+
+#basketBox img {
+    padding-right: 8px;
+}
+
+#basketBox input[type="checkbox"] {
+    display: none;
+}
+
+#basketBox:hover {
+    color: rgb(91, 79, 176);
+    cursor: pointer;
+}
+
+#favBox label:hover {
+    cursor: pointer;
 }
 
 @media (min-width: 900px) {
@@ -413,32 +487,6 @@ body, html {
         margin-right: 30px;
     }
 
-    .icons {
-        display: flex;
-    }
-
-    .icons > a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        margin-right: 3px;
-    }
-
-    .icons > a:hover {
-        background: rgba(124, 103, 255, 1);
-        border: none;
-        border-radius: 100px;
-    }
-
-    .icons > a > img {
-        width: 50%;
-        /*height: auto;*/
-
-    }
 
     /*
 
@@ -543,6 +591,10 @@ body, html {
         padding-right: 7px;
     }
 
+    .item-stars img {
+        padding-right: 7px;
+    }
+
 
     article {
         margin-top: 5%;
@@ -624,11 +676,10 @@ body, html {
         color: white;
     }
 
-    /* стили для страницы каталогов  */
+    /* стили для страницы каталогов
     span {
         margin-bottom: 2vh;
-    }
-
+    }*/
     span > button {
         width: 190px;
         height: 190px;
@@ -1671,3 +1722,13 @@ body, html {
 }
 
 
+#favBox label:before {
+    display: none;
+}
+
+.starsnfav {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
