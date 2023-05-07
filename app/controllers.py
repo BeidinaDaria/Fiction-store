@@ -34,6 +34,11 @@ def product():
     id = request.args.get('id')
     if not id or not (item := db.session.query(Item).filter(Item.id == id).first()):
         return redirect("404", code=404), {"Refresh": "0; url=/404"}
+    average=0
+    if item.comments:
+        for comment in item.comments:
+            average += comment.score
+        average /= len(item.comments)
     user = authToken(request)
     favs_len, basket_len = favs_basket_len(user, request.cookies)
     if user:
@@ -44,7 +49,8 @@ def product():
         in_basket = (basket := request.cookies.get('basket')) and id+',' in basket
     return render_template('product.html', favs_len=favs_len,
                            basket_len=basket_len, item=item,
-                           in_fav=in_fav, in_basket=in_basket)
+                           in_fav=in_fav, in_basket=in_basket,
+                           average=average)
 
 
 @app.route('/catalog', methods=['GET', 'POST'])

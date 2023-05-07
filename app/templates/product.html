@@ -71,12 +71,10 @@
 
             <span class="starsnfav">
                 <span class="item-stars">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <img src="static/img/gui/star.svg" alt="">
-                    <p>4.8</p>
+                    {% for _ in range (average | round(0, 'ceil') | int) %}
+                        <img src="static/img/gui/star.svg" alt="">
+                    {% endfor %}
+                    <p>{{ average }}</p>
                 </span>
                 <a href="#reviews">Отзывы: {{ item.comments|length }} шт.</a>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -212,11 +210,9 @@
         <aside class="reviews-texts">
             <div id="reviews" class="reviews">
                 <h2>Отзывы ({{ item.comments|length }})</h2>
-                {% set vars = {'score': 0} %}
 
                 {% for comment in item.comments %}
 
-                    {% if vars.update({'score': vars['score'] + (comment.score | int)}) %} {% endif %}
                     <span class="review-head">
                         <img class="reviewer-pic" src="static/img/gui/favicon.ico">
                     <div class="reviewer-name">
@@ -247,10 +243,28 @@
             </div>
         </aside>
         <div class="catalog">
-            {% if item.comments %}
-                <h2>Средняя оценка: 👍 {{ vars['score'] / item.comments|length }}</h2>
-            {% endif %}
-            <a href="#"><img src="static/img/gui/star.svg">Оставить свой отзыв</a>
+            <h2>Средняя оценка: 👍 {{ average }}</h2>
+            <div class="itemcomm_body">
+                <form action="#" method="post" class="itemcomm_form">
+                    <h3 class="itemcomm_title">😉 Оставьте свой отзыв, ИМЯПОЛЬЗОВАТЕЛЯ</h3>
+                    <div class="itemcomm_formgroup">
+                        <label for="itemcomm_pros" class="itemcomm_label">Преимущества:</label>
+                        <textarea name="pros" id="itemcomm_pros" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
+                        <label for="itemcomm_cons" class="itemcomm_label">Недостатки:</label>
+                        <textarea name="cons" id="itemcomm_cons" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
+                    </div>
+                    <label for="itemcomm_comment" class="itemcomm_label">Комментарий:</label>
+                    <textarea name="comment" id="itemcomm_comment" rows="10" class="itemcomm_input itemcomm_textarea"></textarea>
+                    <label for="itemcomm_rating" class="itemcomm_label">Общая оценка:</label>
+                    <input type="number" name="rating" id="itemcomm_rating" min="1" max="5" value="5" class="itemcomm_input itemcomm_number" />
+                    <input type="submit" value="Отправить" class="itemcomm_submit" />
+                </form>
+            </div>
+            <div class="itemcomm_body">
+                <div class="itemcomm_form">
+                    <h3 class="itemcomm_title">Чтобы оставить отзыв, нужно <a href="/login">авторизоваться</a> ✨</h3>
+                </div>
+            </div>
         </div>
     </span>
 </div>
