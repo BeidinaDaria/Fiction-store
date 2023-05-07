@@ -573,7 +573,7 @@ body, html {
 
     footer {
         background: rgba(44, 44, 44, 1);
-        margin-top: 2%;
+        margin-top: 10%;
         padding: 1rem;
     }
 
@@ -787,7 +787,7 @@ body, html {
     }
 
     .types > .catalog > section > .gallery {
-        height: 2000px;
+        height: 100%;
         max-height: fit-content;
     }
 
@@ -797,8 +797,9 @@ body, html {
     }
 
     .catalog > section > .gallery > .card {
-        width: 20%;
-        margin: 2%;
+        width: 42%;
+        margin: 3%;
+        padding-bottom: 8%;
     }
 
     /*дополнительные стили для витрины*/
