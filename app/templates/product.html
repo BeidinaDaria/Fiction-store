@@ -148,6 +148,10 @@
                 <img src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
         </div>
+    <aside class="item-column3 product description">
+        <h2><b>Описание</b></h2>
+        <h4>{{ item.description }}</h4>
+    </aside>
         <aside class="item-column2 product" style="margin-top: 1.1%;">
         <div class="characteristics">
             <div class="characteristic">
@@ -180,18 +184,11 @@
                     <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
                 </div>
         </div>
-
-
-
-
-
         </aside>
+
     </span>
-    <div class="description">
-        <h2><b>Описание</b></h2>
-        <h4>{{ item.description }}</h4>
-    </div>
-    <span>
+
+    <span class="reviews-container">
         <aside style="width:50%">
             <div id="reviews" class="reviews">
                 <h2>Отзывы({{ item.comments|length }})</h2>
