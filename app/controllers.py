@@ -21,12 +21,10 @@ def favs_basket_len(user, cookies):
 @app.route('/', methods=['GET'])
 def index():
     items = db.session.query(Item).limit(5).all()
-    # TODO: Пока что сортировка по цене, а не рейтингу в комментариях
     best_items = db.session.query(Item).order_by(Item.price).limit(5).all()
     favs_len, basket_len = favs_basket_len(authToken(request), request.cookies)
-    return render_template('index.html', favs_len=favs_len,
-                           basket_len=basket_len, items=items,
-                           best_items=best_items)
+    return render_template('index.html', favs_len=favs_len, basket_len=basket_len,
+                           items=items, best_items=best_items)
 
 
 @app.route('/product', methods=['GET', 'POST'])
@@ -54,9 +52,8 @@ def product():
     else:
         in_fav = (favourites := request.cookies.get('favourites')) and id+',' in favourites
         in_basket = (basket := request.cookies.get('basket')) and id+',' in basket
-    return render_template('product.html', favs_len=favs_len,
-                           basket_len=basket_len, item=item,
-                           in_fav=in_fav, in_basket=in_basket,
+    return render_template('product.html', favs_len=favs_len, basket_len=basket_len,
+                           item=item, in_fav=in_fav, in_basket=in_basket,
                            average=average, user=user)
 
 
@@ -77,7 +74,7 @@ def catalog():
         items = [item for item in items if item.price <= int(filter_price_to)]
     favs_len, basket_len = favs_basket_len(authToken(request), request.cookies)
     return render_template('catalog.html', favs_len=favs_len,
-                           basket_len=basket_len, items=items, search=search)
+                           basket_len=basket_len, items=items,search=search)
 
 
 @app.route('/favourites')
@@ -130,7 +127,7 @@ def login():
         return render_template('login.html', favs_len=favs_len, basket_len=basket_len)
     if not (user := db.session.query(User).filter_by(email=email, password=password).first()):
         return render_template('login.html', favs_len=favs_len, basket_len=basket_len,
-                           message="Неправильный логин или пароль")
+                                message="Неправильный логин или пароль")
     # generate unique token, find user in DB & set token in cookie
     response = make_response(redirect('/profile'))
     while True:
@@ -209,12 +206,12 @@ def basket_favourites(request, attr_name, method_name):
         if method_name == "append":
             # if already setted in cookie we don't need to set twice
             if attr_cookie and request_data in attr_cookie:
-                return Response(status=400)
+                return Response(status=412)
             response.set_cookie(attr_name, (attr_cookie or "")+request_data)
         else:
             # if not setted in cookie we can't remove it from there
             if not attr_cookie or not (request_data in attr_cookie):
-                return Response(status=400)
+                return Response(status=412)
             response.set_cookie(attr_name, attr_cookie.replace(request_data, ''))
         return response
     method = getattr(getattr(user, attr_name), method_name)
