@@ -66,7 +66,11 @@
         </button>
     </span>
 <form class="catalogue-search">
+    {% if search %}
+    <input type="text" method="GET" name="search" placeholder="Название товара" value="{{ search }}">
+    {% else %}
     <input type="text" method="GET" name="search" placeholder="Название товара">
+    {% endif %}
 </form>
 <div class="types">
     <form class="aside" action="#">

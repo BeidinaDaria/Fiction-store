@@ -46,14 +46,15 @@ def product():
                            in_fav=in_fav, in_basket=in_basket)
 
 
-@app.route('/catalog', methods=['GET'])
+@app.route('/catalog', methods=['GET', 'POST'])
 def catalog():
+    print(request.form.getlist('sci'))
     search = request.args.get('search')
     items = db.session.query(Item).filter(Item.title == search[0].upper()+search[1:].lower()).all() \
             if search else db.session.query(Item).all()
     favs_len, basket_len = favs_basket_len(authToken(request), request.cookies)
     return render_template('catalog.html', favs_len=favs_len,
-                           basket_len=basket_len, items=items)
+                           basket_len=basket_len, items=items, search=search)
 
 
 @app.route('/favourites')
