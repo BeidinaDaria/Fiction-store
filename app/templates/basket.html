@@ -18,87 +18,136 @@
             var notification = document.querySelector('.notification');
             notification.classList.remove('show');
         }
+
+        window.onload = setTimeout(function () {
+            showNotification("Чтобы удалить товар из корзины, нажмите на 🛒<br>Добавление товара в избранное отсюда не работает");
+            setTimeout(function () {
+                hideNotification();
+            }, 10000);
+        }, 100);
     </script>
 </head>
 <body>
-    <header>
-        <div class="navigator">
-            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
-            <nav class="hide">
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Search.svg">
                     <a href="/#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
                     <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Корзина</h1>
-    </main>
-    <div class="types">
-        <div class="catalog">
-            {% set vars = {'sum': 0} %}
+        </nav>
+    </div>
+</header>
+<main>
+    <h1>Корзина</h1>
+</main>
+<div class="types">
+    <div class="catalog favcatalog">
+        {% set vars = {'sum': 0} %}
 
-            {% if basket %}
+        {% if basket %}
 
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-                <script type=text/javascript>
-                    function removeFromFav(id) {
-                        $.ajax({
-                            url: '/basket/remove',
-                            type: 'POST',
-                            data: id,
-                            contentType: 'application/json;charset=UTF-8',
-                            success: function () {
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <script type=text/javascript>
+                function removeFromFav(id) {
+                    $.ajax({
+                        url: '/basket/remove',
+                        type: 'POST',
+                        data: id,
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function () {
+
+                            setTimeout(function () {
+                                showNotification("Предмет убран из корзины 👌");
                                 setTimeout(function () {
-                                        showNotification("Предмет убран из корзины 👌");
-                                        setTimeout(function () {
-                                            hideNotification();
-                                        }, 4000);
-                                    }, 100);
-                                document.getElementById('item'+id).style.display = 'none';
-                                document.getElementById("count").innerHTML -= 1
-                                document.getElementById("sum").innerHTML -= document.getElementById("price"+id).innerHTML
-                            },
-                            error: function (err) {
+                                    hideNotification();
+                                }, 4000);
+                            }, 100);
+                            document.getElementById('item' + id).style.display = 'none';
+                            document.getElementById("count").innerHTML -= 1;
+                            document.getElementById("sum").innerHTML -= document.getElementById("price" + id).innerHTML;
+
+                        },
+                        error: function (err) {
+                            setTimeout(function () {
+                                showNotification("Не удалось убрать из корзины 🙈 (" + err + ")");
                                 setTimeout(function () {
-                                        showNotification("Не удалось убрать из корзины 🙈");
-                                        setTimeout(function () {
-                                            hideNotification();
-                                        }, 4000);
-                                    }, 100);
-                                console.log(err);
-                            }
-                        });
-                    };
-                </script>
+                                    hideNotification();
+                                }, 4000);
+                            }, 100);
+                            console.log(err);
+                        }
+                    });
+                };
+            </script>
 
-                <h2><h id="count" style="display: inline;">{{ basket|length }}</h> товара(ов) в корзине</h2>
+            <h2>
+                <h id="count" style="display: inline;">{{ basket|length }}</h>
+                товара(ов) в корзине
+            </h2>
+            <div class="favgallery">
 
-                {% for item in basket %}
+
+
+            {% for item in basket %}
 
                 {% if vars.update({'sum': vars['sum']+item.price}) %} {% endif %}
+                <div class="item card" id="item{{ item.id }}">
+                    <a href="product?id={{ item.id }}">
+                        <img src="/static/img/items/{{ item.images.0 }}" alt="">
+                    </a>
+                    <div>
+                        <a href="product?id={{ item.id }}">
+                            <h4>{{ item.title }}</h4>
+                        </a>
+                        <span class="stars">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <p>4.8</p>
+                    </span>
+                        <span style="display: flex; flex-direction: row">
+                        <div class="price">
+                            <p id="price{{ item.id }}">{{ item.price }}</p>
+                        </div>
+                        <div class="icons">
+
+                            <button value="{{ item.id }}" onclick="removeFromFav(this.value)">
+                                <img src="static/img/gui/telega_small.svg" alt="">
+                            </button>
+                            <a>
+                                <img src="static/img/gui/favourite_small.svg" alt="">
+                            </a>
+                        </div>
+                    </span>
+                    </div>
+                </div>
+                <!--
                 <div class="item favbasket" id="item{{ item.id }}">
                     <span>
                         <img src="static/img/items/{{ item.images.0 }}" height="auto" width="25%" onclick="location.href='/product?id={{ item.id }}'">
@@ -118,66 +167,55 @@
                             </button>
                         </div>
                     </span>
-                </div>
+                </div>-->
 
-                {% endfor %}
+            {% endfor %}
 
-            {% endif %}
-
+        {% endif %}
         </div>
-        <aside style="background:rgba(248, 245, 245, 1);padding:10px;display:block;position:relative;" height="500px">
+</div>
+    <aside class="checkout">
             <span>
                 <h2>Всего: <h id="sum" style="display: inline;">{{ vars['sum'] }}</h>₽</h2>
             </span>
-            <hr style="background:none;height:5px; width:100%">
-            </hr>
-            <span>
-                <h4>Скидки: – 100₽</h4>
-            </span>
-            <span>
-                <h4>Бонусы: – 20₽</h4>
-            </span>
-            <hr style="background:none;height:5px; width:100%">
-            </hr>
-            <span>
-                <h4>Доставка: 90₽</h4>
-            </span>
-            <hr style="background:none;height:5px; width:100%">
-            </hr>
-            <span>
-                <h4>Промокод</h4>
-                <input type="text" method="POST" name="promo" placeholder="Промокод">
-            </span>
-            <button style="background:rgba(124, 103, 255, 1);border:none;border-radius:10%;padding:5px;width:90%;"><a href="#" style="color:rgba(244, 241, 255, 1);">Заказать</a></button>
-        </aside>
-    </div>
-    <div class="notification">
-  <!-- Содержимое окна будет устанавливаться динамически -->
+        <span>
+            <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="promo" placeholder="Промокод">
+        </span>
+        <span>
+            <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="promo" placeholder="E-mail (для получения заказа)">
+        </span>
+        <span>
+            <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Заказать">
+        </span>
+    </aside>
 </div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>О проекте</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
+<div class="notification">
+    <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>О проекте</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>Контакты</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+            <p>GitHub</p>
+        </a>
+    </div>
+</footer>
 <script>
-        function adaptivMenu(){
-            let navig=document.querySelector("nav");
-            if (navig.className=="show")
-                navig.className='hide';
-            else navig.className='show';
-        };
-    </script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
+</script>
 </body>
 </html>
