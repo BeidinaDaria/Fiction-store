@@ -21,113 +21,120 @@
     </script>
 </head>
 <body>
-    <header>
-        <div class="navigator">
-            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
-            <nav class="hide">
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Search.svg">
                     <a href="/#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
                     <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Избранное</h1>
-    </main>
-    <div class="types">
-        <div class="catalog">
+        </nav>
+    </div>
+</header>
+<main>
+    <h1>Избранное</h1>
+</main>
+<div class="types">
+    <div class="catalog">
 
-            {% if favourites %}
+        {% if favourites %}
 
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-                <script type=text/javascript>
-                    function removeFromFav(id) {
-                        $.ajax({
-                            url: '/favourites/remove',
-                            type: 'POST',
-                            data: id,
-                            contentType: 'application/json;charset=UTF-8',
-                            success: function () {
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <script type=text/javascript>
+                function removeFromFav(id) {
+                    $.ajax({
+                        url: '/favourites/remove',
+                        type: 'POST',
+                        data: id,
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function () {
+                            setTimeout(function () {
+                                showNotification("Предмет убран из избранного 👌");
                                 setTimeout(function () {
-                                        showNotification("Предмет убран из избранного 👌");
-                                        setTimeout(function () {
-                                            hideNotification();
-                                        }, 4000);
-                                    }, 100);
-                                document.getElementById('item'+id).style.display = 'none';
-                                document.getElementById("count").innerHTML -= 1
-                            },
-                            error: function (err) {
+                                    hideNotification();
+                                }, 4000);
+                            }, 100);
+                            document.getElementById('item' + id).style.display = 'none';
+                            document.getElementById("count").innerHTML -= 1
+                        },
+                        error: function (err) {
+                            setTimeout(function () {
+                                showNotification("Не удалось убрать из избранного 🙈");
                                 setTimeout(function () {
-                                        showNotification("Не удалось убрать из избранного 🙈");
-                                        setTimeout(function () {
-                                            hideNotification();
-                                        }, 4000);
-                                    }, 100);
-                                console.log(err);
-                            }
-                        });
-                    };
-                </script>
+                                    hideNotification();
+                                }, 4000);
+                            }, 100);
+                            console.log(err);
+                        }
+                    });
+                };
+            </script>
 
-                <h2><h id="count" style="display: inline;">{{ favourites|length }}</h> товаров(ов) в избранном</h2>
-
-                {% for item in favourites %}
-
-                <div class="item favbasket" id="item{{ item.id }}">
-                    <span>
-                        <img src="/static/img/items/{{ item.images.0 }}" height="auto" width="25%" onclick="location.href='/product?id={{ item.id }}'">
-                        <div class="character">
-                            <span>
-                                <h3 style="margin:0;" onclick="location.href='/product?id={{ item.id }}'">{{ item.title }}</h3>
-                                <div class="price">
-                                    <p>{{ item.price }} ₽</p>
-                                </div>
-                            </span>
-                            <div class="characteristic">
-                                <h4>Размер - - - - - 40см</h4>
-                                <h4>Век - - - - - - - -XX</h4>
-                            </div>
-                                <button style="background:none;border:none;" value="{{ item.id }}" onclick="removeFromFav(this.value)">
-                                    <img src="static/img/gui/delete.svg">
-                                </button>
+            <h2>
+                <h id="count" style="display: inline;">{{ favourites|length }}</h>
+                шт. в избранном 💫
+            </h2>
+            <div class="favgallery">
+            {% for item in favourites %}
+                <div class="card" id="item{{ item.id }}">
+                    <a href="product?id={{ item.id }}">
+                        <img src="/static/img/items/{{ item.images.0 }}" alt="">
+                    </a>
+                    <div>
+                        <a href="product?id={{ item.id }}">
+                            <h4>{{ item.title }}</h4>
+                        </a>
+                        <span class="stars">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <img src="static/img/gui/star.svg" alt="">
+                        <p>4.8</p>
+                    </span>
+                        <span>
+                        <div class="price">
+                            <p>{{ item.price }} &#8381;</p>
+                        </div>
+                        <div class="icons">
+                            <a> <img src="static/img/gui/telega_small.svg" alt=""> </a>
+                            <button value="{{ item.id }}" onclick="removeFromFav(this.value)"><img src="static/img/gui/favourite_small.svg" alt=""> </button>
                         </div>
                     </span>
+                    </div>
                 </div>
 
-                {% endfor %}
+            {% endfor %}
 
-            {% endif %}
-
-            <button><a href="#">Показать еще</a>
-            </button>
+        {% endif %}
         </div>
     </div>
     <div class="notification">
-  <!-- Содержимое окна будет устанавливаться динамически -->
-</div>
+        <!-- Содержимое окна будет устанавливаться динамически -->
+    </div>
     <footer>
         <div class="annotation">
             <img src="static/img/gui/white_logo.png">
@@ -145,12 +152,12 @@
             </a>
         </div>
     </footer>
-     <script>
-        function adaptivMenu(){
-            let navig=document.querySelector("nav");
-            if (navig.className=="show")
-                navig.className='hide';
-            else navig.className='show';
+    <script>
+        function adaptivMenu() {
+            let navig = document.querySelector("nav");
+            if (navig.className == "show")
+                navig.className = 'hide';
+            else navig.className = 'show';
         };
     </script>
 </body>

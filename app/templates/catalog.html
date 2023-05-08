@@ -177,11 +177,11 @@
     </form>
     <div class="catalog">
         <h2>Изобретения - {{ items|length }} шт.</h2>
-        <ul class="sortby">
+        <ul class="sortby" style="opacity: 0.2" title="Не реализовано">
             <li style="font-weight: 700">Сортировка по:</li>
-            <li><a href="#">Популярность</a></li>
-            <li><a href="#">Цена</a></li>
-            <li><a href="#">Рейтинг</a></li>
+            <li><a href="">Популярность</a></li>
+            <li><a href="">Цена</a></li>
+            <li><a href="">Рейтинг</a></li>
         </ul>
         <div class="wrapper">
             <div class="values">
@@ -190,8 +190,8 @@
             </div>
         </div>
         <div class="params">
-            <button id="nav_filter" class="nav_adaptiv" onclick="adaptivFilter()">Открыть фильтры</button>
-            <button onclick="location.href='/catalog'">Очистить фильтры</button>
+            <button id="nav_filter" class="itemcomm_submit" onclick="adaptivFilter()">Открыть фильтры</button>
+            <button class="itemcomm_submit" onclick="location.href='/catalog'">Очистить фильтры</button>
             <form action="handler.php">
         </div>
         <section>

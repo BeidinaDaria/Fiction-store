@@ -136,7 +136,7 @@ body, html {
     margin-top: 5px;
 }
 
-.icons > a {
+.icons > a, .icons > button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,9 +145,11 @@ body, html {
     width: 30px;
     height: 30px;
     margin-right: 3px;
+    background: transparent;
+    border: 0px;
 }
 
-.icons > a:hover {
+.icons > a:hover, .icons > button:hover {
     background: rgba(124, 103, 255, 1);
     border: none;
     border-radius: 100px;
@@ -155,9 +157,12 @@ body, html {
 
 .icons > a > img {
     width: 50%;
-    /*height: auto;*/
-
 }
+
+.icons > button > img {
+    width: 65%;
+}
+
 
 .favcart {
     align-items: center;
@@ -758,7 +763,7 @@ a:hover {
 
     .types {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
     }
 
@@ -868,6 +873,8 @@ a:hover {
         flex-direction: column;
         width: 75%;
         flex-wrap: wrap;
+        margin-left: 10%;
+        margin-right: 3%;
     }
 
     .catalog > span > a {
@@ -888,6 +895,7 @@ a:hover {
         justify-content: flex-start;
     }
 
+    /*
     .catalog > .params > button {
         height: auto;
         background: rgba(244, 241, 255, 1);
@@ -895,6 +903,7 @@ a:hover {
         color: rgba(124, 103, 255, 1);
         margin-right: 1%;
     }
+     */
 
     .types > .catalog > section > .gallery {
         height: 100%;
@@ -1553,14 +1562,14 @@ a:hover {
         flex-direction: row;
         justify-content: flex-start;
     }
-
+/*
     .types > .catalog > .params > button {
         height: auto;
         background: rgba(244, 241, 255, 1);
         border: none;
         color: rgba(124, 103, 255, 1);
         margin-right: 1%;
-    }
+    }*/
 
     .types > .catalog > section > .gallery {
         flex-wrap: wrap;
@@ -1799,11 +1808,13 @@ a:hover {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    margin: 7px;
 }
 
 .itemcomm_submit:hover {
     background-color: rgb(86, 74, 168);
     transition: 0.3s;
+    margin: 7px;
 }
 
 .itemcomm_number {
