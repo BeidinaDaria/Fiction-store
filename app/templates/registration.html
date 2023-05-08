@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <link rel="shortcut icon" href="static/img/gui/favicon.ico">
     <meta charset="UTF-8">
@@ -19,96 +18,115 @@
             var notification = document.querySelector('.notification');
             notification.classList.remove('show');
         }
+
     </script>
 </head>
-
 <body>
-    <header>
-        <div class="navigator">
-            <img src="static/img/gui/logo.svg">
-            <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg"></button>
-            <nav class="hide">
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Search.svg">
                     <a href="/#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
-                    <a href="favourites">Избранное</a>
+                    <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
-                    <a href="basket">Корзина</a>
+                    <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
-                    <a href="entrance">Профиль</a>
+                    <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>Зарегистрируйтесь, пожалуйста!</h1>
-        <h4 style="color: rgba(124, 103, 255, 1);">Чтобы получить больше преимуществ</h4>
-    </main>
-    <form method="POST" action="/signup">
-        <div >{{ message }}</div>
-        <span class="register">
-            <label for="username"><b>Имя пользователя</b></label>
-            <input type="text" placeholder="Введите" name="username" id="username" required />
-        </span>
-        <span class="register">
-            <label for="pwd"><b>Пароль</b></label>
-            <input type="password" placeholder="Введите пароль" name="pwd" id="pwd" required />
-        </span>
-        <span class="register">
-            <label for="pwd-repeat"><b>Повторите пароль</b></label>
-            <input type="password" placeholder="Повторите пароль" name="pwd-repeat" id="pwd-repeat" required />
-        </span>
-        <span class="register">
-            <label for="email"><b>Электронная почта</b></label>
-            <input type="text" placeholder="Электронная почта" name="email" id="email" required />
-        </span>
-        <span class="register"><button type="submit">Зарегистрироваться</button></span>
-    </form>
-    <div>
-        <button style="background:none;border:none;"><img GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. github.com src="styles/img/delete.svg"></button>
+        </nav>
     </div>
-    <div class="notification">
-  <!-- Содержимое окна будет устанавливаться динамически -->
-</div>
-    <footer>
-        <div class="annotation">
-            <img src="styles/img/white_logo.svg">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab dolores recusandae non quo eum provident!</p>
-        </div>
-        <div class="nav_footer">
-            <a href="#">
-                <p>О проекте</p>
-            </a>
-            <a href="#">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
-    <script>
-        function adaptivMenu() {
-            let navig = document.querySelector("nav");
-            if (navig.className == "show")
-                navig.className = 'hide';
-            else navig.className = 'show';
-        };
+</header>
+<main>
+    <h1>Регистрация в страну чудес ✨</h1>
+</main>
+<div class="types">
+    <div class="catalog">
 
-    </script>
+        <form style="margin-top: 5%" class="itemcomm_form" method="POST" action="/signup">
+            <span>
+                <div>{{ message }}</div>
+            </span>
+            <span>
+                <h2>
+                    Регистрация 👍
+                </h2>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="itemcomm_input" type="text" placeholder="Имя пользователя" name="username" id="username" required/>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="itemcomm_input" type="text" placeholder="Электронная почта" name="email" id="email" required/>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="itemcomm_input" type="password" placeholder="Введите пароль" name="pwd" id="pwd" required/>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="itemcomm_input" type="password" placeholder="Повторите пароль" name="pwd-repeat" id="pwd-repeat" required/>
+            </span>
+            <span>
+                <input style="width: 100%" class="itemcomm_submit" type="submit" type="submit" value="Зарегистрироваться">
+            </span>
+            <span>
+                <a class="repeat-order" style="width: 100%; margin: 7px;" href="/login">
+                    Есть аккаунт? Войдите 👋
+                </a>
+            </span>
+        </form>
+    </div>
+</div>
+<div class="notification">
+    <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>О проекте</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>Контакты</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+            <p>GitHub</p>
+        </a>
+    </div>
+</footer>
+<script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
+
+    function adaptivFilter() {
+        let navig = document.querySelector("form");
+        if (navig.className == "showFilter")
+            navig.className = 'hideFilter';
+        else navig.className = 'showFilter';
+    };
+</script>
 </body>
+</html>
