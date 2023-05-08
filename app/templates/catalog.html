@@ -89,58 +89,91 @@
         <h2>Фильтры</h2>
         <h3>Цена</h3>
         <div class="container">
-            <!--<div class="slider-track">
-                <p>119₽ - 999₽</p>
-                <input type="range" min="0" max="1500" value="30" id="slider-1" oninput="slideOne()">
-                <input type="range" min="0" max="1500" value="70" id="slider-2" oninput="slideTwo()">
-            </div>-->
             <div class="textrange-fields">
-                <input class="textrange-field" name="price_from" type="text" id="minprice" placeholder="Мин.">
-                <input class="textrange-field" name="price_to" type="text" id="maxprice" placeholder="Макс.">
+                <input style="width: 36%" class="textrange-field" name="price_from" type="text" id="minprice" placeholder="Мин.">
+                <input style="width: 36%" class="textrange-field" name="price_to" type="text" id="maxprice" placeholder="Макс.">
             </div>
 
         </div>
         <h3>Научная сфера</h3>
         <div>
-            <label id="physics"><input type="checkbox" name="sci" for="physics" value="physics">Физика</label>
-            <label id="biology"><input type="checkbox" name="sci" for="biology" value="biology">Биология</label>
-            <label id="psycho"><input type="checkbox" name="sci" for="psycho" value="psycho">Психология</label>
-            <label id="magic"><input type="checkbox" name="sci" for="magic" value="magic">Магия</label>
+            <label id="physics" class="checkbox">
+                <input type="checkbox" name="sci" for="physics" value="physics">
+                <span class="checkmark"></span>
+                Физика
+            </label>
+            <label id="biology" class="checkbox">
+                <input type="checkbox" name="sci" for="biology" value="biology">
+                <span class="checkmark"></span>
+                Биология
+            </label>
+            <label id="psycho" class="checkbox">
+                <input type="checkbox" name="sci" for="psycho" value="psycho">
+                <span class="checkmark"></span>
+                Психология
+            </label>
+            <label id="magic" class="checkbox">
+                <input type="checkbox" name="sci" for="magic" value="magic">
+                <span class="checkmark"></span>
+                Магия
+            </label>
         </div>
         <h3>Век</h3>
         <div class="wrapper">
             <div class="textrange-fields">
-                <input class="textrange-field" type="text" id="mincentury" placeholder="Мин.">
-                <input class="textrange-field" type="text" id="maxcentury" placeholder="Макс.">
+                <input style="width: 36%" class="textrange-field" type="text" id="mincentury" placeholder="Мин.">
+                <input style="width: 36%" class="textrange-field" type="text" id="maxcentury" placeholder="Макс.">
             </div>
-            <!--<div class="century">
-                <span id="range1">
-                    X
-                </span>
-                <span> &dash; </span>
-                <span id="range2">
-                    XXI
-                </span>
-            </div>
-            <div class="container">
-                <div class="slider-track"></div>
-                <input type="range" min="0" max="100" value="30" id="slider-1" oninput="slideOne()">
-                <input type="range" min="0" max="100" value="70" id="slider-2" oninput="slideTwo()">
-            </div>-->
         </div>
         <h3>Цвет</h3>
         <div>
-            <span><label id="black"><input type="checkbox" name="color" for="black" value="black">Черный</label></span>
-            <span><label id="white"><input type="checkbox" name="color" for="white" value="white">Белый</label></span>
-            <span><label id="grey"><input type="checkbox" name="color" for="grey" value="grey">Серый</label></span>
-            <span><label id="blue"><input type="checkbox" name="color" for="blue" value="blue">Синий</label></span>
-            <span><label id="red"><input type="checkbox" name="color" for="red" value="red">Красный</label></span>
-            <span><label id="yellow"><input type="checkbox" name="color" for="yellow" value="yellow">Желтый</label></span>
-            <span><label id="green"><input type="checkbox" name="color" for="green" value="green">Зеленый</label></span>
-            <span><label id="gold"><input type="checkbox" name="color" for="gold" value="gold">Золотой</label></span>
-            <span><label id="silver"><input type="checkbox" name="color" for="silver" value="silver">Серебрянный</label></span>
+            <label id="black" class="checkbox">
+                <input  type="checkbox" name="color" for="black" value="black">
+                <span class="checkmark"></span>
+                Черный
+            </label>
+            <label id="white" class="checkbox">
+                <input  type="checkbox" name="color" for="white" value="white">
+                <span class="checkmark"></span>
+                Белый
+            </label>
+            <label id="grey" class="checkbox">
+                <input  type="checkbox" name="color" for="grey" value="grey">
+                <span class="checkmark"></span>
+                Серый
+            </label>
+            <label id="blue" class="checkbox">
+                <input  type="checkbox" name="color" for="blue" value="blue">
+                <span class="checkmark"></span>
+                Синий
+            </label>
+            <label id="red" class="checkbox">
+                <input  type="checkbox" name="color" for="red" value="red">
+                <span class="checkmark"></span>
+                Красный
+            </label>
+            <label id="yellow" class="checkbox">
+                <input  type="checkbox" name="color" for="yellow" value="yellow">
+                <span class="checkmark"></span>
+                Желтый
+            </label>
+            <label id="green" class="checkbox">
+                <input  type="checkbox" name="color" for="green" value="green">
+                <span class="checkmark"></span>
+                Зеленый
+            </label>
+            <label id="gold" class="checkbox">
+                <input  type="checkbox" name="color" for="gold" value="gold">
+                <span class="checkmark"></span>
+                Золотой
+            </label>
+            <label id="silver" class="checkbox">
+                <input  type="checkbox" name="color" for="silver" value="silver">
+                <span class="checkmark"></span>
+                Серебрянный
+            </label>
         </div>
-        <button type="submit" name="search" value="{% if search %}{{ search }}{% endif %}">Применить</button>
+        <button style="margin-top: 15px" class="itemcomm_submit" type="submit" name="search" value="{% if search %}{{ search }}{% endif %}">Применить</button>
     </form>
     <div class="catalog">
         <h2>Изобретения - {{ items|length }} шт.</h2>

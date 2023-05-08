@@ -1866,3 +1866,74 @@ img.preview:hover {
   opacity: 1;
   visibility: visible;
 }
+
+.textrange-field {
+    background-color: #f7f7f7;
+    color: #333;
+    border: none;
+    padding: 7px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    margin: 7px;
+}
+
+.textrange-field:focus {
+    outline: none;
+    box-shadow: 0px 0px 4px rgba(124, 103, 255, 0.5);
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.checkbox:hover input ~ .checkmark {
+    border-color: rgba(124, 103, 255, 1);
+}
+
+.checkbox input:checked ~ .checkmark {
+   background-color: RGBA(124, 103, 255, 1);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
