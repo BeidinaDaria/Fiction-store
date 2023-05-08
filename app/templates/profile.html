@@ -66,43 +66,115 @@
 </main>
 <div class="types">
     <div class="catalog">
-        <h2>Настройки профиля</h2>
+        <form class="itemcomm_form" style="margin-top: 5%">
+            <span>
+                <h2>Действия с аккаунтом</h2>
+            </span>
+            <span>
+                <a href="#">Выйти</a>&nbsp;
+                <a href="#">Удалить аккаунт</a>
+            </span>
+            <span>
+                <h2>Настройки профиля</h2> <!-- TODO -->
+            </span>
+            <span>
+            <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="user-name"
+                   placeholder="Имя">
+        </span>
+            <span>
+            <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="user-surname"
+                   placeholder="Фамилия">
+        </span>
+            <span>
+            <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="email"
+                   placeholder="E-mail (для получения заказа)">
+        </span>
+            <span>
+            <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Изменить">
+        </span>
+        </form>
+
+        <form class="itemcomm_form" style="margin-top: 5%">
+            <h2>История заказов</h2> <!-- TODO -->
+            <ol class="orders">
+                <li>
+                    <h3>Заказ от 23.03.2009</h3>
+                    <p>Сумма заказа: 2638 руб.</p>
+                    <p>Заказанные товары: Тардис, Летающая машина, Нейрализатор, Машина времени (всего 4 шт.)</p>
+                    <p>Отправлено на почту: <a href="mailto:email666@email.com">email666@email.com</a></p>
+                    <a class="repeat-order" href="#">Повторить заказ</a>
+                </li>
+                <li>
+                    <h3>Заказ от 28.03.2009</h3>
+                    <p>Сумма заказа: 120 руб.</p>
+                    <p>Заказанные товары: Тардис (всего 1 шт.)</p>
+                    <p>Отправлено на почту: <a href="mailto:email666@email.com">email666@email.com</a></p>
+                    <a class="repeat-order" href="#">Повторить заказ</a>
+                </li>
+            </ol>
+        </form>
+
+        <form class="itemcomm_form" style="margin-top: 5%">
+            <span>
+                <h2>Ваши комментарии</h2>
+            </span>
+            <ul class="profilepage_comments">
+                <li>
+                    <h4 class="profilepage_comment-item">Тардис</h4>
+                    <p class="profilepage_comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                        vitae mi tellus. </p>
+                    <div class="profilepage_comment-metadata">
+                        <span class="profilepage_comment-date">25.05.2021</span>
+                        <span class="profilepage_comment-time">13:45</span>
+                    </div>
+                </li>
+                <li>
+                    <h4 class="profilepage_comment-item">Нейрализатор</h4>
+                    <p class="profilepage_comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                        vitae mi tellus. </p>
+                    <div class="profilepage_comment-metadata">
+                        <span class="profilepage_comment-date">26.05.2021</span>
+                        <span class="profilepage_comment-time">10:21</span>
+                    </div>
+                </li>
+            </ul>
+        </form>
     </div>
 </div>
-    <div class="notification">
-        <!-- Содержимое окна будет устанавливаться динамически -->
+<div class="notification">
+    <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
     </div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>О проекте</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
-    <script>
-        function adaptivMenu() {
-            let navig = document.querySelector("nav");
-            if (navig.className == "show")
-                navig.className = 'hide';
-            else navig.className = 'show';
-        };
+    <div class="nav_footer">
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>О проекте</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>Контакты</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+            <p>GitHub</p>
+        </a>
+    </div>
+</footer>
+<script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
 
-        function adaptivFilter() {
-            let navig = document.querySelector("form");
-            if (navig.className == "showFilter")
-                navig.className = 'hideFilter';
-            else navig.className = 'showFilter';
-        };
-    </script>
+    function adaptivFilter() {
+        let navig = document.querySelector("form");
+        if (navig.className == "showFilter")
+            navig.className = 'hideFilter';
+        else navig.className = 'showFilter';
+    };
+</script>
 </body>
 </html>

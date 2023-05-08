@@ -140,7 +140,7 @@
                             <button value="{{ item.id }}" onclick="removeFromFav(this.value)">
                                 <img src="static/img/gui/telega_small.svg" alt="">
                             </button>
-                            <a>
+                            <a> <!-- TODO: Добавить добавление и удаление в избранное отсюда -->
                                 <img src="static/img/gui/favourite_small.svg" alt="">
                             </a>
                         </div>
@@ -175,14 +175,14 @@
         </div>
 </div>
     <aside class="checkout">
-            <span>
-                <h2>Всего: <h id="sum" style="display: inline;">{{ vars['sum'] }}</h>₽</h2>
-            </span>
+        <span>
+            <h2>Всего: <h id="sum" style="display: inline;">{{ vars['sum'] }}</h>₽</h2>
+        </span>
         <span>
             <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="promo" placeholder="Промокод">
         </span>
-        <span>
-            <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="promo" placeholder="E-mail (для получения заказа)">
+        <span> <!-- TODO: Отображать, только если пользователь не залогинен -->
+            <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="email" placeholder="E-mail (для получения заказа)">
         </span>
         <span>
             <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Заказать">
