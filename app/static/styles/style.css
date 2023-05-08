@@ -472,7 +472,7 @@ a:hover {
     .card {
         border-radius: 20px;
         background: rgba(248, 245, 245, 1);
-        margin-right: 3%;
+        margin: 1%;
         min-width: 320px;
         height: 610px;
         width: 35%;
@@ -763,7 +763,7 @@ a:hover {
 
     .types {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-around;
     }
 
@@ -873,8 +873,6 @@ a:hover {
         flex-direction: column;
         width: 75%;
         flex-wrap: wrap;
-        margin-left: 10%;
-        margin-right: 3%;
     }
 
     .catalog > span > a {
@@ -1056,9 +1054,20 @@ a:hover {
     #nav_filter {
         display: none;
     }
+
+    .favcatalog {
+        margin-left: 9%;
+    }
+
+    .favtypes {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 899px) {
+
+
+
     body {
         overflow-x: hidden;
     }

@@ -18,6 +18,13 @@
             var notification = document.querySelector('.notification');
             notification.classList.remove('show');
         }
+
+        window.onload = setTimeout(function () {
+            showNotification("Для удаления из избранного нажмите на 💜, добавление в корзину отсюда пока не работает");
+            setTimeout(function () {
+                hideNotification();
+            }, 10000);
+        }, 100);
     </script>
 </head>
 <body>
@@ -57,8 +64,8 @@
 <main>
     <h1>Избранное</h1>
 </main>
-<div class="types">
-    <div class="catalog">
+<div class="types favtypes">
+    <div class="catalog favcatalog">
 
         {% if favourites %}
 
@@ -93,12 +100,20 @@
                 };
             </script>
 
+
+            {% if not favourites %}
+                <h2>В избранном пока ничего нет :( Добавьте сюда что-нибудь, нажав на 💜</h2>
+            {% endif %}
+
+
+
             <h2>
                 <h id="count" style="display: inline;">{{ favourites|length }}</h>
                 шт. в избранном 💫
             </h2>
             <div class="favgallery">
             {% for item in favourites %}
+
                 <div class="card" id="item{{ item.id }}">
                     <a href="product?id={{ item.id }}">
                         <img src="/static/img/items/{{ item.images.0 }}" alt="">
@@ -121,7 +136,8 @@
                         </div>
                         <div class="icons">
                             <a> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <button value="{{ item.id }}" onclick="removeFromFav(this.value)"><img src="static/img/gui/favourite_small.svg" alt=""> </button>
+                            <button value="{{ item.id }}" onclick="removeFromFav(this.value)"><img
+                                    src="static/img/gui/favourite_small.svg" alt=""> </button>
                         </div>
                     </span>
                     </div>

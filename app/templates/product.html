@@ -239,7 +239,7 @@
                     <span class="review-head">
                         <img class="reviewer-pic" src="static/img/gui/favicon.ico">
                     <div class="reviewer-name">
-                        <h3>{{ comment.user.name }} {{ comment.user.surname }}</h3>
+                        <h3>{{ comment.user.name }} <!--{{ comment.user.surname }}--></h3>
                         <p>{{ comment.date }}</p>
                         {% for _ in range(comment.score | int) %}
                             <img src="static/img/gui/star.svg" alt="">
