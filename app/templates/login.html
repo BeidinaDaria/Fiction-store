@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <link rel="shortcut icon" href="static/img/gui/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles/style.css">
-    <title>Вход</title>
+    <title>Профиль</title>
     <script>
         function showNotification(message) {
             var notification = document.querySelector('.notification');
@@ -19,78 +18,110 @@
             var notification = document.querySelector('.notification');
             notification.classList.remove('show');
         }
+
     </script>
 </head>
-
 <body>
-    <header>
-        <div class="navigator">
-            <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-            <a href="#"><img src="static/img/gui/Catalog.svg" class="nav_adaptiv"></a>
-            <nav>
+<header>
+    <div class="navigator">
+        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
+        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
+        </button>
+        <nav class="hide">
                 <span>
                     <img src="static/img/gui/home.svg">
                     <a href="/">Главная</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Catalog.svg">
                     <a href="catalog">Каталог</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Search.svg">
                     <a href="/#search">Поиск</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/favourite.svg">
                     <a href="favourites">Избранное ({{ favs_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/backets.svg">
                     <a href="basket">Корзина ({{ basket_len }})</a>
                 </span>
-                <span>
+            <span>
                     <img src="static/img/gui/Profile.svg">
                     <a href="profile">Профиль</a>
                 </span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <h1>С возвращением!<h1>
-    </main>
-
-    <form method="POST" action="/login">
-        <div >{{ message }}</div>
-        <input name="email" placeholder="Адрес электронной почты" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="100" required>
-        <input name="pwd" placeholder="Пароль" id="pwd" type="password" size="100" required>
-        <button type="submit">Войти</button>
-    </form>
-    <a href="/signup"><button>Зарегистрироваться</button></a>
-
-    <div>
-        <button style="background:none;border:none;"><img GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. github.com src="static/img/gui/delete.svg"></button>
+        </nav>
     </div>
-    <div class="notification">
-  <!-- Содержимое окна будет устанавливаться динамически -->
-</div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.svg">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab dolores recusandae non quo eum provident!</p>
-        </div>
-        <div class="nav_footer">
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>О проекте</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
-</body>
+</header>
+<main>
+    <h1>Добро пожаловать!</h1>
+</main>
+<div class="types">
+    <div class="catalog">
 
+        <form class="itemcomm_form" style="margin-top: 5%" method="POST" action="/login">
+            <span>
+                <h2>Вход</h2>
+            </span>
+            <span>
+                <div>{{ message }}</div>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="itemcomm_input" name="email"
+                       placeholder="Адрес электронной почты" type="email" id="email"
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="100" required>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="itemcomm_input" name="pwd" placeholder="Пароль"
+                       id="pwd" type="password" size="100" required>
+            </span>
+            <span>
+                <input style="width: 100%" class="itemcomm_submit" type="submit" value="Войти">
+            </span>
+            <span>
+                <a class="repeat-order" style="width: 100%; margin: 7px;" href="/signup">
+                    Нет аккаунта? Зарегистрируйтесь!
+                </a>
+            </span>
+        </form>
+    </div>
+</div>
+<div class="notification">
+    <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
+<footer>
+    <div class="annotation">
+        <img src="static/img/gui/white_logo.png">
+        <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
+    </div>
+    <div class="nav_footer">
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>О проекте</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
+            <p>Контакты</p>
+        </a>
+        <a href="https://github.com/BeidinaDaria/Fiction-store.git">
+            <p>GitHub</p>
+        </a>
+    </div>
+</footer>
+<script>
+    function adaptivMenu() {
+        let navig = document.querySelector("nav");
+        if (navig.className == "show")
+            navig.className = 'hide';
+        else navig.className = 'show';
+    };
+
+    function adaptivFilter() {
+        let navig = document.querySelector("form");
+        if (navig.className == "showFilter")
+            navig.className = 'hideFilter';
+        else navig.className = 'showFilter';
+    };
+</script>
+</body>
 </html>
-   
