@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles/style.css">
     <title>Корзина</title>
+    <script>
+        function showNotification(message) {
+            var notification = document.querySelector('.notification');
+            notification.innerHTML = message;
+            notification.classList.add('show');
+        }
+
+        function hideNotification() {
+            var notification = document.querySelector('.notification');
+            notification.classList.remove('show');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -59,13 +71,23 @@
                             data: id,
                             contentType: 'application/json;charset=UTF-8',
                             success: function () {
-                                alert("Предмет убран из корзины"); // TODO: Изменить
+                                setTimeout(function () {
+                                        showNotification("Предмет убран из корзины 👌");
+                                        setTimeout(function () {
+                                            hideNotification();
+                                        }, 4000);
+                                    }, 100);
                                 document.getElementById('item'+id).style.display = 'none';
                                 document.getElementById("count").innerHTML -= 1
                                 document.getElementById("sum").innerHTML -= document.getElementById("price"+id).innerHTML
                             },
                             error: function (err) {
-                                alert("Не удалось убрать предмет из корзины"); // TODO: Изменить
+                                setTimeout(function () {
+                                        showNotification("Не удалось убрать из корзины 🙈");
+                                        setTimeout(function () {
+                                            hideNotification();
+                                        }, 4000);
+                                    }, 100);
                                 console.log(err);
                             }
                         });
@@ -129,6 +151,9 @@
             <button style="background:rgba(124, 103, 255, 1);border:none;border-radius:10%;padding:5px;width:90%;"><a href="#" style="color:rgba(244, 241, 255, 1);">Заказать</a></button>
         </aside>
     </div>
+    <div class="notification">
+  <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
     <footer>
         <div class="annotation">
             <img src="static/img/gui/white_logo.png">

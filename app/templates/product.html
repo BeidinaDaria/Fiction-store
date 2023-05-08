@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles/style.css">
     <title>{{ item.title }} - витрина FictionStore</title>
+    <script>
+        function showNotification(message) {
+            var notification = document.querySelector('.notification');
+            notification.innerHTML = message;
+            notification.classList.add('show');
+        }
+
+        function hideNotification() {
+            var notification = document.querySelector('.notification');
+            notification.classList.remove('show');
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -81,6 +93,7 @@
                 <a href="#reviews">Отзывы: {{ item.comments|length }} шт.</a>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
                 <script type=text/javascript>
+
                     const urlParams = new URLSearchParams(window.location.search);
                     $(function () {
                         const id = urlParams.get('id');
@@ -97,11 +110,21 @@
                                 data: id,
                                 contentType: 'application/json;charset=UTF-8',
                                 success: function () {
-                                    alert(correctText); // TODO: Изменить
+                                    setTimeout(function () {
+                                        showNotification(correctText + " 👌");
+                                        setTimeout(function () {
+                                            hideNotification();
+                                        }, 4000);
+                                    }, 100);
                                     box.children('label').text(newLabel);
                                 },
                                 error: function (err) {
-                                    alert(incorrectText); // TODO: Изменить
+                                    setTimeout(function () {
+                                        showNotification(incorrectText + " 🙈");
+                                        setTimeout(function () {
+                                            hideNotification();
+                                        }, 4000);
+                                    }, 100);
                                     console.log(err);
                                 }
                             });
@@ -147,17 +170,17 @@
                 <img preview src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
             <script>
-                $('img[preview]').addClass('preview').click(function(){
+                $('img[preview]').addClass('preview').click(function () {
                     var src = $(this).attr('src');
                     $('<div>').css({
-                        background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
+                        background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
                         backgroundSize: 'contain',
-                        width:'100%', height:'100%',
-                        position:'fixed',
-                        zIndex:'10000',
-                        top:'0', left:'0',
+                        width: '100%', height: '100%',
+                        position: 'fixed',
+                        zIndex: '10000',
+                        top: '0', left: '0',
                         cursor: 'zoom-out'
-                    }).click(function(){
+                    }).click(function () {
                         $(this).remove();
                     }).appendTo('body');
                 });
@@ -209,7 +232,7 @@
     <span class="reviews-container">
         <aside class="reviews-texts">
             <div id="reviews" class="reviews">
-                <h2>Отзывы ({{ item.comments|length }})</h2>
+                <h2>✨ Отзывы ({{ item.comments|length }})</h2>
 
                 {% for comment in item.comments %}
 
@@ -243,26 +266,44 @@
             </div>
         </aside>
         <div class="catalog">
-            <h2>Средняя оценка: 👍 {{ average | round(1, 'ceil') }}</h2>
+            <h2>Средняя оценка:
+                {% if average | round(1, 'ceil') == 0 %}
+                    <o style="font-weight: 400">ещё не оценено</o> 🙈
+                {% endif %}
+                {% if average | round(1, 'ceil') > 0 and average | round(1, 'ceil') <= 2 %}
+                    👎 {{ average | round(1, 'ceil') }}
+                {% endif %}
+                {% if average | round(1, 'ceil') >= 2 and average | round(1, 'ceil') < 4 %}
+                    👌 {{ average | round(1, 'ceil') }}
+                {% endif %}
+                {% if average | round(1, 'ceil') >= 4 %}
+                    👍 {{ average | round(1, 'ceil') }}
+                {% endif %}
+
+            </h2>
             <div class="itemcomm_body">
 
                 {% if user %}
-                <form action="#" method="post" class="itemcomm_form">
+                    <form action="#" method="post" class="itemcomm_form">
                     <h3 class="itemcomm_title">😉 Оставьте свой отзыв, {{ user.name }}</h3>
                     <div class="itemcomm_formgroup">
                         <label for="itemcomm_pros" class="itemcomm_label">Преимущества:</label>
-                        <textarea name="pros" id="itemcomm_pros" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
+                        <textarea name="pros" id="itemcomm_pros" rows="5"
+                                  class="itemcomm_input itemcomm_textarea"></textarea>
                         <label for="itemcomm_cons" class="itemcomm_label">Недостатки:</label>
-                        <textarea name="cons" id="itemcomm_cons" rows="5" class="itemcomm_input itemcomm_textarea"></textarea>
+                        <textarea name="cons" id="itemcomm_cons" rows="5"
+                                  class="itemcomm_input itemcomm_textarea"></textarea>
                     </div>
                     <label for="itemcomm_comment" class="itemcomm_label">Комментарий:</label>
-                    <textarea name="text" id="itemcomm_comment" rows="10" class="itemcomm_input itemcomm_textarea"></textarea>
+                    <textarea name="text" id="itemcomm_comment" rows="10"
+                              class="itemcomm_input itemcomm_textarea"></textarea>
                     <label for="itemcomm_rating" class="itemcomm_label">Общая оценка:</label>
-                    <input type="number" name="score" id="itemcomm_rating" min="1" max="5" value="5" class="itemcomm_input itemcomm_number" />
-                    <input type="submit" value="Отправить" class="itemcomm_submit" />
+                    <input type="number" name="score" id="itemcomm_rating" min="1" max="5" value="5"
+                           class="itemcomm_input itemcomm_number"/>
+                    <input type="submit" value="Отправить" class="itemcomm_submit"/>
                 </form>
                 {% else %}
-                <div class="itemcomm_form">
+                    <div class="itemcomm_form">
                     <h3 class="itemcomm_title">Чтобы оставить отзыв, нужно <a href="/login">авторизоваться</a> ✨</h3>
                 </div>
                 {% endif %}
@@ -270,7 +311,9 @@
         </div>
     </span>
 </div>
-
+<div class="notification">
+    <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
 <footer>
     <div class="annotation">
         <img src="static/img/gui/white_logo.png">

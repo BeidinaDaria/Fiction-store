@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles/style.css">
     <title>Избранное</title>
+    <script>
+        function showNotification(message) {
+            var notification = document.querySelector('.notification');
+            notification.innerHTML = message;
+            notification.classList.add('show');
+        }
+
+        function hideNotification() {
+            var notification = document.querySelector('.notification');
+            notification.classList.remove('show');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -58,12 +70,22 @@
                             data: id,
                             contentType: 'application/json;charset=UTF-8',
                             success: function () {
-                                alert("Предмет убран из избранного"); // TODO: Изменить
+                                setTimeout(function () {
+                                        showNotification("Предмет убран из избранного 👌");
+                                        setTimeout(function () {
+                                            hideNotification();
+                                        }, 4000);
+                                    }, 100);
                                 document.getElementById('item'+id).style.display = 'none';
                                 document.getElementById("count").innerHTML -= 1
                             },
                             error: function (err) {
-                                alert("Не удалось убрать предмет из избранного"); // TODO: Изменить
+                                setTimeout(function () {
+                                        showNotification("Не удалось убрать из избранного 🙈");
+                                        setTimeout(function () {
+                                            hideNotification();
+                                        }, 4000);
+                                    }, 100);
                                 console.log(err);
                             }
                         });
@@ -103,6 +125,9 @@
             </button>
         </div>
     </div>
+    <div class="notification">
+  <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
     <footer>
         <div class="annotation">
             <img src="static/img/gui/white_logo.png">

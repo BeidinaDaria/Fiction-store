@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles/style.css">
     <title>Регистрация</title>
+    <script>
+        function showNotification(message) {
+            var notification = document.querySelector('.notification');
+            notification.innerHTML = message;
+            notification.classList.add('show');
+        }
+
+        function hideNotification() {
+            var notification = document.querySelector('.notification');
+            notification.classList.remove('show');
+        }
+    </script>
 </head>
 
 <body>
@@ -70,6 +82,9 @@
     <div>
         <button style="background:none;border:none;"><img GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. GitHub - BeidinaDaria/Fiction-store: Fiction-store – это интернет-магазин, где вы сможете приобрести.. github.com src="styles/img/delete.svg"></button>
     </div>
+    <div class="notification">
+  <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
     <footer>
         <div class="annotation">
             <img src="styles/img/white_logo.svg">

@@ -221,6 +221,17 @@ body, html {
     margin: 0 0 10px;
 }
 
+a {
+    text-decoration: none;
+    color: rgba(124, 103, 255, 1);
+
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(86, 74, 168);
+}
+
 @media (min-width: 900px) {
 
     .reviews-texts {
@@ -246,17 +257,6 @@ body, html {
         /*text-align: center;*/
     }
 
-    p {
-        font-family: lato, Arial, Helvetica, sans-serif;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
 
     nav_adaptiv {
         display: none;
@@ -468,7 +468,7 @@ body, html {
         border-radius: 20px;
         background: rgba(248, 245, 245, 1);
         margin-right: 3%;
-        min-width: 100px;
+        min-width: 320px;
         height: 610px;
         width: 35%;
         display: inline-block;
@@ -910,7 +910,7 @@ body, html {
         width: 30%;
         height: 33vw;
         margin: 3% 3% 3% 0%;
-        padding-bottom: 1%;
+        padding-bottom: 3%;
     }
 
     /*дополнительные стили для витрины*/
@@ -1060,17 +1060,6 @@ body, html {
         justify-content: space-around;
     }
 
-    p {
-        font-family: lato, Arial, Helvetica, sans-serif;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
 
     #nav_adaptiv {
         display: block;
@@ -1847,6 +1836,33 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+
 img.preview {
     object-fit: cover;
+    transition: all 0.2s ease-in-out;
+}
+
+img.preview:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    filter: drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.5));
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: rgba(124, 103, 255, 1);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.notification.show {
+  opacity: 1;
+  visibility: visible;
 }

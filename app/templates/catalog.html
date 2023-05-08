@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/styles/style.css">
     <title>Каталог</title>
+    <script>
+        function showNotification(message) {
+            var notification = document.querySelector('.notification');
+            notification.innerHTML = message;
+            notification.classList.add('show');
+        }
+
+        function hideNotification() {
+            var notification = document.querySelector('.notification');
+            notification.classList.remove('show');
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -218,6 +230,9 @@
             </div>
         </section>
     </div>
+</div>
+<div class="notification">
+  <!-- Содержимое окна будет устанавливаться динамически -->
 </div>
 <footer>
     <div class="annotation">
