@@ -32,11 +32,6 @@ def product():
     id = request.args.get('id')
     if not id or not (item := db.session.query(Item).filter(Item.id == id).first()):
         return redirect('404', code=404), {"Refresh": "0; url=/404"}
-    average=0
-    if item.comments:
-        for comment in item.comments:
-            average += comment.score
-        average /= len(item.comments)
     user = authToken(request)
     favs_len, basket_len = favs_basket_len(user, request.cookies)
     if (score := request.form.get('score')) and score.isdigit() and \
@@ -48,6 +43,11 @@ def product():
                                         score=int(score), pros=pros, cons=cons, text=text))
             db.session.commit()
             return redirect('/product?id='+id)
+    average = 0
+    if item.comments:
+        for comment in item.comments:
+            average += comment.score
+        average /= len(item.comments)
     if user:
         in_fav = user.favourites.count(item) != 0
         in_basket = user.basket.count(item) != 0
@@ -76,7 +76,7 @@ def catalog():
         items = [item for item in items if item.price <= int(filter_price_to)]
     favs_len, basket_len = favs_basket_len(authToken(request), request.cookies)
     return render_template('catalog.html', favs_len=favs_len,
-                           basket_len=basket_len, items=items,search=search)
+                           basket_len=basket_len, items=items, search=search)
 
 
 @app.route('/favourites')
