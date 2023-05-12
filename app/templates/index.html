@@ -136,31 +136,7 @@
                     </span>
                 </div>
             </div>
-            <!--
-            <div class="card">
-                <a href="product?id={{ item.id }}">
-                    <img src="/static/img/items/{{ item.images.0 }}" alt="">
-                    <span>
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">
-                            <img src="static/img/gui/star.svg" alt="">   
-                            <p>4.8</p>
-                        </span>
-                    <p>{{ item.title }} — {{ item.description[:150 - (item.title|length)] }}…</p>
-                </a>
-                <span>
-                        <div class="price">
-                            <p>{{ item.price }} &#8381;</p>
-                        </div>
-                        <div class="icons">
-                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>                  
-                        </div>
-                    </span>
-            </div>
--->
+
         {% endfor %}
 
     </div>
@@ -172,17 +148,6 @@
         двигателя, картинки или постеры с увлекательными приспособлениями. Также вы можете создать свою коллекцию моделей устройств, представленных на нашем
         сайте. Все, что вам нужно это воспользоваться удобным поиском на сайте, выбрать понравившийся вам товар и заказать.</p>
 </span>
-<!--
-<div class="container" class="github">
-    <div class="content">
-        <img src="static/img/gui/github_logo.png" alt="">
-        <img src="static/img/gui/github.svg" alt="">
-        <div class="text">
-            <h3>Следите за FictionStore</h3>
-            <a href="https://github.com/BeidinaDaria/Fiction-store">Переходите на наш репозиторий</a>
-        </div>
-    </div>
-</div>-->
 <div class="notification">
   <!-- Содержимое окна будет устанавливаться динамически -->
 </div>
@@ -199,7 +164,6 @@
 </footer>
 <script>
     function searchInfo() {
-        console.log("searching...");
         window.location.replace("catalog");
         let info = document.getElementById("searchCharacter").value + document.getElementById("search").value;
         let acc = JSON.stringify(info);

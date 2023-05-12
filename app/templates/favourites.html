@@ -67,7 +67,11 @@
 <div class="types favtypes">
     <div class="catalog favcatalog">
 
-        {% if favourites %}
+        {% if not favourites %}
+
+            <h2>В избранном пока ничего нет :( Добавьте сюда что-нибудь, нажав на 💜</h2>
+
+        {% else %}
 
             <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
             <script type=text/javascript>
@@ -100,18 +104,12 @@
                 };
             </script>
 
-
-            {% if not favourites %}
-                <h2>В избранном пока ничего нет :( Добавьте сюда что-нибудь, нажав на 💜</h2>
-            {% endif %}
-
-
-
             <h2>
-                <h id="count" style="display: inline;">{{ favourites|length }}</h>
+                <h id="count" style="display: inline;">{{ favs_len }}</h>
                 шт. в избранном 💫
             </h2>
             <div class="favgallery">
+                
             {% for item in favourites %}
 
                 <div class="card" id="item{{ item.id }}">
@@ -147,6 +145,7 @@
             {% endfor %}
 
         {% endif %}
+
         </div>
     </div>
     <div class="notification">

@@ -68,7 +68,11 @@
     <div class="catalog favcatalog">
         {% set vars = {'sum': 0} %}
 
-        {% if basket %}
+        {% if not basket %}
+
+            <h2>В корзине пока ничего нет. Добавьте сюда что-нибудь, нажав на 🛒</h2>
+
+        {% else %}
 
             <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
             <script type=text/javascript>
@@ -79,7 +83,6 @@
                         data: id,
                         contentType: 'application/json;charset=UTF-8',
                         success: function () {
-
                             setTimeout(function () {
                                 showNotification("Предмет убран из корзины 👌");
                                 setTimeout(function () {
@@ -89,7 +92,6 @@
                             document.getElementById('item' + id).style.display = 'none';
                             document.getElementById("count").innerHTML -= 1;
                             document.getElementById("sum").innerHTML -= document.getElementById("price" + id).innerHTML;
-
                         },
                         error: function (err) {
                             setTimeout(function () {
@@ -105,12 +107,9 @@
             </script>
 
             <h2>
-                <h id="count" style="display: inline;">{{ basket|length }}</h>
-                товара(ов) в корзине
+                <h id="count" style="display: inline;">{{ basket_len }}</h> товара(ов) в корзине
             </h2>
             <div class="favgallery">
-
-
 
             {% for item in basket %}
 
@@ -147,47 +146,33 @@
                     </span>
                     </div>
                 </div>
-                <!--
-                <div class="item favbasket" id="item{{ item.id }}">
-                    <span>
-                        <img src="static/img/items/{{ item.images.0 }}" height="auto" width="25%" onclick="location.href='/product?id={{ item.id }}'">
-                        <div class="character">
-                            <span>
-                                <h3 style="margin:0;" onclick="location.href='/product?id={{ item.id }}'">{{ item.title }}</h3>
-                                <div class="price">
-                                    <p><p id="price{{ item.id }}" style="display: inline;">{{ item.price }}</p>₽</p>
-                                </div>
-                            </span>
-                            <div class="characteristic">
-                                <h4>Размер - - - - - 40см</h4>
-                                <h4>Век - - - - - - - -XX</h4>
-                            </div>
-                            <button style="background:none;border:none;" value="{{ item.id }}" onclick="removeFromFav(this.value)">
-                                <img src="static/img/gui/delete.svg">
-                            </button>
-                        </div>
-                    </span>
-                </div>-->
 
             {% endfor %}
 
         {% endif %}
-        </div>
+
+    </div>
 </div>
-    <aside class="checkout">
-        <span>
-            <h2>Всего: <h id="sum" style="display: inline;">{{ vars['sum'] }}</h>₽</h2>
-        </span>
-        <span>
-            <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="promo" placeholder="Промокод">
-        </span>
-        <span> <!-- TODO: Отображать, только если пользователь не залогинен -->
-            <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="email" placeholder="E-mail (для получения заказа)">
-        </span>
-        <span>
-            <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Заказать">
-        </span>
-    </aside>
+
+    {% if basket %}
+
+        <aside class="checkout">
+            <span>
+                <h2>Всего: <h id="sum" style="display: inline;">{{ vars['sum'] }}</h>₽</h2>
+            </span>
+            <span>
+                <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="promo" placeholder="Промокод">
+            </span>
+            <span> <!-- TODO: Отображать, только если пользователь не залогинен -->
+                <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="email" placeholder="E-mail (для получения заказа)">
+            </span>
+            <span>
+                <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Заказать">
+            </span>
+        </aside>
+    
+    {% endif %}
+
 </div>
 <div class="notification">
     <!-- Содержимое окна будет устанавливаться динамически -->

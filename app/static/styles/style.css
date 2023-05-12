@@ -2057,11 +2057,12 @@ img.preview:hover {
     content: 'Дата:';
 }
 
-.profilepage_comment-time::before {
-    content: 'Время:';
-}
-
 .profilepage_comment-metadata span::before {
     display: inline-block;
     margin-right: 5px;
+}
+
+.favgallery {
+    display: flex;
+    flex-wrap: wrap;
 }

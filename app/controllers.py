@@ -31,21 +31,23 @@ def index():
 def product():
     id = request.args.get('id')
     if not id or not (item := db.session.query(Item).filter(Item.id == id).first()):
-        return redirect("404", code=404), {"Refresh": "0; url=/404"}
+        return redirect('404', code=404), {"Refresh": "0; url=/404"}
     average=0
     if item.comments:
         for comment in item.comments:
             average += comment.score
         average /= len(item.comments)
     user = authToken(request)
-    if score := request.form.get('score'):
-        pros = request.form.get('pros')
-        cons = request.form.get('cons')
-        text = request.form.get('text')
-        item.comments.append(Comment(user_id=user.id, date=datetime.today().strftime('%d-%Y-%m'),
-                                    score=int(score), pros=pros, cons=cons, text=text))
-        db.session.commit()
     favs_len, basket_len = favs_basket_len(user, request.cookies)
+    if (score := request.form.get('score')) and score.isdigit() and \
+       (score := int(score)) and score < 6 and score > 0:
+            pros = request.form.get('pros')
+            cons = request.form.get('cons')
+            text = request.form.get('text')
+            item.comments.append(Comment(user_id=user.id, date=datetime.today().strftime('%d-%Y-%m'),
+                                        score=int(score), pros=pros, cons=cons, text=text))
+            db.session.commit()
+            return redirect('/product?id='+id)
     if user:
         in_fav = user.favourites.count(item) != 0
         in_basket = user.basket.count(item) != 0

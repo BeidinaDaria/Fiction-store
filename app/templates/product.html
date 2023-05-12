@@ -80,7 +80,6 @@
     <span style="width:100%;">
         <div class="product item-column1">
             <!-- stars, fav -->
-
             <span class="starsnfav">
                 <span class="item-stars">
                     {% if item.comments %}
@@ -200,8 +199,9 @@
             </div>
             <div class="characteristic">
                 <span style="padding-top: 3px">Сфера:</span>
-                    <span style="padding: 3px; margin-left: 5px">{% for sci in item.science %}
-                        {{ sci }}{% endfor %}</span>
+                    <span style="padding: 3px; margin-left: 5px">
+                        {% for sci in item.science %} {{ sci }} {% endfor %}
+                    </span>
             </div>
             <div class="price-label">{{ item.price }} ₽</div>
             <div class="favcart" id="basketBox">
@@ -218,10 +218,12 @@
             <div class="favcart" id="favBox">
                 {% if in_fav %}
                     <input type="checkbox" id="fav" checked>
-                    <img src="static/img/gui/favourite.svg"><label for="fav">В избранном</label>
+                    <img src="static/img/gui/favourite.svg">
+                    <label for="fav">В избранном</label>
                 {% else %}
                     <input type="checkbox" id="fav">
-                    <img src="static/img/gui/favourite.svg"><label for="fav">В избранное</label>
+                    <img src="static/img/gui/favourite.svg">
+                    <label for="fav">В избранное</label>
                 {% endif %}
             </div>
         </div>
@@ -238,20 +240,18 @@
 
                     <span class="review-head">
                         <img class="reviewer-pic" src="static/img/gui/favicon.ico">
-                    <div class="reviewer-name">
-                        <h3>{{ comment.user.name }} <!--{{ comment.user.surname }}--></h3>
-                        <p>{{ comment.date }}</p>
-                        {% for _ in range(comment.score | int) %}
-                            <img src="static/img/gui/star.svg" alt="">
-                        {% endfor %}
-                    </div>
-
+                        <div class="reviewer-name">
+                            <h3>{{ comment.user.name }} <!--{{ comment.user.surname }}--></h3>
+                            <p>{{ comment.date }}</p>
+                            {% for _ in range(comment.score | int) %}
+                                <img src="static/img/gui/star.svg" alt="">
+                            {% endfor %}
+                        </div>
                     </span>
                     {% if comment.pros %}
                         <h3>Преимущества</h3>
                         <p>{{ comment.pros }}</p>
                     {% endif %}
-
                     {% if comment.cons %}
                         <h3>Недостатки</h3>
                         <p>{{ comment.cons }}</p>
@@ -267,24 +267,23 @@
         </aside>
         <div class="catalog">
             <h2>Средняя оценка:
-                {% if average | round(1, 'ceil') == 0 %}
+                {% set vars = {'rate': average | round(1, 'ceil') } %}
+                
+                {% if vars['rate'] == 0 %}
                     <o style="font-weight: 400">ещё не оценено</o> 🙈
-                {% endif %}
-                {% if average | round(1, 'ceil') > 0 and average | round(1, 'ceil') <= 2 %}
-                    👎 {{ average | round(1, 'ceil') }}
-                {% endif %}
-                {% if average | round(1, 'ceil') >= 2 and average | round(1, 'ceil') < 4 %}
-                    👌 {{ average | round(1, 'ceil') }}
-                {% endif %}
-                {% if average | round(1, 'ceil') >= 4 %}
-                    👍 {{ average | round(1, 'ceil') }}
+                {% elif vars['rate'] <= 2 %}
+                    👎 {{ vars['rate'] }}
+                {% elif vars['rate'] < 4 %}
+                    👌 {{ vars['rate'] }}
+                {% else %}
+                    👍 {{ vars['rate'] }}
                 {% endif %}
 
             </h2>
             <div class="itemcomm_body">
 
                 {% if user %}
-                    <form action="#" method="post" class="itemcomm_form">
+                    <form method="post" class="itemcomm_form">
                     <h3 class="itemcomm_title">😉 Оставьте свой отзыв, {{ user.name }}</h3>
                     <div class="itemcomm_formgroup">
                         <label for="itemcomm_pros" class="itemcomm_label">Преимущества:</label>
@@ -307,6 +306,7 @@
                     <h3 class="itemcomm_title">Чтобы оставить отзыв, нужно <a href="/login">авторизоваться</a> ✨</h3>
                 </div>
                 {% endif %}
+
             </div>
         </div>
     </span>

@@ -108,7 +108,7 @@
                 Биология
             </label>
             <label id="psycho" class="checkbox">
-                <input type="checkbox" name="sci" for="psycho" value="psycho">
+                <input type="checkbox" name="sci" for="psycho" value="phsychology">
                 <span class="checkmark"></span>
                 Психология
             </label>
@@ -204,60 +204,33 @@
                 {% for item in items %}
 
                     <div class="card">
-                <a href="product?id={{ item.id }}">
-                    <img src="/static/img/items/{{ item.images.0 }}" alt="">
-                </a>
-                <div>
-                    <a href="product?id={{ item.id }}">
-                        <h4>{{ item.title }}</h4>
-                    </a>
-                    <span class="stars">
-                        <img src="static/img/gui/star.svg" alt="">
-                        <img src="static/img/gui/star.svg" alt="">
-                        <img src="static/img/gui/star.svg" alt="">
-                        <img src="static/img/gui/star.svg" alt="">
-                        <img src="static/img/gui/star.svg" alt="">
-                        <p>4.8</p>
-                    </span>
-                    <span>
-                        <div class="price">
-                            <p>{{ item.price }} &#8381;</p>
-                        </div>
-                        <div class="icons"> <!-- TODO: Добавить добавление и удаление в корзину и избранное отсюда -->
-                            <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                            <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>
-                        </div>
-                    </span>
-                </div>
-            </div>
-<!--
-                    <div class="card">
                         <a href="product?id={{ item.id }}">
                             <img src="/static/img/items/{{ item.images.0 }}" alt="">
-                            <div class="underinfo">
-                                <h4>{{ item.title }}</h4>
-                                <span>
-                                    <img src="static/img/gui/star.svg" alt="">
-                                    <img src="static/img/gui/star.svg" alt="">
-                                    <img src="static/img/gui/star.svg" alt="">
-                                    <img src="static/img/gui/star.svg" alt="">
-                                    <img src="static/img/gui/star.svg" alt="">
-                                    <p>4.8</p>
-                                </span>
-                            </div>
                         </a>
-                        <p>{{ item.description[:138] }}…</p>
-                        <span>
-                            <div class="price">
-                                <p>{{ item.price }}</p>
-                            </div>
-                            <div class="icons">
-                                <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
-                                <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>
-                            </div>
-                        </span>
+                        <div>
+                            <a href="product?id={{ item.id }}">
+                                <h4>{{ item.title }}</h4>
+                            </a>
+                            <span class="stars">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <img src="static/img/gui/star.svg" alt="">
+                                <p>4.8</p>
+                            </span>
+                            <span>
+                                <div class="price">
+                                    <p>{{ item.price }} &#8381;</p>
+                                </div>
+                                <div class="icons"> <!-- TODO: Добавить добавление и удаление в корзину и избранное отсюда -->
+                                    <a href='#'> <img src="static/img/gui/telega_small.svg" alt=""> </a>
+                                    <a href='#'><img src="static/img/gui/favourite_small.svg" alt=""> </a>
+                                </div>
+                            </span>
+                        </div>
                     </div>
--->
+
                 {% endfor %}
 
             </div>

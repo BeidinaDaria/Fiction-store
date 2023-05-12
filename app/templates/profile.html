@@ -66,32 +66,33 @@
 </main>
 <div class="types">
     <div class="catalog">
-        <form class="itemcomm_form" style="margin-top: 5%">
+        <form method="post">
             <span>
                 <h2>Действия с аккаунтом</h2>
             </span>
-            <span>
-                <a href="#">Выйти</a>&nbsp;
-                <a href="#">Удалить аккаунт</a>
-            </span>
+            <button formaction="/logout" class="itemcomm_submit">Выйти</button>
+            <button formaction="/" class="itemcomm_submit">Удалить аккаунт</button>
+        </form>
+            
+        <form class="itemcomm_form" style="margin-top: 5%">
             <span>
                 <h2>Настройки профиля</h2> <!-- TODO -->
             </span>
             <span>
-            <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="user-name"
+                <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="user-name"
                    placeholder="Имя">
-        </span>
+            </span>
             <span>
-            <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="user-surname"
-                   placeholder="Фамилия">
-        </span>
+                <input style="padding: 15px; width: 100%" class="textrange-field" type="text" name="user-surname"
+                    placeholder="Фамилия">
+            </span>
             <span>
-            <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="email"
-                   placeholder="E-mail (для получения заказа)">
-        </span>
+                <input style="padding: 15px; width: 100%" class="textrange-field" type="email" name="email"
+                    placeholder="E-mail (для получения заказа)">
+            </span>
             <span>
-            <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Изменить">
-        </span>
+                <input type="submit" style="padding: 15px; width: 100%" class="itemcomm_submit" value="Изменить">
+            </span>
         </form>
 
         <form class="itemcomm_form" style="margin-top: 5%">
@@ -119,24 +120,19 @@
                 <h2>Ваши комментарии</h2>
             </span>
             <ul class="profilepage_comments">
+
+                {% for comment in user.comments %}
+
                 <li>
-                    <h4 class="profilepage_comment-item">Тардис</h4>
-                    <p class="profilepage_comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        vitae mi tellus. </p>
+                    <h4 class="profilepage_comment-item"><a href="/product?id={{ comment.item.id }}">{{ comment.item.title }}</a></h4>
+                    <p class="profilepage_comment-text">{{ comment.text }}</p>
                     <div class="profilepage_comment-metadata">
-                        <span class="profilepage_comment-date">25.05.2021</span>
-                        <span class="profilepage_comment-time">13:45</span>
+                        <span class="profilepage_comment-date">{{ comment.date }}</span>
                     </div>
                 </li>
-                <li>
-                    <h4 class="profilepage_comment-item">Нейрализатор</h4>
-                    <p class="profilepage_comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        vitae mi tellus. </p>
-                    <div class="profilepage_comment-metadata">
-                        <span class="profilepage_comment-date">26.05.2021</span>
-                        <span class="profilepage_comment-time">10:21</span>
-                    </div>
-                </li>
+
+                {% endfor %}
+
             </ul>
         </form>
     </div>
