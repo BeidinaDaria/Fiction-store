@@ -1,66 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="shortcut icon" href="static/img/gui/favicon.ico">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles/style.css">
-    <title>Избранное</title>
-    <script>
-        function showNotification(message) {
-            var notification = document.querySelector('.notification');
-            notification.innerHTML = message;
-            notification.classList.add('show');
-        }
+{% extends 'base.html' %}
 
-        function hideNotification() {
-            var notification = document.querySelector('.notification');
-            notification.classList.remove('show');
-        }
+{% block title %} <title>Избранное</title> {% endblock %}
 
-        window.onload = setTimeout(function () {
-            showNotification("Для удаления из избранного нажмите на 💜, добавление в корзину отсюда пока не работает");
-            setTimeout(function () {
-                hideNotification();
-            }, 10000);
-        }, 100);
-    </script>
-</head>
-<body>
-<header>
-    <div class="navigator">
-        <a href="/" style="display: contents;"><img src="static/img/gui/logo.svg"></a>
-        <button id="nav_adaptiv" class="nav_adaptiv" onclick="adaptivMenu()"><img src="static/img/gui/Catalog.svg">
-        </button>
-        <nav class="hide">
-                <span>
-                    <img src="static/img/gui/home.svg">
-                    <a href="/">Главная</a>
-                </span>
-            <span>
-                    <img src="static/img/gui/Catalog.svg">
-                    <a href="catalog">Каталог</a>
-                </span>
-            <span>
-                    <img src="static/img/gui/Search.svg">
-                    <a href="/#search">Поиск</a>
-                </span>
-            <span>
-                    <img src="static/img/gui/favourite.svg">
-                    <a href="favourites">Избранное ({{ favs_len }})</a>
-                </span>
-            <span>
-                    <img src="static/img/gui/backets.svg">
-                    <a href="basket">Корзина ({{ basket_len }})</a>
-                </span>
-            <span>
-                    <img src="static/img/gui/Profile.svg">
-                    <a href="profile">Профиль</a>
-                </span>
-        </nav>
-    </div>
-</header>
+{% block content %}
+
+<script>
+    window.onload = setTimeout(function () {
+        showNotification("Для удаления из избранного нажмите на 💜, добавление в корзину отсюда пока не работает");
+        setTimeout(function () {
+            hideNotification();
+        }, 10000);
+    }, 100);
+</script>
+
 <main>
     <h1>Избранное</h1>
 </main>
@@ -148,33 +100,8 @@
 
         </div>
     </div>
-    <div class="notification">
-        <!-- Содержимое окна будет устанавливаться динамически -->
-    </div>
-    <footer>
-        <div class="annotation">
-            <img src="static/img/gui/white_logo.png">
-            <p>Данный сайт разработан в исключительно учебных целях и не является действующим магазином.</p>
-        </div>
-        <div class="nav_footer">
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>О проекте</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store/blob/main/README.md">
-                <p>Контакты</p>
-            </a>
-            <a href="https://github.com/BeidinaDaria/Fiction-store.git">
-                <p>GitHub</p>
-            </a>
-        </div>
-    </footer>
-    <script>
-        function adaptivMenu() {
-            let navig = document.querySelector("nav");
-            if (navig.className == "show")
-                navig.className = 'hide';
-            else navig.className = 'show';
-        };
-    </script>
-</body>
-</html>
+<div class="notification">
+    <!-- Содержимое окна будет устанавливаться динамически -->
+</div>
+
+{% endblock %}
