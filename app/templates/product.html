@@ -29,6 +29,8 @@
 <div class="item-container">
     <span class="flexspan" style="width:100%;">
         <div class="product item-column1">
+
+        <div class="starsfavimgs">
             <!-- stars, fav -->
             <span class="starsnfav">
                 <span class="item-stars">
@@ -110,7 +112,7 @@
                 </script>
             </span>
             <!-- imgs -->
-            <span style="width:35%;">
+            <span class="item-imgs">
                 <div class="additional">
                     {% for image in item.images[1:] %}
                         <img preview src="/static/img/items/{{ image }}" width="100" height="108">
@@ -118,6 +120,8 @@
                 </div>
                 <img preview src="/static/img/items/{{ item.images.0 }}" width="300" height="333">
             </span>
+        </div>
+
             <script>
                 $('img[preview]').addClass('preview').click(function () {
                     var src = $(this).attr('src');
@@ -139,7 +143,7 @@
         <h2><b>Описание</b></h2>
         <h4>{{ item.description }}</h4>
     </aside>
-        <aside class="item-column2 product" style="margin-top: 1.1%;">
+        <aside class="item-column2 product">
         <div class="characteristics">
             <div class="characteristic">
                 <span style="padding-top: 3px">Цвет:</span>
