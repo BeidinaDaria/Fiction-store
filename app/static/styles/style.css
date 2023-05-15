@@ -119,16 +119,13 @@ body, html {
     border-radius: 30px;
     margin: 7%;
     justify-content: center;
+    display: flex;
 }
 
 
 .description-index {
     color: white;
 
-}
-
-.dtext {
-    margin-left: 30px;
 }
 
 .icons {
@@ -237,7 +234,132 @@ a:hover {
     color: rgb(86, 74, 168);
 }
 
+.card {
+    border-radius: 20px;
+    background: rgba(248, 245, 245, 1);
+    margin: 1%;
+    min-width: 320px;
+    height: fit-content;
+    min-height: 550px;
+    width: 35%;
+    display: inline-block;
+}
+
+.card > a {
+    text-decoration: none;
+}
+
+.card > a > img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card h4 {
+    font-size: 25px;
+    color: black;
+    line-height: 25px;
+}
+
+.card > p {
+    color: black;
+    padding: 0% 4% 4%;
+}
+
+.card > div {
+    margin: 4%;
+}
+
+.card > div > span {
+    line-height: 0;
+}
+
+.stars {
+    margin-top: -15px;
+}
+
+.stars img {
+    padding-right: 7px;
+}
+
+.item-stars img {
+    padding-right: 7px;
+}
+
+main > form {
+    position: relative;
+    background: #ffffff;
+    border: none;
+    border-radius: 100px;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.1);
+}
+
+main > form > select {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    width: 30%;
+    text-align: center;
+}
+
+main > form > input, main > form > select {
+    position: static;
+    height: 100%;
+    align-items: top;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+}
+
+main > form > input {
+    height: 96%;
+    width: 70%;
+}
+
+main > form > button {
+    height: 100%;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border: none;
+    position: static;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+main > form > button > img {
+    height: 80%;
+    width: auto;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+main > p {
+    font-size: 2.5vh;
+}
+
+main > p > a {
+    color: rgba(108, 52, 227, 1);
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
 @media (min-width: 900px) {
+
+    .description-index {
+        flex-direction: row;
+    }
+
+    .dtext {
+        margin-left: 30px;
+    }
 
     .reviews-texts {
         width: 55%;
@@ -354,70 +476,6 @@ a:hover {
         color: rgba(124, 103, 255, 1);
     }
 
-    main > form {
-        position: relative;
-        background: #ffffff;
-        border: none;
-        border-radius: 100px;
-        height: 60px;
-        line-height: 60px;
-        display: flex;
-        justify-content: space-around;
-        width: 40%;
-        box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    main > form > select {
-        border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
-        width: 30%;
-        text-align: center;
-    }
-
-    main > form > input, main > form > select {
-        position: static;
-        height: 100%;
-        align-items: top;
-        background: rgba(255, 255, 255, 0.5);
-        border: none;
-    }
-
-    main > form > input {
-        height: 96%;
-        width: 70%;
-    }
-
-    main > form > button {
-        height: 100%;
-        line-height: normal;
-        display: inline-block;
-        vertical-align: middle;
-        align-items: center;
-        border-top-right-radius: 100px;
-        border-bottom-right-radius: 100px;
-        border: none;
-        position: static;
-        background: rgba(255, 255, 255, 0.5);
-    }
-
-    main > form > button > img {
-        height: 80%;
-        width: auto;
-        line-height: normal;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    main > p {
-        font-size: 2.5vh;
-    }
-
-    main > p > a {
-        color: rgba(108, 52, 227, 1);
-        text-transform: uppercase;
-        font-weight: 400;
-    }
-
     section > .head {
         display: flex;
         flex-direction: row;
@@ -467,39 +525,6 @@ a:hover {
         color: black;
         width: 100%;
         height: 595px;
-    }
-
-    .card {
-        border-radius: 20px;
-        background: rgba(248, 245, 245, 1);
-        margin: 1%;
-        min-width: 320px;
-        height: fit-content;
-        min-height: 550px;
-        width: 35%;
-        display: inline-block;
-    }
-
-    .card > a {
-        text-decoration: none;
-    }
-
-    .card > a > img {
-        width: 100%;
-        height: auto;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-    }
-
-    .card h4 {
-        font-size: 25px;
-        color: black;
-        line-height: 25px;
-    }
-
-    .card > p {
-        color: black;
-        padding: 0% 4% 4%;
     }
 
 
@@ -617,27 +642,6 @@ a:hover {
         border: none;
     }
      */
-    .card > div {
-        margin: 4%;
-    }
-
-    .card > div > span {
-        line-height: 0;
-    }
-
-    .stars {
-        margin-top: -15px;
-    }
-
-    .stars img {
-        padding-right: 7px;
-    }
-
-    .item-stars img {
-        padding-right: 7px;
-    }
-
-
     article {
         margin-top: 5%;
     }
@@ -1073,6 +1077,13 @@ a:hover {
 
 @media (max-width: 899px) {
 
+    .flexspan {
+        flex-direction: column;
+    }
+
+    .description-index {
+        flex-direction: column;
+    }
 
     body {
         overflow-x: hidden;
@@ -1081,7 +1092,6 @@ a:hover {
     span {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
     }
 
 
@@ -1089,6 +1099,7 @@ a:hover {
         display: block;
         height: auto;
         border: none;
+        background: transparent;
     }
 
     header {
@@ -1108,17 +1119,15 @@ a:hover {
     }
 
     header > .navigator > a > img {
-        height: 50%;
-        margin-top: 40%;
+        padding: 20px;
     }
 
     header > .navigator {
-        background: rgba(0, 0, 0, 0.1);
+        background: #ffffff;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         height: 10vh;
-        align-items: right;
     }
 
     header > .navigator > img {
@@ -1134,14 +1143,22 @@ a:hover {
         display: flex;
         flex-direction: column;
         position: absolute;
-        margin-left: 70%;
-        margin-top: 40px;
-        background: rgba(248, 245, 245, 1);;
+        right: 0;
+        top: 60px;
+        background: white;
+        width: 150px;
+        z-index: 999999;
+        padding: 18px;
+        box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .show > span > img {
+        margin-right: 8px;
     }
 
     main {
         height: 40vh;
-        background: url(../img/gui/kruzhochki_mob.svg);
+        /* background: url(../img/gui/kruzhochki_mob.svg); */
         background-position: bottom;
         margin-top: 0;
         display: flex;
@@ -1152,10 +1169,11 @@ a:hover {
     }
 
     main > h1 {
-        margin-top: 0;
-        width: 50%;
+        margin: 15px;
         text-align: center;
         font-size: 30px;
+        font-weight: 400;
+        width: 80%;
     }
 
     main > h1 > b {
@@ -1164,7 +1182,7 @@ a:hover {
 
     main > form {
         position: relative;
-        background: rgba(0, 0, 0, 0.1);
+        background: #fff;
         border: none;
         border-radius: 100px;
         height: 7vh;
@@ -1181,7 +1199,7 @@ a:hover {
         position: static;
         height: 100%;
         align-items: top;
-        background: rgba(255, 255, 255, 0.5);
+        background: transparent;
         border: none;
     }
 
@@ -1228,7 +1246,6 @@ a:hover {
 
     section > .head > span {
         height: 70%;
-        width: 40%;
         display: flex;
         align-items: center;
     }
@@ -1241,7 +1258,7 @@ a:hover {
     section > .head > span > h3 {
         height: 50%;
         font-size: 35px;
-        margin-left: 1%;
+        margin-bottom: -10px;
     }
 
     section > .head > button {
@@ -1425,6 +1442,7 @@ a:hover {
         flex-direction: column;
         color: white;
         margin-left: 5%;
+        margin-top: 15px;
     }
 
     footer > .annotation > img {
@@ -1447,6 +1465,7 @@ a:hover {
     span {
         margin-bottom: 2vh;
         flex-wrap: nowrap;
+        margin-bottom: 20px;
     }
 
     span > button {
@@ -1664,7 +1683,7 @@ a:hover {
         text-transform: uppercase;
         font-weight: 400;
         font-size: 3vh;
-        width: 15%;
+        margin-right: 15px;
     }
 
     .price > button, .catalog > button {
