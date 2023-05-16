@@ -1675,7 +1675,6 @@ main > p > a {
     .types > .catalog {
         display: flex;
         flex-direction: column;
-        width: 75%;
         height: fit-content;
         flex-wrap: wrap;
         align-self: center;
@@ -1722,6 +1721,15 @@ main > p > a {
     .catalog > h2 {
         align-self: center;
 
+    }
+
+    .itemcomm_form {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .catalog2 {
+        width: 75%;
     }
 
     /*дополнительные стили для витрины*/
